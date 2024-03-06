@@ -3,3 +3,7 @@
     background-color: none!important;
     background-image: none!important;
 }
+
+.selectize-control.plugin-clear_button.single .clear {
+    right: calc(8px - 6px + 3rem)!important;
+}

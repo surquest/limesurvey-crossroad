@@ -30,6 +30,7 @@
 
         <!-- Import local list of schools -->
         <script src="./js/var.schools.js"></script>
+        <script src="./js/var.config.js"></script>
         <!-- Import custome styles -->
         <link href="./styles/custom.css" rel="stylesheet">
     </head>
@@ -40,11 +41,17 @@
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="row justify-content-center">
-                        <select id="select" class="col-md-12">
+                        <select 
+                            id="select" 
+                            placeholder="Vyberte, prosím, vaší školu ..."
+                            class="col-md-12"
+                        >
                         </select>
+                        <p style="font-size: small; color: gray; text-align: center;">Nemužete najit Vaší školu, <a id="mailto">napište nám</a></p>
                     </div>
                     <div class="mt-4 text-center">
-                        <a id="surveyLink" href="#" class="btn btn-light disabled">Otevřít průzkum</a>
+                        <a 
+                            id="surveyLink" href="#" class="btn btn-light disabled">Otevřít průzkum</a>
                     </div>
                 </div>
             </div>
@@ -54,26 +61,34 @@
         <script>
 
         var eventHandler = function(e) {
-        return function() {
-            console.log(arguments);
-            const selectedValue = arguments[0];
-            console.log(selectedValue);
-            // format href link
-            const href = `https://www.survio.com/survey/d/${selectedValue}`;
-            $("#surveyLink").attr("href", href);
-            $("#surveyLink").addClass("btn-primary");
-            $("#surveyLink").removeClass("disabled");
-            $("#surveyLink").removeClass("btn-light");
-        };
+            return function() {
+                const selectedValue = arguments[0];
+                
+                // if selectedValue is not empty, enable the button
+                if(selectedValue !== "") {
+                    const href = `https://www.survio.com/survey/d/${selectedValue}`;
+                    $("#surveyLink").attr("href", href);
+                    $("#surveyLink").addClass("btn-primary");
+                    $("#surveyLink").removeClass("disabled");
+                    $("#surveyLink").removeClass("btn-light");
+                } else {
+                    $("#surveyLink").addClass("disabled");
+                    $("#surveyLink").removeClass("btn-primary");
+                    $("#surveyLink").addClass("btn-light");
+                }
+
+            };
         };
 
              $(function () {
+                $("#mailto").attr("href", `mailto:${config.contact.email}?subject=Průzkum ${config.survey.name}: škola nenalezena&body=Dobrý den, %0D%0A%0D%0Anenašel jsem svoji školu: [Vaše škola] v seznamu. %0D%0A%0D%0AProsím, můžete mi pomoci? %0D%0A%0D%0AS pozdravem, %0D%0A%0D%0A[Vaše jméno]`);
                 $("#select").selectize({
                     options: optionsSchools,
                     valueField: "id",
                     labelField: "title",
                     searchField: ["title"],
                     onChange: eventHandler('onChange'),
+                    plugins: ["clear_button"],
                 });
             });
 
