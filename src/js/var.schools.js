@@ -1,1109 +1,4430 @@
 const optionsSchools = [
-    { id: 'red_izo', title: '600000231: Modrý klíč - ZŠ spec. a MŠ spec., o.p.s.' },
-    { id: '600000231', title: '600001121: Základní škola Klíček' },
-    { id: '600001121', title: '600001130: Základní škola Duhovka, s.r.o.' },
-    { id: '600001130', title: '600001172: Soukromá základní škola UNIVERZUM s.r.o.' },
-    { id: '600001172', title: '600005305: EDUCAnet-gymn., SOŠ a ZŠ Praha, s.r.o.' },
-    { id: '600005305', title: '600006018: PORG - gymnázium, ZŠ a MŠ, o.p.s.' },
-    { id: '600006018', title: '600020789: Základní škola a Střední škola' },
-    { id: '600020789', title: '600020835: Soukr. ZŠ Integrál pro žáky se spec.por.' },
-    { id: '600020835', title: '600020886: Základní škola' },
-    { id: '600020886', title: '600020916: Základní škola a Střední škola' },
-    { id: '600020916', title: '600020932: Česko Britská Základní Škola, s.r.o.' },
-    { id: '600020932', title: '600021092: Základní škola Vokovice' },
-    { id: '600021092', title: '600021106: Základní škola spec. a Praktická škola' },
-    { id: '600021106', title: '600021114: ZŠ pro žáky se specif. poruchami učení' },
-    { id: '600021114', title: '600021254: Círk.ZŠ logoped. Don Bosco a MŠ logoped.' },
-    { id: '600021254', title: '600021271: Mateřská škola a Základní škola' },
-    { id: '600021271', title: '600021327: ZŠ a střední škola waldorfská' },
-    { id: '600021327', title: '600021360: Střední škola, ZŠ a MŠ' },
-    { id: '600021360', title: '600021378: Základní škola a Střední škola' },
-    { id: '600021378', title: '600021386: Základní škola speciální' },
-    { id: '600021386', title: '600027503: Dětský diagnostický ústav, ZŠ a ŠJ' },
-    { id: '600027503', title: '600037258: Základní škola Písnice' },
-    { id: '600037258', title: '600039765: Základní škola' },
-    { id: '600039765', title: '600040461: Základní škola' },
-    { id: '600040461', title: '600040518: Základní škola a mateřská škola' },
-    { id: '600040518', title: '600171442: ZŠ logopedická a MŠ logopedická' },
-    { id: '600171442', title: '610380109: ZŠ něm.-čes. por. T.Manna, o.p.s.' },
-    { id: '610380109', title: '650065115: Zař.pro děti-cizince, DÚ, SVP a ZŠ' },
-    { id: '650065115', title: '650069595: Soukr. ZŠ sRVJ - DINO EL. SCHOOL, s.r.o.' },
-    { id: '650069595', title: '651039983: Základní škola Spektrum, s.r.o.' },
-    { id: '651039983', title: '691000557: Kouzelné školy - MŠ a ZŠ' },
-    { id: '691000557', title: '691002177: MŠ a ZŠ U vrbiček s.r.o.' },
-    { id: '691002177', title: '691002819: ZŠ a MŠ Basic Praha, o.p.s.' },
-    { id: '691002819', title: '691002860: Univerzitní ZŠ a MŠ Lvíčata' },
-    { id: '691002860', title: '691003955: Královská MŠ a ZŠ, s.r.o.' },
-    { id: '691003955', title: '691004862: Métis - základní škola s.r.o.' },
-    { id: '691004862', title: '691004935: Montessori školy Andílek-MŠ a ZŠ, o.p.s.' },
-    { id: '691004935', title: '691006482: Základní škola Wonderland Academy s.r.o.' },
-    { id: '691006482', title: '691006512: Základní škola COMPASS s.r.o.' },
-    { id: '691006512', title: '691006806: VĚDA ZŠ a JŠ s právem SJZ s.r.o.' },
-    { id: '691006806', title: '691007039: Základní škola Livingston s.r.o.' },
-    { id: '691007039', title: '691008426: Heřmánek Praha, zákl. škola a gymnázium' },
-    { id: '691008426', title: '691009341: Základní škola AVIDA s.r.o.' },
-    { id: '691009341', title: '691010323: Global Minded MŠ a ZŠ s.r.o.' },
-    { id: '691010323', title: '691010331: Základní škola Orangery s.r.o.' },
-    { id: '691010331', title: '691011745: Základní škola Formanská' },
-    { id: '691011745', title: '691011966: Základní škola Be Open s.r.o.' },
-    { id: '691011966', title: '691012245: ScioŠkola Praha Stodůlky - ZŠ, s.r.o.' },
-    { id: '691012245', title: '691012385: Montessori základní škola Archa, z.s.' },
-    { id: '691012385', title: '691013063: ZŠ Praha 5 - Hlubočepy, Pod Žvahovem 463' },
-    { id: '691013063', title: '691014817: PED Academy School, základní škola' },
-    { id: '691014817', title: '691014990: ScioŠkola Praha Bubeneč - ZŠ, s.r.o.' },
-    { id: '691014990', title: '691015856: Meridian česko-britská ZŠ' },
-    { id: '691015856', title: '691015937: ZŠ a Gymnázium Leonardo V. Academy' },
-    { id: '691015937', title: '691016054: Základní škola FLOW s.r.o.' },
-    { id: '691016054', title: '691016151: GENIUS Základní škola s.r.o.' },
-    { id: '691016151', title: '600000729: MŠ a ZŠ Sluníčko, s.r.o.' },
-    { id: '600000729', title: '600001504: Soukromá základní škola Lesná s.r.o.' },
-    { id: '600001504', title: '600001512: Soukromá MŠ a ZŠ s.r.o.' },
-    { id: '600001512', title: '600001521: ZŠ a MŠ Pramínek, o.p.s.' },
-    { id: '600001521', title: '600013898: I. Něm. zem. gymnasium, ZŠ a MŠ, o.p.s.' },
-    { id: '600013898', title: '600014011: Střední škola a základní škola Tišnov' },
-    { id: '600014011', title: '600024831: Základní škola' },
-    { id: '600024831', title: '600024849: MŠ, základní škola a praktická škola' },
-    { id: '600024849', title: '600024911: Základní škola a praktická škola' },
-    { id: '600024911', title: '600024954: Mateřská škola a základní škola Kociánka' },
-    { id: '600024954', title: '600025004: Základní škola' },
-    { id: '600025004', title: '600025098: Základní škola' },
-    { id: '600025098', title: '600025110: ZŠ a MŠ logopedická' },
-    { id: '600025110', title: '600025284: Základní škola' },
-    { id: '600025284', title: '600105148: Základní škola a Mateřská škola' },
-    { id: '600105148', title: '600105938: Základní škola' },
-    { id: '600105938', title: '600105946: Základní škola' },
-    { id: '600105946', title: '600106128: Základní škola a Mateřská škola' },
-    { id: '600106128', title: '600106136: Základní škola a Mateřská škola' },
-    { id: '600106136', title: '600106225: Základní škola a Mateřská škola' },
-    { id: '600106225', title: '600106331: Základní škola' },
-    { id: '600106331', title: '600106349: Základní škola' },
-    { id: '600106349', title: '600106420: Základní škola a mateřská škola' },
-    { id: '600106420', title: '600106454: Základní škola a Mateřská škola' },
-    { id: '600106454', title: '600108155: Základní škola a mateřská škola' },
-    { id: '600108155', title: '600110478: Základní škola a mateřská škola' },
-    { id: '600110478', title: '600110567: Základní škola a Mateřská škola' },
-    { id: '600110567', title: '600110605: Základní škola a mateřská škola' },
-    { id: '600110605', title: '600110630: Základní škola a Mateřská škola' },
-    { id: '600110630', title: '600110729: Základní škola a mateřská škola' },
-    { id: '600110729', title: '600110842: Základní škola a mateřská škola' },
-    { id: '600110842', title: '600110851: Základní škola a Mateřská škola' },
-    { id: '600110851', title: '600110915: Základní škola a mateřská škola' },
-    { id: '600110915', title: '600110974: Základní škola' },
-    { id: '600110974', title: '600111041: Základní škola Vladimíra Menšíka' },
-    { id: '600111041', title: '600111067: Základní škola' },
-    { id: '600111067', title: '600111202: Základní škola a Mateřská škola' },
-    { id: '600111202', title: '600111237: Základní škola a mateřská škola' },
-    { id: '600111237', title: '600111245: Mateřská škola a Základní škola' },
-    { id: '600111245', title: '600111288: Základní škola' },
-    { id: '600111288', title: '600111326: Základní škola a MŠ T. G. Masaryka' },
-    { id: '600111326', title: '600111814: Základní škola a mateřská škola' },
-    { id: '600111814', title: '600112152: Základní škola a Mateřská škola' },
-    { id: '600112152', title: '600112349: Základní škola' },
-    { id: '600112349', title: '600112535: Základní škola' },
-    { id: '600112535', title: '600112586: Základní škola a mateřská škola' },
-    { id: '600112586', title: '600115526: Základní škola a mateřská škola' },
-    { id: '600115526', title: '600115607: ZŠ a MŠ Dr. Joklíka' },
-    { id: '600115607', title: '600115739: Základní škola a Mateřská škola' },
-    { id: '600115739', title: '600115747: Základní škola a mateřská škola' },
-    { id: '600115747', title: '600115771: Základní škola a Mateřská škola' },
-    { id: '600115771', title: '600115780: Základní škola a Mateřská škola' },
-    { id: '600115780', title: '600115836: Základní škola a Mateřská škola' },
-    { id: '600115836', title: '600116085: Masarykova základní škola' },
-    { id: '600116085', title: '600125505: Základní škola a Mateřská škola' },
-    { id: '600125505', title: '600125521: Základní škola a Mateřská škola' },
-    { id: '600125521', title: '600125548: Základní škola a Mateřská škola' },
-    { id: '600125548', title: '600125572: Základní škola a Mateřská škola' },
-    { id: '600125572', title: '600125581: Základní škola a Mateřská škola' },
-    { id: '600125581', title: '600125599: Základní škola' },
-    { id: '600125599', title: '600125629: Základní škola a Mateřská škola' },
-    { id: '600125629', title: '600125661: Základní škola a mateřská škola' },
-    { id: '600125661', title: '600125670: Základní škola a Mateřská škola' },
-    { id: '600125670', title: '600125688: Základní škola a Mateřská škola' },
-    { id: '600125688', title: '600125807: Základní škola a mateřská škola' },
-    { id: '600125807', title: '600125971: Mateřská škola a Základní škola' },
-    { id: '600125971', title: '600126013: Základní škola a mateřská škola' },
-    { id: '600126013', title: '600126030: Základní škola a mateřská škola' },
-    { id: '600126030', title: '600127290: Základní škola a Mateřská škola' },
-    { id: '600127290', title: '600127311: Základní škola' },
-    { id: '600127311', title: '600127397: Základní škola' },
-    { id: '600127397', title: '600127419: Základní škola a Mateřská škola' },
-    { id: '600127419', title: '600127486: Základní škola a mateřská škola' },
-    { id: '600127486', title: '600127494: Základní škola a Mateřská škola' },
-    { id: '600127494', title: '600127516: Základní škola' },
-    { id: '600127516', title: '600127532: Základní škola a mateřská škola' },
-    { id: '600127532', title: '600127541: Základní škola' },
-    { id: '600127541', title: '600127575: Základní škola a Mateřská škola' },
-    { id: '600127575', title: '600127630: Základní škola a Mateřská škola' },
-    { id: '600127630', title: '600127877: Základní škola a Mateřská škola' },
-    { id: '600127877', title: '610300733: MŠ spec., ZŠ spec. a PrŠ Ibsenka' },
-    { id: '610300733', title: '650072031: Základní škola a praktická škola' },
-    { id: '650072031', title: '651031567: Základní škola a Mateřská škola' },
-    { id: '651031567', title: '671100769: Montessori MŠ a ZŠ Perlička a SŠ, s.r.o.' },
-    { id: '671100769', title: '691000697: ZŠ a MŠ Basic, o.p.s.' },
-    { id: '691000697', title: '691005958: ZŠ a MŠ Didaktis s.r.o.' },
-    { id: '691005958', title: '691007586: Základní škola ZaHRAda' },
-    { id: '691007586', title: '691008094: Základní škola Prameny' },
-    { id: '691008094', title: '691008370: Základní škola Na Pohodu' },
-    { id: '691008370', title: '691008698: Základní škola Five Star Montessori' },
-    { id: '691008698', title: '691008736: ScioŠkola Brno Heršpice - ZŠ, s.r.o.' },
-    { id: '691008736', title: '691009015: Montessori Institut, ZŠ a MŠ, s.r.o.' },
-    { id: '691009015', title: '691013101: Základní škola DiviZna, z.ú.' },
-    { id: '691013101', title: '691014795: Sportovní základní škola KOMETKA, s.r.o.' },
-    { id: '691014795', title: '691015805: Střední škola a základní škola Arktur' },
-    { id: '691015805', title: '600066266: Základní škola a Mateřská škola' },
-    { id: '600066266', title: '600066410: Základní škola Luby, okres Cheb' },
-    { id: '600066410', title: '600066509: Základní škola a mateřská škola' },
-    { id: '600066509', title: '600066584: Základní škola a střední škola Aš' },
-    { id: '600066584', title: '600067319: Základní škola a mateřská škola' },
-    { id: '600067319', title: '600067327: Základní škola a mateřská škola' },
-    { id: '600067327', title: '600067378: Základní škola a Mateřská škola' },
-    { id: '600067378', title: '600067521: Základní škola a mateřská škola' },
-    { id: '600067521', title: '600067548: Základní škola' },
-    { id: '600067548', title: '600067700: Základní škola a mateřská škola Toužim' },
-    { id: '600067700', title: '600073025: Základní škola' },
-    { id: '600073025', title: '600073050: Základní škola' },
-    { id: '600073050', title: '600073068: Základní škola Nové Sedlo, přísp.org.' },
-    { id: '600073068', title: '600073084: Základní škola a mateřská škola Rotava' },
-    { id: '600073084', title: '600073106: Základní škola Král. Poříčí, okr.Sokolov' },
-    { id: '600073106', title: '600073149: Základní škola a mateřská škola Svatava' },
-    { id: '600073149', title: '600073289: Základní škola' },
-    { id: '600073289', title: '691004005: Waldorfská ZŠ a MŠ Wlaštovka o.p.s.' },
-    { id: '691004005', title: '691015121: Waldorfská ZŠ a MŠ Cheb' },
-    { id: '691015121', title: '600015211: Cyrilometodějské G, ZŠ a MŠ v Prostějově' },
-    { id: '600015211', title: '600026558: Základní škola' },
-    { id: '600026558', title: '600026663: Základní škola a Mateřská škola logoped.' },
-    { id: '600026663', title: '600027139: ZŠ a MŠ Schola - Viva, o.p.s.' },
-    { id: '600027139', title: '600027295: Základní škola a Mateřská škola' },
-    { id: '600027295', title: '600119637: Základní škola a mateřská škola' },
-    { id: '600119637', title: '600120180: Základní škola' },
-    { id: '600120180', title: '600120325: Základní škola a Mateřská škola' },
-    { id: '600120325', title: '600120449: Základní škola a mateřská škola T. G. M.' },
-    { id: '600120449', title: '600120481: Základní škola' },
-    { id: '600120481', title: '600120520: ZŠ npor. letectva J. Františka a MŠ' },
-    { id: '600120520', title: '600120546: Základní škola' },
-    { id: '600120546', title: '600140105: Základní škola' },
-    { id: '600140105', title: '600140342: Základní škola a Mateřská škola' },
-    { id: '600140342', title: '600140491: Základní škola' },
-    { id: '600140491', title: '600140776: Základní škola' },
-    { id: '600140776', title: '600140946: Základní škola' },
-    { id: '600140946', title: '600141047: Základní škola' },
-    { id: '600141047', title: '600146511: Základní škola' },
-    { id: '600146511', title: '600146600: Základní škola a mateřská škola' },
-    { id: '600146600', title: '600146651: Základní škola a mateřská škola' },
-    { id: '600146651', title: '600146669: ZŠ J. A. Komenského a MŠ' },
-    { id: '600146669', title: '600146723: Základní škola a Mateřská škola' },
-    { id: '600146723', title: '600146880: Základní škola' },
-    { id: '600146880', title: '600148009: Základní škola a Mateřská škola' },
-    { id: '600148009', title: '600148068: Základní škola a Mateřská škola' },
-    { id: '600148068', title: '600148271: Základní škola a Mateřská škola' },
-    { id: '600148271', title: '600148505: Základní škola' },
-    { id: '600148505', title: '600148521: Základní škola a Mateřská škola' },
-    { id: '600148521', title: '600150526: Základní škola a mateřská škola' },
-    { id: '600150526', title: '600150623: Základní škola' },
-    { id: '600150623', title: '600150640: Základní škola' },
-    { id: '600150640', title: '650022319: Základní škola a Mateřská škola' },
-    { id: '650022319', title: '650022742: Základní škola a Mateřská škola' },
-    { id: '650022742', title: '650028597: Základní škola a Mateřská škola' },
-    { id: '650028597', title: '650041780: Základní škola a mateřská škola' },
-    { id: '650041780', title: '650041984: Základní škola a Mateřská škola' },
-    { id: '650041984', title: '650043243: Základní škola a mateřská škola' },
-    { id: '650043243', title: '650044266: Základní škola a Mateřská škola' },
-    { id: '650044266', title: '650056531: Základní škola a mateřská škola' },
-    { id: '650056531', title: '691001359: Waldorfská ZŠ a MŠ s.r.o.' },
-    { id: '691001359', title: '691009287: Soukromá základní škola Dobré nálady' },
-    { id: '691009287', title: '600011925: Bohemia - Hotel.škola a SPgŠ a ZŠ s.r.o.' },
-    { id: '600011925', title: '600024270: ZŠ a Praktická škola SVÍTÁNÍ, o.p.s.' },
-    { id: '600024270', title: '600024474: Speciální ZŠ, MŠ a praktická škola' },
-    { id: '600024474', title: '600024814: Speciální ZŠ, MŠ a praktická škola' },
-    { id: '600024814', title: '600090604: Základní škola' },
-    { id: '600090604', title: '600096220: Základní škola' },
-    { id: '600096220', title: '600096441: Základní škola a mateřská škola' },
-    { id: '600096441', title: '600096645: Základní škola a mateřská škola' },
-    { id: '600096645', title: '600100499: Základní škola a mateřská škola' },
-    { id: '600100499', title: '600100707: Základní škola Svitavy, náměstí Míru 73' },
-    { id: '600100707', title: '600100723: Základní škola a mateřská škola' },
-    { id: '600100723', title: '600100901: Základní škola' },
-    { id: '600100901', title: '600104290: Základní škola' },
-    { id: '600104290', title: '600104770: Základní škola' },
-    { id: '600104770', title: '650045475: Základní škola a mateřská škola Stolany' },
-    { id: '650045475', title: '650045670: Základní škola a Mateřská škola' },
-    { id: '650045670', title: '650045912: ZŠ a MŠ J. A. Komenského' },
-    { id: '650045912', title: '650050444: Základní škola, Zaječice, okres Chrudim' },
-    { id: '650050444', title: '650052366: Základní škola' },
-    { id: '650052366', title: '691002371: Základní škola' },
-    { id: '691002371', title: '691009317: Základní škola ŠKOLAMYŠL' },
-    { id: '691009317', title: '691013501: Základní škola TALENT Bylany s.r.o.' },
-    { id: '691013501', title: '600021050: SŠ, ZŠ a MŠ pro sluchově postižené' },
-    { id: '600021050', title: '600024962: MŠ, ZŠ a SŠ Gellnerka Brno' },
-    { id: '600024962', title: '600025519: MŠ, ZŠ, PrŠ a DD' },
-    { id: '600025519', title: '600105954: Základní škola' },
-    { id: '600105954', title: '600106021: ZŠ a MŠ Hugo Sáňky' },
-    { id: '600106021', title: '600106047: Základní škola a Mateřská škola' },
-    { id: '600106047', title: '600106055: Základní škola' },
-    { id: '600106055', title: '600106071: Základní škola a Mateřská škola' },
-    { id: '600106071', title: '600106110: Základní škola' },
-    { id: '600106110', title: '600106250: Základní škola a Mateřská škola' },
-    { id: '600106250', title: '600106292: Základní škola a mateřská škola' },
-    { id: '600106292', title: '600106306: Základní škola a Mateřská škola' },
-    { id: '600106306', title: '600106446: Základní škola' },
-    { id: '600106446', title: '600108520: Základní škola' },
-    { id: '600108520', title: '600110508: Základní škola a Mateřská škola' },
-    { id: '600110508', title: '600110613: Základní škola a Mateřská škola' },
-    { id: '600110613', title: '600110648: Základní škola a Mateřská škola' },
-    { id: '600110648', title: '600110672: Základní škola a Mateřská škola' },
-    { id: '600110672', title: '600110702: Základní škola' },
-    { id: '600110702', title: '600110737: Základní škola a mateřská škola' },
-    { id: '600110737', title: '600110745: Základní škola a Mateřská škola' },
-    { id: '600110745', title: '600110761: Základní škola a Mateřská škola' },
-    { id: '600110761', title: '600110796: Základní škola a mateřská škola' },
-    { id: '600110796', title: '600110800: Základní škola a mateřská škola' },
-    { id: '600110800', title: '600110826: Základní škola a mateřská škola' },
-    { id: '600110826', title: '600110907: Základní škola' },
-    { id: '600110907', title: '600110931: Základní škola' },
-    { id: '600110931', title: '600110958: Základní škola a Mateřská škola' },
-    { id: '600110958', title: '600110982: Základní škola' },
-    { id: '600110982', title: '600110991: Základní škola a Mateřská škola' },
-    { id: '600110991', title: '600111105: Základní škola' },
-    { id: '600111105', title: '600111261: Základní škola a mateřská škola' },
-    { id: '600111261', title: '600112179: Základní škola' },
-    { id: '600112179', title: '600112217: Základní škola' },
-    { id: '600112217', title: '600112519: Základní škola' },
-    { id: '600112519', title: '600112608: Základní škola a mateřská škola' },
-    { id: '600112608', title: '600112659: Základní škola' },
-    { id: '600112659', title: '600115577: Základní škola a Mateřská škola' },
-    { id: '600115577', title: '600115658: Základní škola' },
-    { id: '600115658', title: '600115721: Základní škola a mateřská škola' },
-    { id: '600115721', title: '600115879: Základní škola a mateřská škola' },
-    { id: '600115879', title: '600115909: Základní škola T. G. Masaryka a MŠ' },
-    { id: '600115909', title: '600116042: Základní škola T. G. Masaryka' },
-    { id: '600116042', title: '600116077: Základní škola' },
-    { id: '600116077', title: '600116115: ZŠ a MŠ Uhřice, okres Hodonín' },
-    { id: '600116115', title: '600116123: Základní škola a mateřská škola' },
-    { id: '600116123', title: '600125645: Základní škola a Mateřská škola' },
-    { id: '600125645', title: '600125696: Základní škola' },
-    { id: '600125696', title: '600126005: Základní škola a mateřská škola' },
-    { id: '600126005', title: '600127222: Základní škola a mateřská škola' },
-    { id: '600127222', title: '600127401: Základní škola a Mateřská škola' },
-    { id: '600127401', title: '600127591: Základní škola' },
-    { id: '600127591', title: '600127664: Základní škola' },
-    { id: '600127664', title: '600127851: Základní škola a mateřská škola' },
-    { id: '600127851', title: '600127915: Základní škola a Mateřská škola' },
-    { id: '600127915', title: '610251121: Mateřská škola a základní škola' },
-    { id: '610251121', title: '650012771: ZŠ a MŠ Václava Havla' },
-    { id: '650012771', title: '600066380: Základní škola a mateřská škola' },
-    { id: '600066380', title: '600067343: Základní škola a mateřská škola' },
-    { id: '600067343', title: '600073157: Základní škola' },
-    { id: '600073157', title: '615800386: Základní škola' },
-    { id: '615800386', title: '650016581: Základní škola a mateřská škola' },
-    { id: '650016581', title: '651009227: ZŠ a MŠ Regionu Karlovarský venkov' },
-    { id: '651009227', title: '691015091: Carlsbad Montessori School, ZŠ, s.r.o.' },
-    { id: '691015091', title: '691016798: ZŠ a MŠ Jindřichovice' },
-    { id: '691016798', title: '600001709: Základní škola sv. Voršily v Olomouci' },
-    { id: '600001709', title: '600025641: Střední škola, ZŠ a MŠ' },
-    { id: '600025641', title: '600026582: Základní škola' },
-    { id: '600026582', title: '600027031: ZŠ a MŠ - Dětské centrum Hranice' },
-    { id: '600027031', title: '600027058: SŠ, ZŠ a MŠ' },
-    { id: '600027058', title: '600027121: Střední škola, ZŠ a MŠ' },
-    { id: '600027121', title: '600120163: Základní škola a mateřská škola' },
-    { id: '600120163', title: '600120333: Základní škola a Mateřská škola' },
-    { id: '600120333', title: '600120431: Základní škola a Mateřská škola' },
-    { id: '600120431', title: '600120465: Jubilejní Masarykova ZŠ a MŠ' },
-    { id: '600120465', title: '600120473: Masarykova jubilejní základní škola a MŠ' },
-    { id: '600120473', title: '600120538: Základní škola' },
-    { id: '600120538', title: '600131955: Základní škola' },
-    { id: '600131955', title: '600140261: Základní škola a Mateřská škola' },
-    { id: '600140261', title: '600140822: Základní škola' },
-    { id: '600140822', title: '600140849: Základní škola a Mateřská škola' },
-    { id: '600140849', title: '600140865: Základní škola' },
-    { id: '600140865', title: '600141071: Základní škola a Mateřská škola' },
-    { id: '600141071', title: '600146383: Základní škola a Mateřská škola' },
-    { id: '600146383', title: '600147975: Základní škola' },
-    { id: '600147975', title: '600148033: Základní škola a Mateřská škola' },
-    { id: '600148033', title: '600148114: Základní škola a Mateřská škola' },
-    { id: '600148114', title: '600148378: Základní škola' },
-    { id: '600148378', title: '600148408: Základní škola a Mateřská škola' },
-    { id: '600148408', title: '600148416: Základní škola a Mateřská škola' },
-    { id: '600148416', title: '600148483: Základní škola a mateřská škola' },
-    { id: '600148483', title: '600150577: Základní škola a Mateřská škola' },
-    { id: '600150577', title: '600150607: Základní škola' },
-    { id: '600150607', title: '600150615: Základní škola a MŠ J. Schrotha' },
-    { id: '600150615', title: '600150658: Základní škola' },
-    { id: '600150658', title: '650027892: Základní škola a mateřská škola' },
-    { id: '650027892', title: '650028309: Základní škola, Mateřská škola, ŠJ a ŠD' },
-    { id: '650028309', title: '650031067: Základní škola a Mateřská škola' },
-    { id: '650031067', title: '650035992: Základní škola a Mateřská škola' },
-    { id: '650035992', title: '650037430: Základní škola a mateřská škola' },
-    { id: '650037430', title: '650038754: Základní škola a Mateřská škola' },
-    { id: '650038754', title: '650041224: Základní škola a Mateřská škola' },
-    { id: '650041224', title: '650041623: Základní škola a mateřská škola' },
-    { id: '650041623', title: '650042255: Základní škola a Mateřská škola' },
-    { id: '650042255', title: '650047940: Základní škola a Mateřská škola' },
-    { id: '650047940', title: '650056612: Základní škola a mateřská škola' },
-    { id: '650056612', title: '650061357: Základní škola a Mateřská škola' },
-    { id: '650061357', title: '651039860: Základní škola a Mateř.škola Údolí Desné' },
-    { id: '651039860', title: '691015287: Mateřská škola a Základní škola' },
-    { id: '691015287', title: '600024822: Speciální základní škola Králíky' },
-    { id: '600024822', title: '600090353: Základní škola a mateřská škola' },
-    { id: '600090353', title: '600090434: Základní škola' },
-    { id: '600090434', title: '600090515: Základní škola a Mateřská škola' },
-    { id: '600090515', title: '600090647: Základní škola, Chrudim, Dr. Malíka 958' },
-    { id: '600090647', title: '600090663: Základní škola a mateřská škola' },
-    { id: '600090663', title: '600096408: Základní škola a mateřská škola Dříteč' },
-    { id: '600096408', title: '600096491: Základní škola' },
-    { id: '600096491', title: '600100332: Základní škola Janov, okres Svitavy' },
-    { id: '600100332', title: '600100383: Základní škola Osík, okres Svitavy' },
-    { id: '600100383', title: '600100464: Základní škola a mateřská škola' },
-    { id: '600100464', title: '600100511: Základní škola Bystré, okres Svitavy' },
-    { id: '600100511', title: '600100600: Základní škola Pomezí, okres Svitavy' },
-    { id: '600100600', title: '600100618: Základní škola' },
-    { id: '600100618', title: '600100855: Základní škola' },
-    { id: '600100855', title: '600104273: Základní škola' },
-    { id: '600104273', title: '600104559: Základní škola a Mateřská škola Tisová' },
-    { id: '600104559', title: '600104681: Základní škola a mateřská škola' },
-    { id: '600104681', title: '600104788: Základní škola Sloupnice' },
-    { id: '600104788', title: '600104826: Základní škola a Mateřská škola Řetová' },
-    { id: '600104826', title: '600104842: Základní škola Jindřicha Pravečka' },
-    { id: '600104842', title: '600104851: Základní škola a mateřská škola' },
-    { id: '600104851', title: '650019831: Základní škola a mateřská škola' },
-    { id: '650019831', title: '650039483: Základní škola a mateřská škola' },
-    { id: '650039483', title: '650041330: Základní škola' },
-    { id: '650041330', title: '650045424: Základní škola a mateřská škola' },
-    { id: '650045424', title: '650045564: Základní škola a mateřská škola Krouna' },
-    { id: '650045564', title: '650046528: Základní škola a mateřská škola Bystřec' },
-    { id: '650046528', title: '650047869: Základní škola a mateřská škola' },
-    { id: '650047869', title: '650049969: Základní škola a Mateřská škola' },
-    { id: '650049969', title: '650051301: Základní škola a Mateřská škola Jehnědí' },
-    { id: '650051301', title: '650051653: Základní škola a mateřská škola Proseč' },
-    { id: '650051653', title: '650052391: ZŠ A MŠ KOCLÍŘOV, okres Svitavy' },
-    { id: '650052391', title: '650053834: Masarykova ZŠ a MŠ Kunvald' },
-    { id: '650053834', title: '669100731: ZŠ a MŠ KLAS s.r.o.' },
-    { id: '669100731', title: '691001421: Speciální ZŠ, MŠ a praktická škola' },
-    { id: '691001421', title: '691013756: MŠ a ZŠ Josefa Luxe Nekoř' },
-    { id: '691013756', title: '691014868: Základní škola Montessori Pardubice' },
-    { id: '691014868', title: '600006310: Soukromá SŠ a ZŠ (1. KŠPA) Praha s.r.o.' },
-    { id: '600006310', title: '600020860: MŠ a ZŠ speciální Diakonie ČCE' },
-    { id: '600020860', title: '600021009: Základní škola Lužiny' },
-    { id: '600021009', title: '600035263: Základní škola' },
-    { id: '600035263', title: '600036120: Základní škola' },
-    { id: '600036120', title: '600036197: Základní škola a mateřská škola Jarov' },
-    { id: '600036197', title: '600037096: Základní škola U Krčského lesa' },
-    { id: '600037096', title: '600037134: Základní škola' },
-    { id: '600037134', title: '600038220: Základní škola' },
-    { id: '600038220', title: '600038271: Fakultní základní škola PedF UK' },
-    { id: '600038271', title: '600038483: Základní škola' },
-    { id: '600038483', title: '600038521: Základní škola' },
-    { id: '600038521', title: '600039145: Základní škola' },
-    { id: '600039145', title: '600039803: Základní škola a mateřská škola' },
-    { id: '600039803', title: '600040437: Základní škola' },
-    { id: '600040437', title: '600040453: Základní škola' },
-    { id: '600040453', title: '600040551: Základní škola a Mateřská škola' },
-    { id: '600040551', title: '600040585: Základní škola' },
-    { id: '600040585', title: '600041336: Základní škola Dolní Měcholupy' },
-    { id: '600041336', title: '600041352: Základní škola Štěrboholy' },
-    { id: '600041352', title: '651040001: Křesťanská SŠ, ZŠ a MŠ Elijáš' },
-    { id: '651040001', title: '691000549: Základní škola a mateřská škola Parentes' },
-    { id: '691000549', title: '691002711: MŠ a ZŠ Beehive s.r.o.' },
-    { id: '691002711', title: '691003785: Základní škola Vitae, s.r.o.' },
-    { id: '691003785', title: '691005095: MŠ a ZŠ SMILING CROCODILE, o.p.s.' },
-    { id: '691005095', title: '691005826: Victoria School, s.r.o., ZŠ a MŠ' },
-    { id: '691005826', title: '691006962: IMSP, MŠ a ZŠ, s.r.o.' },
-    { id: '691006962', title: '691008345: Anglofonní základní škola, z.ú.' },
-    { id: '691008345', title: '691011117: ScioŠkola Praha Dejvice - ZŠ, s.r.o.' },
-    { id: '691011117', title: '691012237: Základní škola a gymnázium Square s.r.o.' },
-    { id: '691012237', title: '691012423: ScioŠkola Praha Nusle - základní škola,' },
-    { id: '691012423', title: '691013543: Naše škola Praha - základní škola s.r.o.' },
-    { id: '691013543', title: '600106161: Základní škola a Mateřská škola' },
-    { id: '600106161', title: '600106179: Základní škola a Mateřská škola' },
-    { id: '600106179', title: '600108023: Základní škola' },
-    { id: '600108023', title: '600108147: Základní škola' },
-    { id: '600108147', title: '600108261: Základní škola a mateřská škola' },
-    { id: '600108261', title: '600108368: Tyršova základní škola' },
-    { id: '600108368', title: '600108431: Základní škola a mateřská škola' },
-    { id: '600108431', title: '600108490: Základní škola' },
-    { id: '600108490', title: '600108538: Základní škola' },
-    { id: '600108538', title: '600110575: Základní škola a Mateřská škola' },
-    { id: '600110575', title: '600111211: Základní škola a Mateřská škola' },
-    { id: '600111211', title: '600115968: Základní škola a mateřská škola' },
-    { id: '600115968', title: '600125831: Základní škola' },
-    { id: '600125831', title: '600125866: Základní škola a Mateřská škola' },
-    { id: '600125866', title: '691009627: LABYRINTH - gymnázium a ZŠ, s.r.o.' },
-    { id: '691009627', title: '600066321: 1. základní škola Cheb' },
-    { id: '600066321', title: '600066339: Základní škola' },
-    { id: '600066339', title: '600072924: Základní škola' },
-    { id: '600072924', title: '600140938: Fakultní ZŠ dr. Milady Horákové a MŠ' },
-    { id: '600140938', title: '600146855: Základní škola' },
-    { id: '600146855', title: '650036239: Základní škola a Mateřská škola' },
-    { id: '650036239', title: '600096319: Základní škola Pardubice' },
-    { id: '600096319', title: '600100472: Základní škola Vítějeves, okres Svitavy' },
-    { id: '600100472', title: '600100570: ZŠ Moravská Třebová, Palackého 1351' },
-    { id: '600100570', title: '600104176: Základní škola M. Choceňského, Choceň' },
-    { id: '600104176', title: '600104192: Základní škola Letohrad, U Dvora 745' },
-    { id: '600104192', title: '600001083: Základní škola sv. Voršily v Praze' },
-    { id: '600001083', title: '600005399: Škola Kavčí hory - MŠ, ZŠ a SOŠ služeb' },
-    { id: '600005399', title: '600020983: Základní škola' },
-    { id: '600020983', title: '600021076: ZŠ pro žáky se specif. poruchami chování' },
-    { id: '600021076', title: '600021246: Základní škola LOPES' },
-    { id: '600021246', title: '600021301: Základní škola' },
-    { id: '600021301', title: '600027341: Jedličkův ústav a MŠ, ZŠ a Střední škola' },
-    { id: '600027341', title: '600035255: ZŠ Brána jazyků s rozš. výuk. matematiky' },
-    { id: '600035255', title: '600035271: Základní škola J. Gutha-Jarkovského' },
-    { id: '600035271', title: '600035573: Základní škola, Fakultní škola PedF UK' },
-    { id: '600035573', title: '600035581: Základní škola' },
-    { id: '600035581', title: '600035590: Základní škola a mateřská škola' },
-    { id: '600035590', title: '600035620: Základní škola' },
-    { id: '600035620', title: '600035646: Základní škola a Mateřská škola' },
-    { id: '600035646', title: '600035671: Základní škola u svatého Štěpána' },
-    { id: '600035671', title: '600036111: Základní škola a mateřská škola' },
-    { id: '600036111', title: '600036162: Základní škola a mateřská škola' },
-    { id: '600036162', title: '600036171: Základní škola Chmelnice' },
-    { id: '600036171', title: '600037045: Základní škola a mateřská škola ANGEL' },
-    { id: '600037045', title: '600037053: Základní škola' },
-    { id: '600037053', title: '600037061: Základní škola' },
-    { id: '600037061', title: '600037100: Základní škola' },
-    { id: '600037100', title: '600037142: ZŠ s rozš. výukou jazyků' },
-    { id: '600037142', title: '600037151: První jazyková základní škola v Praze 4' },
-    { id: '600037151', title: '600037169: Základní škola' },
-    { id: '600037169', title: '600037177: Základní škola' },
-    { id: '600037177', title: '600037185: Základní škola a mateřská škola Chodov' },
-    { id: '600037185', title: '600037193: Základní škola a Mateřská škola' },
-    { id: '600037193', title: '600037215: Základní škola' },
-    { id: '600037215', title: '600037231: ZŠ s rozšířenou výukou jazyků' },
-    { id: '600037231', title: '600037266: Základní škola a Mateřská škola' },
-    { id: '600037266', title: '600037274: Základní škola' },
-    { id: '600037274', title: '600037282: Základní škola' },
-    { id: '600037282', title: '600037291: Základní škola' },
-    { id: '600037291', title: '600037321: Základní škola' },
-    { id: '600037321', title: '600037339: Základní škola' },
-    { id: '600037339', title: '600037355: Základní škola' },
-    { id: '600037355', title: '600037371: Základní škola' },
-    { id: '600037371', title: '600037380: ZŠ a MŠ Na Beránku' },
-    { id: '600037380', title: '600037401: Základní škola' },
-    { id: '600037401', title: '600037410: Základní škola a mateřská škola' },
-    { id: '600037410', title: '600037436: Základní škola' },
-    { id: '600037436', title: '600037444: Základní škola' },
-    { id: '600037444', title: '600037452: Základní škola Campanus' },
-    { id: '600037452', title: '600037461: Základní škola Kunratice' },
-    { id: '600037461', title: '600037487: Základní škola' },
-    { id: '600037487', title: '600037509: Základní škola' },
-    { id: '600037509', title: '600037517: Základní škola profesora Švejcara' },
-    { id: '600037517', title: '600037525: Základní škola' },
-    { id: '600037525', title: '600038165: ZŠ s rozšířenou výukou jazyků' },
-    { id: '600038165', title: '600038173: Fakultní základní škola při PedF UK' },
-    { id: '600038173', title: '600038181: Fakultní základní škola PedF UK' },
-    { id: '600038181', title: '600038238: Fakult. ZŠ a MŠ Barrandov II při PedF UK' },
-    { id: '600038238', title: '600038262: Základní škola' },
-    { id: '600038262', title: '600038297: Základní škola a mateřská škola' },
-    { id: '600038297', title: '600038327: Základní škola a mateřská škola' },
-    { id: '600038327', title: '600038343: Základní škola' },
-    { id: '600038343', title: '600038408: Základní škola' },
-    { id: '600038408', title: '600038467: Tyršova základní škola a mateřská škola' },
-    { id: '600038467', title: '600038513: Fakultní ZŠ prof. Otokara Chlupa PedF UK' },
-    { id: '600038513', title: '600038530: Základní škola a Mateřská škola' },
-    { id: '600038530', title: '600039021: Základní škola genpor. Františka Peřiny' },
-    { id: '600039021', title: '600039048: ZŠ a MŠ Červený vrch' },
-    { id: '600039048', title: '600039081: Základní škola Petřiny - sever' },
-    { id: '600039081', title: '600039102: ZŠ a MŠ Antonína Čermáka' },
-    { id: '600039102', title: '600039111: ZŠ a MŠ Emy Destinnové' },
-    { id: '600039111', title: '600039129: Základní škola a Mateřská škola' },
-    { id: '600039129', title: '600039153: ZŠ Hanspaulka a MŠ Kohoutek' },
-    { id: '600039153', title: '600039161: ZŠ a MŠ Věry Čáslavské, Praha 6' },
-    { id: '600039161', title: '600039200: Základní škola a mateřská škola' },
-    { id: '600039200', title: '600039234: Základní škola Jana Wericha' },
-    { id: '600039234', title: '600039374: Fakultní ZŠ PedF UK a MŠ U Studánky' },
-    { id: '600039374', title: '600039382: Základní škola' },
-    { id: '600039382', title: '600039404: ZŠ Fr. Plamínkové s rozš. výukou jazyků' },
-    { id: '600039404', title: '600039412: Základní škola a Mateřská škola' },
-    { id: '600039412', title: '600039749: Základní škola' },
-    { id: '600039749', title: '600039862: Základní škola a mateřská škola' },
-    { id: '600039862', title: '600039889: ZŠ a MŠ Petra Strozziho' },
-    { id: '600039889', title: '600039897: Základní škola Bohumila Hrabala' },
-    { id: '600039897', title: '600039919: Základní škola' },
-    { id: '600039919', title: '600039935: ZŠ a MŠ Na Slovance' },
-    { id: '600039935', title: '600040356: Základní škola' },
-    { id: '600040356', title: '600040364: Základní škola' },
-    { id: '600040364', title: '600040381: Základní škola' },
-    { id: '600040381', title: '600040399: ZŠ a MŠ Tupolevova' },
-    { id: '600040399', title: '600040496: Základní škola' },
-    { id: '600040496', title: '600040526: Základní škola' },
-    { id: '600040526', title: '600040534: Základní škola' },
-    { id: '600040534', title: '600040542: Základní škola' },
-    { id: '600040542', title: '600040569: Základní škola' },
-    { id: '600040569', title: '600040577: Základní škola' },
-    { id: '600040577', title: '600040593: Masarykova základní škola' },
-    { id: '600040593', title: '600040607: Základní škola' },
-    { id: '600040607', title: '600040623: ZŠ generála Františka Fajtla DFC' },
-    { id: '600040623', title: '600041085: Základní škola' },
-    { id: '600041085', title: '600041093: Základní škola Karla Čapka' },
-    { id: '600041093', title: '600041107: Základní škola' },
-    { id: '600041107', title: '600041115: Základní škola' },
-    { id: '600041115', title: '600041123: Základní škola' },
-    { id: '600041123', title: '600041140: Základní škola' },
-    { id: '600041140', title: '600041166: Základní škola' },
-    { id: '600041166', title: '600041191: Základní škola' },
-    { id: '600041191', title: '600041204: Základní škola' },
-    { id: '600041204', title: '600041212: Základní škola' },
-    { id: '600041212', title: '600041221: Základní škola' },
-    { id: '600041221', title: '600041247: Základní škola' },
-    { id: '600041247', title: '600041255: Základní škola' },
-    { id: '600041255', title: '600041271: Základní škola' },
-    { id: '600041271', title: '600041301: Základní škola U Obory' },
-    { id: '600041301', title: '600041328: Základní škola' },
-    { id: '600041328', title: '600171434: Základní škola Tolerance' },
-    { id: '600171434', title: '600175782: Základní škola' },
-    { id: '600175782', title: '610350803: Základní škola a Mateřská škola' },
-    { id: '610350803', title: '651034221: Soukromá ZŠ Cesta k úspěchu, s.r.o.' },
-    { id: '651034221', title: '691003050: MŠ, ZŠ a gymnázium sv. Augustina' },
-    { id: '691003050', title: '691009031: ScioŠkola Praha Jarov - ZŠ, s.r.o.' },
-    { id: '691009031', title: '691012636: ZŠ s rozšířenou výukou Tv' },
-    { id: '691012636', title: '691013098: Základní škola Vela s.r.o.' },
-    { id: '691013098', title: '691013624: Základní škola "Poznávání" s.r.o.' },
-    { id: '691013624', title: '691016623: PED Academy School Kbely, ZŠ, s.r.o.' },
-    { id: '691016623', title: '600001539: Cyrilometodějská církevní základní škola' },
-    { id: '600001539', title: '600025128: Mateřská škola a základní škola' },
-    { id: '600025128', title: '600106209: Základní škola' },
-    { id: '600106209', title: '600107949: Základní škola a mateřská škola' },
-    { id: '600107949', title: '600107957: Základní škola a mateřská škola' },
-    { id: '600107957', title: '600107990: Základní škola' },
-    { id: '600107990', title: '600108031: Základní škola' },
-    { id: '600108031', title: '600108082: Základní škola' },
-    { id: '600108082', title: '600108091: Základní škola' },
-    { id: '600108091', title: '600108112: Základní škola a Mateřská škola' },
-    { id: '600108112', title: '600108139: Základní škola' },
-    { id: '600108139', title: '600108201: Základní škola a Mateřská škola' },
-    { id: '600108201', title: '600108236: Základní škola a mateřská škola' },
-    { id: '600108236', title: '600108244: Základní škola' },
-    { id: '600108244', title: '600108287: Základní škola a Mateřská škola' },
-    { id: '600108287', title: '600108473: Základní škola' },
-    { id: '600108473', title: '600108503: Základní škola a Mateřská škola' },
-    { id: '600108503', title: '600108546: Základní škola' },
-    { id: '600108546', title: '600108571: Masarykova základní škola' },
-    { id: '600108571', title: '600108597: Základní škola' },
-    { id: '600108597', title: '600110621: Základní škola' },
-    { id: '600110621', title: '600111008: Základní škola a Mateřská škola' },
-    { id: '600111008', title: '600111075: Základní škola' },
-    { id: '600111075', title: '600111121: Základní škola T.G. Masaryka' },
-    { id: '600111121', title: '600111199: Základní škola a Mateřská škola' },
-    { id: '600111199', title: '600111300: Základní škola' },
-    { id: '600111300', title: '600111318: Základní škola a mateřská škola' },
-    { id: '600111318', title: '600111334: Základní škola' },
-    { id: '600111334', title: '600112292: Základní škola a Mateřská škola' },
-    { id: '600112292', title: '600112420: Základní škola' },
-    { id: '600112420', title: '600112446: Základní škola T. G. Masaryka' },
-    { id: '600112446', title: '600112497: Základní škola a Mateřská škola' },
-    { id: '600112497', title: '600112527: Základní škola' },
-    { id: '600112527', title: '600112543: Základní škola' },
-    { id: '600112543', title: '600112578: Základní škola' },
-    { id: '600112578', title: '600112594: Základní škola a Mateřská škola' },
-    { id: '600112594', title: '600115500: Základní škola J. A. Komenského' },
-    { id: '600115500', title: '600115623: Základní škola' },
-    { id: '600115623', title: '600115917: ZŠ a MŠ Joži Uprky' },
-    { id: '600115917', title: '600116000: Základní škola a Mateřská škola' },
-    { id: '600116000', title: '600116034: Základní škola a Mateřská škola' },
-    { id: '600116034', title: '600125769: Základní škola a mateřská škola' },
-    { id: '600125769', title: '600125785: Základní škola' },
-    { id: '600125785', title: '600125904: Základní škola' },
-    { id: '600125904', title: '600126064: Základní škola' },
-    { id: '600126064', title: '600126668: Základní škola a Mateřská škola' },
-    { id: '600126668', title: '600127273: Základní škola' },
-    { id: '600127273', title: '618201254: Základní škola' },
-    { id: '618201254', title: '618600663: Základní škola' },
-    { id: '618600663', title: '650071603: ZŠ JUDr. Josefa Mareše a MŠ' },
-    { id: '650071603', title: '651040809: Křesťanská ZŠ a MŠ Jana Husa' },
-    { id: '651040809', title: '691000735: Waldorfská škola Brno - SŠ, ZŠ a MŠ' },
-    { id: '691000735', title: '691009538: 2. základní škola Heuréka, s.r.o.' },
-    { id: '691009538', title: '600009076: Svob.cheb.škola, ZŠ a gymnázium s.r.o.' },
-    { id: '600009076', title: '600022846: Základní škola Ostrov' },
-    { id: '600022846', title: '600066282: 3. základní škola Cheb' },
-    { id: '600066282', title: '600066291: 4. základní škola Cheb' },
-    { id: '600066291', title: '600066304: 5. základní škola Cheb' },
-    { id: '600066304', title: '600066312: 6. základní škola Cheb' },
-    { id: '600066312', title: '600066355: Základní škola a mateřská škola' },
-    { id: '600066355', title: '600067238: Základní škola a ZUŠ Žlutice, přísp.org.' },
-    { id: '600067238', title: '600067246: Základní škola a mateřská škola' },
-    { id: '600067246', title: '600067271: Základní škola a Mateřská škola Ostrov' },
-    { id: '600067271', title: '600067432: Základní škola' },
-    { id: '600067432', title: '600067491: Základní škola Toužim' },
-    { id: '600067491', title: '600067629: Základní škola' },
-    { id: '600067629', title: '600067661: Základní škola a Základní umělecká škola' },
-    { id: '600067661', title: '600072843: Základní škola' },
-    { id: '600072843', title: '600072860: Základní škola' },
-    { id: '600072860', title: '600072932: Základní škola' },
-    { id: '600072932', title: '600073033: Základní škola' },
-    { id: '600073033', title: '600073041: Základní škola' },
-    { id: '600073041', title: '600073092: Základní škola' },
-    { id: '600073092', title: '600073131: Základní škola J. A. Komenského' },
-    { id: '600073131', title: '650015002: Základní škola a mateřská škola' },
-    { id: '650015002', title: '600001741: Základní škola a MŠ Sluníčko s.r.o.' },
-    { id: '600001741', title: '600120503: Základní škola' },
-    { id: '600120503', title: '600140181: Fakultní základní škola' },
-    { id: '600140181', title: '600140253: Základní škola a Mateřská škola' },
-    { id: '600140253', title: '600140709: Základní škola' },
-    { id: '600140709', title: '600140971: Základní škola' },
-    { id: '600140971', title: '600146464: Základní škola a Mateřská škola' },
-    { id: '600146464', title: '600146774: Základní škola' },
-    { id: '600146774', title: '600090558: Základní škola' },
-    { id: '600090558', title: '600096068: Základní škola' },
-    { id: '600096068', title: '600096114: Základní škola' },
-    { id: '600096114', title: '600096157: Základní škola' },
-    { id: '600096157', title: '600096165: Základní škola Pardubice-Svítkov' },
-    { id: '600096165', title: '600096262: ZŠ Horní Jelení, příspěvková organizace' },
-    { id: '600096262', title: '600096327: Základní škola' },
-    { id: '600096327', title: '600096386: Základní škola' },
-    { id: '600096386', title: '600096548: Základní škola' },
-    { id: '600096548', title: '600096556: Základní škola' },
-    { id: '600096556', title: '600096564: Základní škola' },
-    { id: '600096564', title: '600096599: Základní škola' },
-    { id: '600096599', title: '600100529: ZŠ a MŠ Dolní Újezd' },
-    { id: '600100529', title: '600100774: Základní škola' },
-    { id: '600100774', title: '600104702: Základní škola' },
-    { id: '600104702', title: '650023731: Základní škola, Nasavrky, okres Chrudim' },
-    { id: '650023731', title: '650045815: Základní škola a mateřská škola' },
-    { id: '650045815', title: '650053672: ZŠ Lubná - Sebranice a MŠ' },
-    { id: '650053672', title: '600001148: Bratrská škola - církevní základní škola' },
-    { id: '600001148', title: '600020720: ZŠ a SŠ K.Herforta, Praha 1, Josefská 4' },
-    { id: '600020720', title: '600020746: Škola J.Ježka,MŠ,ZŠ,PrŠ a ZUŠ pro ZP' },
-    { id: '600020746', title: '600020797: Gymn., SOŠ, ZŠ a MŠ pro sluch. postižené' },
-    { id: '600020797', title: '600020801: Základní škola pro žáky s por. zraku' },
-    { id: '600020801', title: '600035239: Malostranská základní škola' },
-    { id: '600035239', title: '600035247: Základní škola' },
-    { id: '600035247', title: '600035611: Základní škola' },
-    { id: '600035611', title: '600035662: Základní škola' },
-    { id: '600035662', title: '600035689: Základní škola' },
-    { id: '600035689', title: '600036138: Základní škola' },
-    { id: '600036138', title: '600036201: Základní škola' },
-    { id: '600036201', title: '600036219: ZŠ a MŠ Jaroslava Seiferta' },
-    { id: '600036219', title: '600036227: Základní škola Pražačka' },
-    { id: '600036227', title: '600037037: ZŠ s rozšířenou výukou jazyků' },
-    { id: '600037037', title: '600037118: Základní škola T. G. Masaryka' },
-    { id: '600037118', title: '600037126: Základní škola a mateřská škola K Dolům' },
-    { id: '600037126', title: '600037207: ZŠ s rozš. výukou matematiky a přír. př.' },
-    { id: '600037207', title: '600037347: Základní škola a Mateřská škola' },
-    { id: '600037347', title: '600037363: Základní škola' },
-    { id: '600037363', title: '600037479: Základní škola' },
-    { id: '600037479', title: '600038203: Základní škola' },
-    { id: '600038203', title: '600038211: Fakultní ZŠ s RVJ při PedF UK' },
-    { id: '600038211', title: '600038246: FZŠ a MŠ PFUK, Praha 5, Grafická 13/1060' },
-    { id: '600038246', title: '600038254: Základní škola' },
-    { id: '600038254', title: '600038301: Základní škola a mateřská škola' },
-    { id: '600038301', title: '600038335: Základní škola' },
-    { id: '600038335', title: '600038360: Základní škola a mateřská škola' },
-    { id: '600038360', title: '600038394: Základní škola Vladislava Vančury' },
-    { id: '600038394', title: '600038424: Základní škola a mateřská škola' },
-    { id: '600038424', title: '600038432: Základní škola Charlotty Masarykové' },
-    { id: '600038432', title: '600038441: Základní škola' },
-    { id: '600038441', title: '600038475: ZŠ a MŠ Barrandov' },
-    { id: '600038475', title: '600039005: Základní škola Járy Cimrmana' },
-    { id: '600039005', title: '600039030: Základní škola Mikoláše Alše' },
-    { id: '600039030', title: '600039099: ZŠ a MŠ T. G. Masaryka' },
-    { id: '600039099', title: '600039137: Základní škola Norbertov' },
-    { id: '600039137', title: '600039170: ZŠ a MŠ J. A. Komenského' },
-    { id: '600039170', title: '600039196: Základní škola Dědina' },
-    { id: '600039196', title: '600039218: Základní škola Marjánka' },
-    { id: '600039218', title: '600039391: Základní škola' },
-    { id: '600039391', title: '600039439: Základní škola T. G. Masaryka' },
-    { id: '600039439', title: '600039447: Základní škola' },
-    { id: '600039447', title: '600039757: Základní škola a mateřská škola' },
-    { id: '600039757', title: '600039773: Základní škola a mateřská škola Ústavní' },
-    { id: '600039773', title: '600039790: Základní škola' },
-    { id: '600039790', title: '600039811: Základní škola' },
-    { id: '600039811', title: '600039820: Základní škola' },
-    { id: '600039820', title: '600039846: Základní škola' },
-    { id: '600039846', title: '600039854: Základní škola Mazurská' },
-    { id: '600039854', title: '600039871: Základní škola a mateřská škola' },
-    { id: '600039871', title: '600039901: Základní škola' },
-    { id: '600039901', title: '600040411: Základní škola a Mateřská škola' },
-    { id: '600040411', title: '600040429: Fakultní základní škola' },
-    { id: '600040429', title: '600040445: Základní škola' },
-    { id: '600040445', title: '600040470: Základní škola Praha - Běchovice' },
-    { id: '600040470', title: '600040488: Masarykova ZŠ Praha-Klánovice' },
-    { id: '600040488', title: '600040500: ZŠ a MŠ Dr. Edvarda Beneše' },
-    { id: '600040500', title: '600040615: Základní škola' },
-    { id: '600040615', title: '600041077: Základní škola Solidarita, Praha 10' },
-    { id: '600041077', title: '600041158: Základní škola Eden' },
-    { id: '600041158', title: '600041182: Základní škola' },
-    { id: '600041182', title: '600041263: Základní škola' },
-    { id: '600041263', title: '600041298: Základní škola' },
-    { id: '600041298', title: '600041344: Základní škola' },
-    { id: '600041344', title: '600041361: Základní škola' },
-    { id: '600041361', title: '600171426: SŠ, ZŠ a MŠ pro sluchově postižené' },
-    { id: '600171426', title: '610380061: Lauderova MŠ,ZŠ a gymnázium při Žid.obci' },
-    { id: '610380061', title: '691007713: ScioŠkola Praha Chodov - ZŠ, s.r.o.' },
-    { id: '691007713', title: '691014914: Osvobozená základní škola' },
-    { id: '691014914', title: '600025047: SŠ, ZŠ a MŠ pro zdravotně znevýhodněné' },
-    { id: '600025047', title: '600105911: Základní škola' },
-    { id: '600105911', title: '600106144: Základní škola a mateřská škola' },
-    { id: '600106144', title: '600106187: Základní škola T.G.M.' },
-    { id: '600106187', title: '600106195: Základní škola' },
-    { id: '600106195', title: '600106241: Základní škola a Mateřská škola' },
-    { id: '600106241', title: '600106268: Základní škola' },
-    { id: '600106268', title: '600106276: ZŠ, ZUŠ a MŠ Lomnice' },
-    { id: '600106276', title: '600106284: Základní škola Edvarda Beneše' },
-    { id: '600106284', title: '600106314: Základní škola a mateřská škola' },
-    { id: '600106314', title: '600106381: Základní škola' },
-    { id: '600106381', title: '600107965: Základní škola' },
-    { id: '600107965', title: '600108007: Základní škola' },
-    { id: '600108007', title: '600108058: Základní škola' },
-    { id: '600108058', title: '600108066: Základní škola' },
-    { id: '600108066', title: '600108104: Základní škola' },
-    { id: '600108104', title: '600108163: Základní škola a mateřská škola' },
-    { id: '600108163', title: '600108180: Základní škola' },
-    { id: '600108180', title: '600108210: Základní škola' },
-    { id: '600108210', title: '600108252: Základní škola' },
-    { id: '600108252', title: '600108295: Základní škola' },
-    { id: '600108295', title: '600108309: Základní škola' },
-    { id: '600108309', title: '600108317: Základní škola a mateřská škola' },
-    { id: '600108317', title: '600108325: Základní škola a mateřská škola Brno' },
-    { id: '600108325', title: '600108376: Základní škola' },
-    { id: '600108376', title: '600108422: Základní škola a mateřská škola' },
-    { id: '600108422', title: '600108465: Základní škola' },
-    { id: '600108465', title: '600108481: Základní škola a Mateřská škola' },
-    { id: '600108481', title: '600108511: Základní škola' },
-    { id: '600108511', title: '600108562: Základní škola' },
-    { id: '600108562', title: '600108589: Základní škola' },
-    { id: '600108589', title: '600108601: Základní škola a Mateřská škola' },
-    { id: '600108601', title: '600108619: Masarykova základní škola a MŠ' },
-    { id: '600108619', title: '600108635: Základní škola' },
-    { id: '600108635', title: '600110486: Základní škola a mateřská škola' },
-    { id: '600110486', title: '600110516: Základní škola' },
-    { id: '600110516', title: '600110524: Základní škola' },
-    { id: '600110524', title: '600110541: Základní škola' },
-    { id: '600110541', title: '600110770: Základní škola T. G. Masaryka' },
-    { id: '600110770', title: '600110788: Základní škola a mateřská škola' },
-    { id: '600110788', title: '600110966: Základní škola T. G. Masaryka' },
-    { id: '600110966', title: '600111016: Základní škola a Mateřská škola' },
-    { id: '600111016', title: '600111024: Základní škola' },
-    { id: '600111024', title: '600111083: Základní škola' },
-    { id: '600111083', title: '600111091: Základní škola a Mateřská škola' },
-    { id: '600111091', title: '600111113: Základní škola a mateřská škola' },
-    { id: '600111113', title: '600111130: Základní škola' },
-    { id: '600111130', title: '600111148: Základní škola' },
-    { id: '600111148', title: '600111156: Základní škola a mateřská škola' },
-    { id: '600111156', title: '600111172: ZŠ a MŠ T. G. Masaryka' },
-    { id: '600111172', title: '600111181: Základní škola' },
-    { id: '600111181', title: '600111229: Základní škola a Mateřská škola' },
-    { id: '600111229', title: '600112136: Základní škola a Mateřská škola' },
-    { id: '600112136', title: '600112195: Základní škola' },
-    { id: '600112195', title: '600112225: Základní škola' },
-    { id: '600112225', title: '600112268: Základní škola a mateřská škola' },
-    { id: '600112268', title: '600112276: Základní škola' },
-    { id: '600112276', title: '600112284: Základní škola' },
-    { id: '600112284', title: '600112314: Základní škola a Mateřská škola' },
-    { id: '600112314', title: '600112331: Základní škola a Mateřská škola' },
-    { id: '600112331', title: '600112357: Základní škola a mateřská škola' },
-    { id: '600112357', title: '600112390: Základní škola' },
-    { id: '600112390', title: '600112462: Základní škola' },
-    { id: '600112462', title: '600112501: Základní škola' },
-    { id: '600112501', title: '600112551: Základní škola a Mateřská škola' },
-    { id: '600112551', title: '600112560: Základní škola a Mateřská škola' },
-    { id: '600112560', title: '600112624: Základní škola a Mateřská škola' },
-    { id: '600112624', title: '600112667: Základní škola' },
-    { id: '600112667', title: '600115518: Základní škola T. G. Masaryka' },
-    { id: '600115518', title: '600115569: Základní škola' },
-    { id: '600115569', title: '600115585: Masarykova základní škola' },
-    { id: '600115585', title: '600115631: Základní škola' },
-    { id: '600115631', title: '600115674: ZŠ a MŠ Bzenec, p.o.' },
-    { id: '600115674', title: '600116018: Základní škola' },
-    { id: '600116018', title: '600116026: Základní škola M. Kudeříkové' },
-    { id: '600116026', title: '600116051: Masarykova základní škola' },
-    { id: '600116051', title: '600125483: Základní škola' },
-    { id: '600125483', title: '600125726: Základní škola a Mateřská škola' },
-    { id: '600125726', title: '600125840: Základní škola' },
-    { id: '600125840', title: '600125858: Základní škola a Mateřská škola' },
-    { id: '600125858', title: '600125874: ZŠ Rousínov' },
-    { id: '600125874', title: '600125882: Základní škola' },
-    { id: '600125882', title: '600125891: Základní škola' },
-    { id: '600125891', title: '600125947: Základní škola' },
-    { id: '600125947', title: '600127559: Základní škola a Mateřská škola' },
-    { id: '600127559', title: '600127567: Základní škola' },
-    { id: '600127567', title: '600127605: Základní škola a Mateřská škola' },
-    { id: '600127605', title: '600127672: Základní škola a Mateřská škola' },
-    { id: '600127672', title: '600127737: Základní škola' },
-    { id: '600127737', title: '600127745: Základní škola' },
-    { id: '600127745', title: '600130177: Základní škola a Mateřská škola' },
-    { id: '600130177', title: '600130401: Základní škola a Mateřská škola' },
-    { id: '600130401', title: '691010927: Základní škola' },
-    { id: '691010927', title: '600022854: Základní škola a střední škola K. Vary' },
-    { id: '600022854', title: '600066274: 2. základní škola Cheb' },
-    { id: '600066274', title: '600066347: Základní škola' },
-    { id: '600066347', title: '600066371: Základní škola' },
-    { id: '600066371', title: '600066398: Základní škola Hranice, okres Cheb' },
-    { id: '600066398', title: '600066452: Základní škola Skalná' },
-    { id: '600066452', title: '600066479: Základní škola' },
-    { id: '600066479', title: '600066517: Základní škola a mateřská škola' },
-    { id: '600066517', title: '600066622: Základní škola' },
-    { id: '600066622', title: '600067211: Základní škola jazyků' },
-    { id: '600067211', title: '600067220: Základní škola' },
-    { id: '600067220', title: '600067262: Základní škola' },
-    { id: '600067262', title: '600067289: Základní škola' },
-    { id: '600067289', title: '600067301: Základní škola' },
-    { id: '600067301', title: '600067394: Základní škola' },
-    { id: '600067394', title: '600067408: ZŠ Marie Curie-Sklodowské a MŠ' },
-    { id: '600067408', title: '600067416: Základní škola J. A. Komenského' },
-    { id: '600067416', title: '600067441: Základní škola Dukelských hrdinů' },
-    { id: '600067441', title: '600067467: Základní škola' },
-    { id: '600067467', title: '600067475: Základní škola Nová Role' },
-    { id: '600067475', title: '600067530: Základní škola Bochov,okres Karlovy Vary' },
-    { id: '600067530', title: '600067556: Základní škola a mateřská škola' },
-    { id: '600067556', title: '600067599: Základní škola' },
-    { id: '600067599', title: '600067602: Základní škola' },
-    { id: '600067602', title: '600067645: Základní škola a mateřská škola' },
-    { id: '600067645', title: '600067653: Základní škola a mateřská škola' },
-    { id: '600067653', title: '600072959: Základní škola' },
-    { id: '600072959', title: '600072967: Základní škola Horní Slavkov' },
-    { id: '600072967', title: '600072983: Základní škola Chodov, přísp. organizace' },
-    { id: '600072983', title: '600073017: Střední škola,základ.škola a mateř.škola' },
-    { id: '600073017', title: '600073246: 3. základní škola' },
-    { id: '600073246', title: '691002991: Základní škola v Teplé' },
-    { id: '691002991', title: '691004269: ZŠ, MŠ a dětské jesle Moudrá sova s.r.o.' },
-    { id: '691004269', title: '600015149: ZŠ a gymnázium města Konice' },
-    { id: '600015149', title: '600015301: Reálné gymnázium a ZŠ Otto Wichterleho' },
-    { id: '600015301', title: '600026612: SŠ, ZŠ a MŠ prof. V. Vejdovského' },
-    { id: '600026612', title: '600026621: SŠ, ZŠ a MŠ pro sluchově postižené' },
-    { id: '600026621', title: '600026671: Střední škola a Základ.škola DC90,s.r.o.' },
-    { id: '600026671', title: '600120295: Základní škola' },
-    { id: '600120295', title: '600120392: Základní škola' },
-    { id: '600120392', title: '600120406: Základní škola' },
-    { id: '600120406', title: '600120457: Základní škola' },
-    { id: '600120457', title: '600120490: Základní škola a mateřská škola' },
-    { id: '600120490', title: '600120511: Základní škola a Mateřská škola' },
-    { id: '600120511', title: '600120562: Základní škola a mateřská škola' },
-    { id: '600120562', title: '600120589: Základní škola Zdeny Kaprálové a MŠ' },
-    { id: '600120589', title: '600120597: Základní škola a mateřská škola' },
-    { id: '600120597', title: '600120619: Masarykova základní škola a MŠ' },
-    { id: '600120619', title: '600139000: Základní škola a Mateřská škola' },
-    { id: '600139000', title: '600140091: Základní škola' },
-    { id: '600140091', title: '600140121: Základní škola' },
-    { id: '600140121', title: '600140130: Základní škola' },
-    { id: '600140130', title: '600140148: Základní škola' },
-    { id: '600140148', title: '600140156: Základní škola' },
-    { id: '600140156', title: '600140199: Základní škola a Mateřská škola' },
-    { id: '600140199', title: '600140211: Základní škola' },
-    { id: '600140211', title: '600140237: Fakultní základní škola' },
-    { id: '600140237', title: '600140326: Základní škola a Mateřská škola' },
-    { id: '600140326', title: '600140407: Základní škola a Mateřská škola' },
-    { id: '600140407', title: '600140580: Základní škola a Mateřská škola' },
-    { id: '600140580', title: '600140598: Základní škola a Mateřská škola' },
-    { id: '600140598', title: '600140628: Fakultní základní škola Komenium a MŠ' },
-    { id: '600140628', title: '600140636: Fakultní základní škola a Mateřská škola' },
-    { id: '600140636', title: '600140644: Základní škola a Mateřská škola' },
-    { id: '600140644', title: '600140831: Základní škola a Mateřská škola' },
-    { id: '600140831', title: '600146405: Základní škola' },
-    { id: '600146405', title: '600146448: Základní škola' },
-    { id: '600146448', title: '600146456: Základní škola' },
-    { id: '600146456', title: '600146499: Základní škola a Mateřská škola' },
-    { id: '600146499', title: '600146758: Základní škola a Mateřská škola' },
-    { id: '600146758', title: '600146766: Základní škola a mateřská škola' },
-    { id: '600146766', title: '600146782: Základní škola' },
-    { id: '600146782', title: '600146839: Základní škola' },
-    { id: '600146839', title: '600146847: Základní škola' },
-    { id: '600146847', title: '600147916: Základní škola' },
-    { id: '600147916', title: '600148327: Základní škola' },
-    { id: '600148327', title: '600148343: Základní škola' },
-    { id: '600148343', title: '600148467: Základní škola' },
-    { id: '600148467', title: '600148491: Základní škola' },
-    { id: '600148491', title: '600150518: Základní škola' },
-    { id: '600150518', title: '600150585: Základní škola' },
-    { id: '600150585', title: '650028465: Základní škola a MŠ Aloise Štěpánka' },
-    { id: '650028465', title: '650037952: Základní škola a mateřská škola' },
-    { id: '650037952', title: '691009279: ScioŠkola Olomouc-základní škola, s.r.o.' },
-    { id: '691009279', title: '600024733: Základní škola Lanškroun' },
-    { id: '600024733', title: '600024792: Střední škola a základní škola Žamberk' },
-    { id: '600024792', title: '600090230: Základní škola, Chrudim, Dr. Peška 768' },
-    { id: '600090230', title: '600090426: Základní škola, Hlinsko, Resslova 603' },
-    { id: '600090426', title: '600090574: Základní škola' },
-    { id: '600090574', title: '600090639: Základní škola' },
-    { id: '600090639', title: '600096076: Masarykova základní škola Dolní Roveň' },
-    { id: '600096076', title: '600096084: Základní škola Dašice, okres Pardubice' },
-    { id: '600096084', title: '600096106: Základní škola' },
-    { id: '600096106', title: '600096122: Základní škola' },
-    { id: '600096122', title: '600096131: Základní škola' },
-    { id: '600096131', title: '600096181: Základní škola Pardubice-Ohrazenice' },
-    { id: '600096181', title: '600096203: Základní škola' },
-    { id: '600096203', title: '600096211: Základní škola Pardubice-Polabiny' },
-    { id: '600096211', title: '600096246: Základní škola' },
-    { id: '600096246', title: '600096271: Základní škola Opatovice nad Labem' },
-    { id: '600096271', title: '600096301: Základní škola' },
-    { id: '600096301', title: '600096513: Základní škola Holice' },
-    { id: '600096513', title: '600096581: Základní škola' },
-    { id: '600096581', title: '600100634: Masarykova základní škola Polička' },
-    { id: '600100634', title: '600100642: Základní škola' },
-    { id: '600100642', title: '600100685: Základní škola Svitavy' },
-    { id: '600100685', title: '600100693: Základní škola' },
-    { id: '600100693', title: '600100804: ZŠ Litomyšl, Zámecká 496, okres Svitavy' },
-    { id: '600100804', title: '600104141: Základní škola' },
-    { id: '600104141', title: '600104150: Základní škola' },
-    { id: '600104150', title: '600104206: Základní škola' },
-    { id: '600104206', title: '600104231: ZŠ Vysoké Mýto, Jiráskova, přísp.org.' },
-    { id: '600104231', title: '600104281: ZŠ Vysoké Mýto, Javornického, přísp.org.' },
-    { id: '600104281', title: '600104605: Základní škola' },
-    { id: '600104605', title: '600104648: Základní škola' },
-    { id: '600104648', title: '600104699: Základní škola' },
-    { id: '600104699', title: '600104737: Základní škola' },
-    { id: '600104737', title: '600104761: Základní škola Vincence Junka' },
-    { id: '600104761', title: '617500720: Základní škola Waldorfská' },
-    { id: '617500720', title: '650018290: Základní škola, Luže, okres Chrudim' },
-    { id: '650018290', title: '650020936: Základní škola' },
-    { id: '650020936', title: '650050606: Základní škola a mateřská škola' },
-    { id: '650050606', title: '650052081: Základní škola a mateřská škola' },
-    { id: '650052081', title: '650053109: Základní škola' },
-    { id: '650053109', title: '650057988: ZŠ a MŠ Běly Jensen' },
-    { id: '650057988', title: '691002223: Speciální ZŠ a praktická škola Chrudim' },
-    { id: '691002223', title: '691002568: NOE - Křesťanská ZŠ a MŠ v Pardubicích' },
-    { id: '691002568', title: '691006903: MŠ a ZŠ Na rovině v Chrudimi' },
-    { id: '691006903', title: '600001091: Veselá škola - církevní ZŠ a ZUŠ' },
-    { id: '600001091', title: '600035638: ZŠ s RVJ, Fakultní škola PedF UK' },
-    { id: '600035638', title: '600036146: Základní škola' },
-    { id: '600036146', title: '600038289: Základní škola waldorfská' },
-    { id: '600038289', title: '600039064: Základní škola a Mateřská škola' },
-    { id: '600039064', title: '600039072: Základní škola a Mateřská škola' },
-    { id: '600039072', title: '600040402: Základní škola a Mateřská škola' },
-    { id: '600040402', title: '600025039: Mateřská škola, základní škola a PrŠ' },
-    { id: '600025039', title: '600025276: Základní škola a praktická škola' },
-    { id: '600025276', title: '600025446: Základní škola a praktická škola' },
-    { id: '600025446', title: '600025896: MŠ, ZŠ a praktická škola' },
-    { id: '600025896', title: '600106217: Základní škola' },
-    { id: '600106217', title: '600106322: Základní škola a mateřská škola' },
-    { id: '600106322', title: '600107973: Základní škola a Mateřská škola' },
-    { id: '600107973', title: '600107981: Základní škola' },
-    { id: '600107981', title: '600108015: Základní škola' },
-    { id: '600108015', title: '600108040: Základní škola a mateřská škola' },
-    { id: '600108040', title: '600108074: Základní škola a Mateřská škola' },
-    { id: '600108074', title: '600108121: Základní škola a Mateřská škola' },
-    { id: '600108121', title: '600108171: Základní škola' },
-    { id: '600108171', title: '600108198: Základní škola' },
-    { id: '600108198', title: '600108228: Základní škola' },
-    { id: '600108228', title: '600108279: Základní škola' },
-    { id: '600108279', title: '600108350: Základní škola' },
-    { id: '600108350', title: '600108384: ZŠ J. A. Komenského a Mateřská škola' },
-    { id: '600108384', title: '600108449: Základní škola' },
-    { id: '600108449', title: '600110494: Základní škola' },
-    { id: '600110494', title: '600110532: Základní škola' },
-    { id: '600110532', title: '600111032: Základní škola a Mateřská škola' },
-    { id: '600111032', title: '600111059: Základní škola' },
-    { id: '600111059', title: '600111164: Základní škola' },
-    { id: '600111164', title: '600112241: Základní škola a Mateřská škola' },
-    { id: '600112241', title: '600112306: Základní škola' },
-    { id: '600112306', title: '600112322: Základní škola a Mateřská škola' },
-    { id: '600112322', title: '600112373: Základní škola' },
-    { id: '600112373', title: '600112381: Základní škola' },
-    { id: '600112381', title: '600112403: Masarykova základní škola' },
-    { id: '600112403', title: '600112411: Základní škola' },
-    { id: '600112411', title: '600112454: Základní škola a Mateřská škola' },
-    { id: '600112454', title: '600112471: Základní škola a Mateřská škola' },
-    { id: '600112471', title: '600112489: Základní škola a Mateřská škola' },
-    { id: '600112489', title: '600115534: Základní škola a Mateřská škola' },
-    { id: '600115534', title: '600115551: Základní škola a Mateřská škola' },
-    { id: '600115551', title: '600115640: Základní škola' },
-    { id: '600115640', title: '600115861: Základní škola a mateřská škola' },
-    { id: '600115861', title: '600115887: Základní škola a mateřská škola' },
-    { id: '600115887', title: '600115895: Základní škola' },
-    { id: '600115895', title: '600115925: Základní škola' },
-    { id: '600115925', title: '600115933: ZŠ a MŠ Jaromíra Hlubíka' },
-    { id: '600115933', title: '600115976: Základní škola a Mateřská škola' },
-    { id: '600115976', title: '600125815: Základní škola' },
-    { id: '600125815', title: '600125823: Základní škola' },
-    { id: '600125823', title: '600126021: Základní škola a Mateřská škola' },
-    { id: '600126021', title: '600126048: Základní škola a Mateřská škola' },
-    { id: '600126048', title: '600127508: Základní škola a Mateřská škola' },
-    { id: '600127508', title: '600127583: Základní škola a Mateřská škola' },
-    { id: '600127583', title: '600127613: Základní škola' },
-    { id: '600127613', title: '600127621: Základní škola' },
-    { id: '600127621', title: '600127648: Základní škola' },
-    { id: '600127648', title: '600127656: Základní škola a Mateřská škola' },
-    { id: '600127656', title: '600127699: Základní škola' },
-    { id: '600127699', title: '600127711: Základní škola' },
-    { id: '600127711', title: '600127729: Základní škola a Mateřská škola' },
-    { id: '600127729', title: '600127826: ZŠ Prokopa Diviše a MŠ' },
-    { id: '600127826', title: '650041135: Základní škola a Mateřská škola' },
-    { id: '650041135', title: '651040604: Církevní základní škola' },
-    { id: '651040604', title: '691012164: Škola příběhem - církevní základní škola' },
-    { id: '691012164', title: '691013799: Základní škola a Mateřská škola' },
-    { id: '691013799', title: '600066401: Základní škola a mateřská škola' },
-    { id: '600066401', title: '600066428: Základní škola JIH' },
-    { id: '600066428', title: '600066436: Základní škola' },
-    { id: '600066436', title: '600066606: Základní škola Vítězství' },
-    { id: '600066606', title: '600067424: Základní škola' },
-    { id: '600067424', title: '600067459: Základní škola a mateřská škola' },
-    { id: '600067459', title: '600067611: Základní škola a mateřská škola' },
-    { id: '600067611', title: '600072975: Základní škola' },
-    { id: '600072975', title: '600073122: Základní škola' },
-    { id: '600073122', title: '610100718: ŠMP Mánesova - gymnázium, ZŠ a MŠ s.r.o.' },
-    { id: '610100718', title: '650015371: Základní škola a mateřská škola' },
-    { id: '650015371', title: '691005001: Základ.škola a lesní mateř.škola 4lístek' },
-    { id: '691005001', title: '600120252: Základní škola' },
-    { id: '600120252', title: '600120350: Základní škola a mateřská škola' },
-    { id: '600120350', title: '600120384: Základní škola a MŠ Jana Železného' },
-    { id: '600120384', title: '600120414: Základní škola a mateřská škola' },
-    { id: '600120414', title: '600140113: Základní škola Milady Petřkové' },
-    { id: '600140113', title: '600140164: Masarykova základní škola a MŠ' },
-    { id: '600140164', title: '600140245: Základní škola a Mateřská škola' },
-    { id: '600140245', title: '600140270: Základní škola a Mateřská škola' },
-    { id: '600140270', title: '600140784: Základní škola' },
-    { id: '600140784', title: '600140792: Základní škola' },
-    { id: '600140792', title: '600140806: Základní škola' },
-    { id: '600140806', title: '600140873: Základní škola' },
-    { id: '600140873', title: '600140962: Základní škola a Mateřská škola' },
-    { id: '600140962', title: '600141004: Základní škola a Mateřská škola' },
-    { id: '600141004', title: '600146367: Základní škola a mateřská škola' },
-    { id: '600146367', title: '600146375: Základní škola a mateřská škola' },
-    { id: '600146375', title: '600146391: Základní škola' },
-    { id: '600146391', title: '600146421: Základní škola' },
-    { id: '600146421', title: '600146481: Základní škola a Mateřská škola' },
-    { id: '600146481', title: '600146553: Základní škola a mateřská škola' },
-    { id: '600146553', title: '600146677: Základní škola' },
-    { id: '600146677', title: '600146871: Základní škola' },
-    { id: '600146871', title: '600146910: Základní škola' },
-    { id: '600146910', title: '600148301: Základní škola' },
-    { id: '600148301', title: '600148319: Základní škola a Mateřská škola' },
-    { id: '600148319', title: '600148335: Základní škola' },
-    { id: '600148335', title: '600148386: Základní škola' },
-    { id: '600148386', title: '600148424: Základní škola a mateřská škola' },
-    { id: '600148424', title: '600148441: Základní škola' },
-    { id: '600148441', title: '600148459: Základní škola' },
-    { id: '600148459', title: '600148513: Základní škola a DDM Krasohled' },
-    { id: '600148513', title: '600148530: Základní škola' },
-    { id: '600148530', title: '600148581: Základní škola' },
-    { id: '600148581', title: '600150500: Základní škola' },
-    { id: '600150500', title: '600150631: Základní škola' },
-    { id: '600150631', title: '650023218: Základní škola a Mateřská škola' },
-    { id: '650023218', title: '650038011: Základní škola a Mateřská škola' },
-    { id: '650038011', title: '650041275: Základní škola a Mateřská škola' },
-    { id: '650041275', title: '650044215: Základní škola a Mateřská škola' },
-    { id: '650044215', title: '650056019: Základní škola a Mateřská škola' },
-    { id: '650056019', title: '600024296: Speciální MŠ, ZŠ a praktická škola' },
-    { id: '600024296', title: '600090213: Základní škola' },
-    { id: '600090213', title: '600090418: Základní škola Heřmanův Městec' },
-    { id: '600090418', title: '600090442: ZŠ Hlinsko, Ležáků 1449, okres Chrudim' },
-    { id: '600090442', title: '600090451: Základní škola' },
-    { id: '600090451', title: '600090493: Základní škola, Chrudim, U Stadionu 756' },
-    { id: '600090493', title: '600090591: Základní škola' },
-    { id: '600090591', title: '600090612: Základní škola' },
-    { id: '600090612', title: '600090701: Základní škola' },
-    { id: '600090701', title: '600096092: Základní škola' },
-    { id: '600096092', title: '600096149: Základní škola Eduarda Nápravníka' },
-    { id: '600096149', title: '600096238: Základní škola Sezemice, okres Pardubice' },
-    { id: '600096238', title: '600096297: Základní škola a mateřská škola Rybitví' },
-    { id: '600096297', title: '600096351: Základní škola a Mateřská škola' },
-    { id: '600096351', title: '600096378: Základní škola a mateřská škola' },
-    { id: '600096378', title: '600096530: Základní škola a mateřská škola' },
-    { id: '600096530', title: '600096611: Základní škola' },
-    { id: '600096611', title: '600100545: Základní škola Jevíčko' },
-    { id: '600100545', title: '600100596: Základní škola Na Lukách Polička' },
-    { id: '600100596', title: '600100669: ZŠ U Kostela Moravská Třebová' },
-    { id: '600100669', title: '600100715: Základní škola a mateřská škola' },
-    { id: '600100715', title: '600100782: Základní škola' },
-    { id: '600100782', title: '600100791: Základní škola' },
-    { id: '600100791', title: '600100880: Masarykova základní škola Morašice' },
-    { id: '600100880', title: '600104168: Základní škola' },
-    { id: '600104168', title: '600104184: Základní škola Sv. Čecha, Choceň' },
-    { id: '600104184', title: '600104222: Základní škola Letohrad' },
-    { id: '600104222', title: '600104249: Základní škola' },
-    { id: '600104249', title: '600104257: Základní škola Králíky' },
-    { id: '600104257', title: '600104711: Základní škola' },
-    { id: '600104711', title: '600104745: Základní škola' },
-    { id: '600104745', title: '650018346: Základní škola a mateřská škola' },
-    { id: '650018346', title: '650039254: Základní škola T. G. Masaryka a MŠ' },
-    { id: '650039254', title: '650048482: Základní škola a Mateřská škola Tatenice' },
-    { id: '650048482', title: '650052510: Základní škola a mateřská škola' },
-    { id: '650052510', title: '691004455: Základní škola a mateřská škola' }
+    {
+     "id": "691007713",
+     "text": "ScioŠkola Praha Chodov - základní škola, s.r.o."
+    },
+    {
+     "id": "600066321",
+     "text": "1. základní škola Cheb, Americká 36, příspěvková organizace"
+    },
+    {
+     "id": "691009031",
+     "text": "ScioŠkola Praha Jarov - základní škola, s.r.o."
+    },
+    {
+     "id": "600066274",
+     "text": "2. základní škola Cheb, Májová 14, příspěvková organizace"
+    },
+    {
+     "id": "691009538",
+     "text": "2. základní škola Heuréka, s.r.o."
+    },
+    {
+     "id": "691011117",
+     "text": "ScioŠkola Praha Dejvice - základní škola, s.r.o."
+    },
+    {
+     "id": "600066282",
+     "text": "3. základní škola Cheb, Malé náměstí 3, příspěvková organizace"
+    },
+    {
+     "id": "691012423",
+     "text": "ScioŠkola Praha Nusle - základní škola, s.r.o."
+    },
+    {
+     "id": "600066291",
+     "text": "4. základní škola Cheb, Hradební 14, příspěvková organizace"
+    },
+    {
+     "id": "691012245",
+     "text": "ScioŠkola Praha Stodůlky - základní škola, s.r.o."
+    },
+    {
+     "id": "600066304",
+     "text": "5. základní škola Cheb, Matěje Kopeckého 1, příspěvková organizace"
+    },
+    {
+     "id": "691014990",
+     "text": "ScioŠkola Praha Bubeneč - základní škola, s.r.o."
+    },
+    {
+     "id": "600066312",
+     "text": "6. základní škola Cheb, Obětí nacismu 16, příspěvková organizace"
+    },
+    {
+     "id": "691008345",
+     "text": "Anglofonní základní škola, z.ú."
+    },
+    {
+     "id": "600001148",
+     "text": "Bratrská škola - církevní základní škola"
+    },
+    {
+     "id": "691015091",
+     "text": "Carlsbad Montessori School, základní škola, s.r.o."
+    },
+    {
+     "id": "600020932",
+     "text": "Česko Britská Základní Škola, s.r.o."
+    },
+    {
+     "id": "651040604",
+     "text": "Církevní základní škola ve Veselí nad Moravou"
+    },
+    {
+     "id": "600001539",
+     "text": "Cyrilometodějská církevní základní škola, Lerchova 65, Brno"
+    },
+    {
+     "id": "600140181",
+     "text": "Fakultní základní škola Olomouc, Hálkova 4, příspěvková organizace"
+    },
+    {
+     "id": "600140237",
+     "text": "Fakultní základní škola Olomouc, Tererovo nám. 1, příspěvková organizace"
+    },
+    {
+     "id": "600038271",
+     "text": "Fakultní základní škola Pedagogické fakulty UK, Praha 13, Mezi Školami 2322"
+    },
+    {
+     "id": "600038181",
+     "text": "Fakultní základní škola Pedagogické fakulty UK, Praha 13, Trávníčkova 1744"
+    },
+    {
+     "id": "600038173",
+     "text": "Fakultní základní škola při Pedagogické fakultě UK, Praha 13, Brdičkova 1878"
+    },
+    {
+     "id": "600038513",
+     "text": "Fakultní základní škola profesora Otokara Chlupa Pedagogické fakulty UK, Praha 13, Fingerova 2186"
+    },
+    {
+     "id": "600038211",
+     "text": "Fakultní základní škola s rozšířenou výukou jazyků při PedF UK, Praha 5 - Smíchov, Drtinova 1/1861, příspěvková organizace"
+    },
+    {
+     "id": "600040429",
+     "text": "Fakultní základní škola, Praha 9 - Horní Počernice, Chodovická 2250"
+    },
+    {
+     "id": "691016151",
+     "text": "GENIUS Základní škola s.r.o."
+    },
+    {
+     "id": "691008426",
+     "text": "Heřmánek Praha, základní škola a gymnázium"
+    },
+    {
+     "id": "691009627",
+     "text": "LABYRINTH - gymnázium a základní škola, s.r.o."
+    },
+    {
+     "id": "600035239",
+     "text": "Malostranská základní škola"
+    },
+    {
+     "id": "600096076",
+     "text": "Masarykova základní škola Dolní Roveň, okres Pardubice"
+    },
+    {
+     "id": "600112403",
+     "text": "Masarykova základní škola Lanžhot, příspěvková organizace"
+    },
+    {
+     "id": "600100880",
+     "text": "Masarykova základní škola Morašice, okres Svitavy"
+    },
+    {
+     "id": "600100634",
+     "text": "Masarykova základní škola Polička"
+    },
+    {
+     "id": "600040488",
+     "text": "Masarykova základní škola Praha-Klánovice"
+    },
+    {
+     "id": "600116051",
+     "text": "Masarykova základní škola Velká nad Veličkou, příspěvková organizace"
+    },
+    {
+     "id": "600115585",
+     "text": "Masarykova základní škola Vracov, příspěvková organizace"
+    },
+    {
+     "id": "600116085",
+     "text": "Masarykova základní škola Ždánice, příspěvková organizace"
+    },
+    {
+     "id": "600108571",
+     "text": "Masarykova základní škola, Brno, Kamenačky 3591/4"
+    },
+    {
+     "id": "600040593",
+     "text": "Masarykova základní škola, Praha 9 - Újezd nad Lesy, Polesná 1690"
+    },
+    {
+     "id": "600020860",
+     "text": "Mateřská škola a základní škola speciální Diakonie ČCE Praha"
+    },
+    {
+     "id": "691015856",
+     "text": "Meridian česko-britská základní škola a gymnázium s.r.o."
+    },
+    {
+     "id": "691004862",
+     "text": "Métis - základní škola s.r.o."
+    },
+    {
+     "id": "691012385",
+     "text": "Montessori základní škola Archa, z.s."
+    },
+    {
+     "id": "691013543",
+     "text": "Naše škola Praha - základní škola s.r.o."
+    },
+    {
+     "id": "691014914",
+     "text": "Osvobozená základní škola"
+    },
+    {
+     "id": "691014817",
+     "text": "PED Academy School, základní škola, s.r.o."
+    },
+    {
+     "id": "600037151",
+     "text": "První jazyková základní škola v Praze 4, Praha 4, Horáčkova 1100"
+    },
+    {
+     "id": "691008736",
+     "text": "ScioŠkola Brno Heršpice - základní škola, s.r.o."
+    },
+    {
+     "id": "691009279",
+     "text": "ScioŠkola Olomouc - základní škola, s.r.o."
+    },
+    {
+     "id": "691012164",
+     "text": "Škola příběhem - církevní základní škola"
+    },
+    {
+     "id": "651034221",
+     "text": "Soukromá základní škola Cesta k úspěchu v Praze, s.r.o."
+    },
+    {
+     "id": "691009287",
+     "text": "Soukromá základní škola Dobré nálady, školská právnická osoba"
+    },
+    {
+     "id": "600020835",
+     "text": "Soukromá základní škola Integrál pro žáky se specifickými poruchami učení, s.r.o."
+    },
+    {
+     "id": "600001504",
+     "text": "Soukromá základní škola Lesná s.r.o."
+    },
+    {
+     "id": "650069595",
+     "text": "Soukromá základní škola sRVJ - DINO ELEMENTARY SCHOOL,s.r.o."
+    },
+    {
+     "id": "600001172",
+     "text": "Soukromá základní škola UNIVERZUM s.r.o."
+    },
+    {
+     "id": "600024822",
+     "text": "Speciální základní škola Králíky"
+    },
+    {
+     "id": "691014795",
+     "text": "Sportovní základní škola KOMETKA, s.r.o."
+    },
+    {
+     "id": "600108368",
+     "text": "Tyršova základní škola, Brno, Kuldova 38"
+    },
+    {
+     "id": "691006806",
+     "text": "VĚDA základní škola a jazyková škola s právem státní jazykové zkoušky s.r.o."
+    },
+    {
+     "id": "600001091",
+     "text": "Veselá škola - církevní základní škola a základní umělecká škola"
+    },
+    {
+     "id": "691013624",
+     "text": "Základní škola \"Poznávání\" s.r.o."
+    },
+    {
+     "id": "600148513",
+     "text": "Základní škola a Dům dětí a mládeže Krasohled Zábřeh, Severovýchod 484/26, okres Šumperk"
+    },
+    {
+     "id": "691012237",
+     "text": "Základní škola a gymnázium Square s.r.o."
+    },
+    {
+     "id": "691005958",
+     "text": "Základní škola a mateřská škola Didaktis s.r.o."
+    },
+    {
+     "id": "600067661",
+     "text": "Základní škola a Základní umělecká škola Karlovy Vary, Šmeralova 336/15, příspěvková organizace"
+    },
+    {
+     "id": "600067238",
+     "text": "Základní škola a základní umělecká škola Žlutice, příspěvková organizace"
+    },
+    {
+     "id": "691015805",
+     "text": "Střední škola a základní škola Arktur"
+    },
+    {
+     "id": "600066347",
+     "text": "Základní škola Aš, Hlávkova 26, okres Cheb"
+    },
+    {
+     "id": "600066339",
+     "text": "Základní škola Aš, Kamenná 152, okres Cheb"
+    },
+    {
+     "id": "691009341",
+     "text": "Základní škola AVIDA s.r.o."
+    },
+    {
+     "id": "691011966",
+     "text": "Základní škola Be Open s.r.o."
+    },
+    {
+     "id": "600111024",
+     "text": "Základní škola Bílovice nad Svitavou, okres Brno-venkov, příspěvková organizace"
+    },
+    {
+     "id": "600106381",
+     "text": "Základní škola Blansko, Erbenova 13"
+    },
+    {
+     "id": "600024831",
+     "text": "Základní škola Blansko, Nad Čertovkou, příspěvková organizace"
+    },
+    {
+     "id": "600067530",
+     "text": "Základní škola Bochov, okres Karlovy Vary"
+    },
+    {
+     "id": "600104605",
+     "text": "Základní škola Bohousová, okres Ústí nad Orlicí"
+    },
+    {
+     "id": "600039897",
+     "text": "Základní škola Bohumila Hrabala, Praha 8, Zenklova 52"
+    },
+    {
+     "id": "600147975",
+     "text": "Základní škola Bohutín, okres Šumperk, příspěvková organizace"
+    },
+    {
+     "id": "600106195",
+     "text": "Základní škola Boskovice, příspěvková organizace"
+    },
+    {
+     "id": "600035255",
+     "text": "Základní škola Brána jazyků s rozšířenou výukou matematiky"
+    },
+    {
+     "id": "600112306",
+     "text": "Základní škola Břeclav, Komenského 2, příspěvková organizace"
+    },
+    {
+     "id": "600112284",
+     "text": "Základní škola Břeclav, Na Valtické 31A, příspěvková organizace"
+    },
+    {
+     "id": "600112276",
+     "text": "Základní škola Břeclav, Slovácká 40, příspěvková organizace"
+    },
+    {
+     "id": "600096599",
+     "text": "Základní škola Břehy, okres Pardubice"
+    },
+    {
+     "id": "600112322",
+     "text": "Základní škola Březí, okres Břeclav, příspěvková organizace"
+    },
+    {
+     "id": "600100642",
+     "text": "Základní škola Březová nad Svitavou, okres Svitavy"
+    },
+    {
+     "id": "600073157",
+     "text": "Základní škola Březová, okres Sokolov"
+    },
+    {
+     "id": "650052366",
+     "text": "Základní škola Brněnec, Moravská Chrastová 100, okres Svitavy"
+    },
+    {
+     "id": "600108104",
+     "text": "Základní škola Brno, Arménská 21, příspěvková organizace"
+    },
+    {
+     "id": "600108023",
+     "text": "Základní škola Brno, Bakalovo nábřeží 8, příspěvková organizace"
+    },
+    {
+     "id": "600108538",
+     "text": "Základní škola Brno, Bednářova 28, příspěvková organizace"
+    },
+    {
+     "id": "618201254",
+     "text": "Základní škola Brno, Čejkovická 10, příspěvková organizace"
+    },
+    {
+     "id": "600108449",
+     "text": "Základní škola Brno, Hamry 12, příspěvková organizace"
+    },
+    {
+     "id": "600108066",
+     "text": "Základní škola Brno, Heyrovského 32, příspěvková organizace"
+    },
+    {
+     "id": "600108279",
+     "text": "Základní škola Brno, Horácké náměstí 13, příspěvková organizace"
+    },
+    {
+     "id": "600108252",
+     "text": "Základní škola Brno, Hroznová 1, příspěvková organizace"
+    },
+    {
+     "id": "600108597",
+     "text": "Základní škola Brno, Hudcova 35, příspěvková organizace"
+    },
+    {
+     "id": "600107981",
+     "text": "Základní škola Brno, Jana Babáka 1, příspěvková organizace"
+    },
+    {
+     "id": "600108589",
+     "text": "Základní škola Brno, Janouškova 2, příspěvková organizace"
+    },
+    {
+     "id": "600108295",
+     "text": "Základní škola Brno, Laštůvkova 77, příspěvková organizace"
+    },
+    {
+     "id": "600108635",
+     "text": "Základní škola Brno, Měšťanská 21, příspěvková organizace"
+    },
+    {
+     "id": "600107965",
+     "text": "Základní škola Brno, nám. Míru 3, příspěvková organizace"
+    },
+    {
+     "id": "600108198",
+     "text": "Základní škola Brno, Novoměstská 21, příspěvková organizace"
+    },
+    {
+     "id": "600108465",
+     "text": "Základní škola Brno, Otevřená 20a, příspěvková organizace"
+    },
+    {
+     "id": "600025004",
+     "text": "Základní škola Brno, Palackého třída, příspěvková organizace"
+    },
+    {
+     "id": "600108210",
+     "text": "Základní škola Brno, Pavlovská 16, příspěvková organizace"
+    },
+    {
+     "id": "600025098",
+     "text": "Základní škola Brno, Sekaninova, příspěvková organizace"
+    },
+    {
+     "id": "600108490",
+     "text": "Základní škola Brno, Sirotkova 36, příspěvková organizace"
+    },
+    {
+     "id": "600108015",
+     "text": "Základní škola Brno, Svážná 9, příspěvková organizace"
+    },
+    {
+     "id": "600108562",
+     "text": "Základní škola Brno, Tuháčkova 25, příspěvková organizace"
+    },
+    {
+     "id": "600108031",
+     "text": "Základní škola Brno, Úvoz 55, příspěvková organizace"
+    },
+    {
+     "id": "600108058",
+     "text": "Základní škola Brno, Vejrostova 1, příspěvková organizace"
+    },
+    {
+     "id": "600108511",
+     "text": "Základní škola Brno, Zeiberlichova 49, příspěvková organizace"
+    },
+    {
+     "id": "600146782",
+     "text": "Základní škola Brodek u Přerova, okres Přerov"
+    },
+    {
+     "id": "600120457",
+     "text": "Základní škola Brodek u Prostějova, příspěvková organizace"
+    },
+    {
+     "id": "600105938",
+     "text": "Základní škola Brumov"
+    },
+    {
+     "id": "600125823",
+     "text": "Základní škola Bučovice 710, příspěvková organizace"
+    },
+    {
+     "id": "600125815",
+     "text": "Základní škola Bučovice 711, příspěvková organizace"
+    },
+    {
+     "id": "600072932",
+     "text": "Základní škola Bukovany, okres Sokolov"
+    },
+    {
+     "id": "600105946",
+     "text": "Základní škola Bukovina,okres Blansko,příspěvková organizace"
+    },
+    {
+     "id": "600100511",
+     "text": "Základní škola Bystré, okres Svitavy"
+    },
+    {
+     "id": "600037452",
+     "text": "Základní škola Campanus, Praha 4, Jírovcovo náměstí 1782"
+    },
+    {
+     "id": "600110702",
+     "text": "Základní škola Čebín, okres Brno-venkov, příspěvková organizace"
+    },
+    {
+     "id": "600100774",
+     "text": "Základní škola Cerekvice nad Loučnou, okres Svitavy"
+    },
+    {
+     "id": "600106209",
+     "text": "Základní škola Černá Hora, příspěvková organizace"
+    },
+    {
+     "id": "600105954",
+     "text": "Základní škola Černovice, okres Blansko"
+    },
+    {
+     "id": "600104141",
+     "text": "Základní škola Česká Třebová, Habrmanova ulice"
+    },
+    {
+     "id": "600104150",
+     "text": "Základní škola Česká Třebová, Nádražní ulice"
+    },
+    {
+     "id": "600104249",
+     "text": "Základní škola Česká Třebová, Ústecká ulice"
+    },
+    {
+     "id": "600150607",
+     "text": "Základní škola Česká Ves, okres Jeseník"
+    },
+    {
+     "id": "691002371",
+     "text": "Základní škola České Heřmanice"
+    },
+    {
+     "id": "600038432",
+     "text": "Základní škola Charlotty Masarykové Praha 5 - Velká Chuchle"
+    },
+    {
+     "id": "600066622",
+     "text": "Základní škola Cheb, Kostelní náměstí 14, příspěvková organizace"
+    },
+    {
+     "id": "600036171",
+     "text": "Základní škola Chmelnice, Praha 3, K Lučinám 18/2500"
+    },
+    {
+     "id": "600073246",
+     "text": "3. základní škola Chodov, okres Sokolov, příspěvková organizace"
+    },
+    {
+     "id": "600072983",
+     "text": "Základní škola Chodov, Školní 697, okres Sokolov, příspěvková organizace"
+    },
+    {
+     "id": "600096246",
+     "text": "Základní škola Choltice, okres Pardubice"
+    },
+    {
+     "id": "600096301",
+     "text": "Základní škola Chvaletice, okres Pardubice"
+    },
+    {
+     "id": "691006512",
+     "text": "Základní škola COMPASS s.r.o."
+    },
+    {
+     "id": "600096084",
+     "text": "Základní škola Dašice, okres Pardubice"
+    },
+    {
+     "id": "600039196",
+     "text": "Základní škola Dědina, Praha 6, Žukovského 6"
+    },
+    {
+     "id": "691013101",
+     "text": "Základní škola DiviZna, z.ú."
+    },
+    {
+     "id": "600104770",
+     "text": "Základní škola Dolní Dobrouč, okres Ústí nad Orlicí"
+    },
+    {
+     "id": "600041336",
+     "text": "Základní škola Dolní Měcholupy, příspěvková organizace"
+    },
+    {
+     "id": "600112349",
+     "text": "Základní škola Dolní Věstonice, příspěvková organizace"
+    },
+    {
+     "id": "600140491",
+     "text": "Základní škola Doloplazy,okres Olomouc,příspěvková organizace"
+    },
+    {
+     "id": "600106446",
+     "text": "Základní škola Doubravice nad Svitavou, příspěvková organizace"
+    },
+    {
+     "id": "600140784",
+     "text": "Základní škola Dr. Hrubého 2, Šternberk, příspěvková organizace"
+    },
+    {
+     "id": "600146847",
+     "text": "Základní škola Dřevohostice, okres Přerov, příspěvková organizace"
+    },
+    {
+     "id": "600125831",
+     "text": "Základní škola Drnovice, okres Vyškov"
+    },
+    {
+     "id": "618600663",
+     "text": "Základní škola Dubňany, příspěvková organizace"
+    },
+    {
+     "id": "600001130",
+     "text": "Základní škola Duhovka, s.r.o."
+    },
+    {
+     "id": "600067441",
+     "text": "Základní škola Dukelských hrdinů Karlovy Vary, Moskevská 25, příspěvková organizace"
+    },
+    {
+     "id": "600041158",
+     "text": "Základní škola Eden, Praha 10, Vladivostocká 1035/6, příspěvková organizace"
+    },
+    {
+     "id": "600096149",
+     "text": "Základní škola Eduarda Nápravníka Býšť, okres Pardubice"
+    },
+    {
+     "id": "600106284",
+     "text": "Základní škola Edvarda Beneše Lysice"
+    },
+    {
+     "id": "691008698",
+     "text": "Základní škola Five Star Montessori, s.r.o."
+    },
+    {
+     "id": "691016054",
+     "text": "Základní škola FLOW s.r.o."
+    },
+    {
+     "id": "691011745",
+     "text": "Základní škola Formanská, příspěvková organizace"
+    },
+    {
+     "id": "600039404",
+     "text": "Základní škola Fr. Plamínkové s rozšířenou výukou jazyků Praha 7, Františka Křížka 2"
+    },
+    {
+     "id": "600066371",
+     "text": "Základní škola Františkovy Lázně, Česká 39/1"
+    },
+    {
+     "id": "600040453",
+     "text": "Základní škola Fryčovická"
+    },
+    {
+     "id": "600040623",
+     "text": "Základní škola generála Františka Fajtla DFC"
+    },
+    {
+     "id": "600040577",
+     "text": "Základní škola Generála Janouška, Praha 9 - Černý Most, Dygrýnova 1006/21"
+    },
+    {
+     "id": "600039021",
+     "text": "Základní škola genpor. Františka Peřiny, Praha 6 - Řepy, Socháňova 19/1139"
+    },
+    {
+     "id": "600072959",
+     "text": "Základní škola Habartov, Karla Čapka 119, okres Sokolov"
+    },
+    {
+     "id": "600090418",
+     "text": "Základní škola Heřmanův Městec, okres Chrudim"
+    },
+    {
+     "id": "600090442",
+     "text": "Základní škola Hlinsko, Ležáků 1449, okres Chrudim"
+    },
+    {
+     "id": "600140709",
+     "text": "Základní škola Hlubočky, okres Olomouc, příspěvková organizace"
+    },
+    {
+     "id": "600115895",
+     "text": "Základní škola Hodonín, Mírové náměstí 19, příspěvková organizace"
+    },
+    {
+     "id": "600115623",
+     "text": "Základní škola Hodonín, Očovská 1, příspěvková organizace"
+    },
+    {
+     "id": "600115640",
+     "text": "Základní škola Hodonín, U Červených domků 40, příspěvková organizace"
+    },
+    {
+     "id": "600115631",
+     "text": "Základní škola Hodonín, Vančurova 2, příspěvková organizace"
+    },
+    {
+     "id": "600096513",
+     "text": "Základní škola Holice, Holubova 47, okres Pardubice"
+    },
+    {
+     "id": "600096611",
+     "text": "Základní škola Holice, Komenského 100, okres Pardubice"
+    },
+    {
+     "id": "600096262",
+     "text": "Základní škola Horní Jelení, příspěvková organizace"
+    },
+    {
+     "id": "600072967",
+     "text": "Základní škola Horní Slavkov, Nádražní 683, příspěvková organizace"
+    },
+    {
+     "id": "600072975",
+     "text": "Základní škola Horní Slavkov, Školní 786, příspěvková organizace"
+    },
+    {
+     "id": "600066398",
+     "text": "Základní škola Hranice, okres Cheb"
+    },
+    {
+     "id": "600146448",
+     "text": "Základní škola Hranice, Tř. 1. máje, příspěvková organizace"
+    },
+    {
+     "id": "600067394",
+     "text": "Základní škola Hroznětín, okres Karlovy Vary, příspěvková organizace"
+    },
+    {
+     "id": "600120180",
+     "text": "Základní škola Hrubčice, příspěvková organizace"
+    },
+    {
+     "id": "600146456",
+     "text": "Základní škola Hustopeče nad Bečvou, okres Přerov"
+    },
+    {
+     "id": "600112373",
+     "text": "Základní škola Hustopeče, Komenského 163/2, okres Břeclav, příspěvková organizace"
+    },
+    {
+     "id": "600112381",
+     "text": "Základní škola Hustopeče, Nádražní 4, okres Břeclav, příspěvková organizace"
+    },
+    {
+     "id": "600125840",
+     "text": "Základní škola Ivanovice na Hané, okres Vyškov"
+    },
+    {
+     "id": "600073131",
+     "text": "Základní škola J. A. Komenského Chodov, Smetanova 738, okres Sokolov, příspěvková organizace"
+    },
+    {
+     "id": "600115500",
+     "text": "Základní škola J.A.Komenského, příspěvková organizace města Kyjova"
+    },
+    {
+     "id": "600035271",
+     "text": "Základní škola J. Gutha-Jarkovského"
+    },
+    {
+     "id": "600104206",
+     "text": "Základní škola Jablonné nad Orlicí"
+    },
+    {
+     "id": "600067416",
+     "text": "Základní škola Jana Amose Komenského, Karlovy Vary, Kollárova 19, příspěvková organizace"
+    },
+    {
+     "id": "600112225",
+     "text": "Základní škola Jana Noháče, Břeclav, Školní 16, příspěvková organizace"
+    },
+    {
+     "id": "600039234",
+     "text": "Základní škola Jana Wericha, Praha 6 - Řepy, Španielova 19/1111"
+    },
+    {
+     "id": "600100332",
+     "text": "Základní škola, Janov, okres Svitavy"
+    },
+    {
+     "id": "600039005",
+     "text": "Základní škola Járy Cimrmana Lysolaje, příspěvková organizace"
+    },
+    {
+     "id": "600150585",
+     "text": "Základní škola Javorník, okres Jeseník"
+    },
+    {
+     "id": "600067211",
+     "text": "Základní škola jazyků Karlovy Vary, příspěvková organizace"
+    },
+    {
+     "id": "600106217",
+     "text": "Základní škola Jedovnice, příspěvková organizace"
+    },
+    {
+     "id": "600150518",
+     "text": "Základní škola Jeseník, příspěvková organizace"
+    },
+    {
+     "id": "600100545",
+     "text": "Základní škola Jevíčko"
+    },
+    {
+     "id": "600066428",
+     "text": "Základní škola JIH, Mariánské Lázně, Komenského 459, příspěvková organizace"
+    },
+    {
+     "id": "600104842",
+     "text": "Základní škola Jindřicha Pravečka, Výprachtice, okres Ústí nad Orlicí"
+    },
+    {
+     "id": "600041093",
+     "text": "Základní škola Karla Čapka, Praha 10, Kodaňská 658/16, příspěvková organizace"
+    },
+    {
+     "id": "600148301",
+     "text": "Základní škola Karla staršího ze Žerotína Bludov"
+    },
+    {
+     "id": "600067424",
+     "text": "Základní škola Karlovy Vary, 1. máje 1, příspěvková organizace"
+    },
+    {
+     "id": "600067301",
+     "text": "Základní škola Karlovy Vary, Konečná 25, příspěvková organizace"
+    },
+    {
+     "id": "600067602",
+     "text": "Základní škola Karlovy Vary, Krušnohorská 11, příspěvková organizace"
+    },
+    {
+     "id": "600067432",
+     "text": "Základní škola Karlovy Vary, Poštovní 19, příspěvková organizace"
+    },
+    {
+     "id": "600067599",
+     "text": "Základní škola Karlovy Vary, Truhlářská 19, příspěvková organizace"
+    },
+    {
+     "id": "600120481",
+     "text": "Základní škola Klenovice na Hané, okres Prostějov, příspěvková organizace"
+    },
+    {
+     "id": "600001121",
+     "text": "Základní škola Klíček"
+    },
+    {
+     "id": "600112390",
+     "text": "Základní škola Klobouky u Brna, příspěvková organizace"
+    },
+    {
+     "id": "600112659",
+     "text": "Základní škola Kobylí, okres Břeclav, příspěvková organizace"
+    },
+    {
+     "id": "600146910",
+     "text": "Základní škola Kojetín, náměstí Míru 83, okres Přerov"
+    },
+    {
+     "id": "600146855",
+     "text": "Základní škola Kojetín, Svatopluka Čecha 586, okres Přerov"
+    },
+    {
+     "id": "600067220",
+     "text": "Základní škola Kolová, okres Karlovy Vary, příspěvková organizace"
+    },
+    {
+     "id": "600125882",
+     "text": "Základní škola Komenského Slavkov u Brna, příspěvková organizace"
+    },
+    {
+     "id": "600125599",
+     "text": "Základní škola Komořany, okres Vyškov, příspěvková organizace"
+    },
+    {
+     "id": "600120295",
+     "text": "Základní škola Kralice na Hané, příspěvková organizace"
+    },
+    {
+     "id": "600104257",
+     "text": "Základní škola Králíky"
+    },
+    {
+     "id": "600073106",
+     "text": "Základní škola Královské Poříčí, okres Sokolov"
+    },
+    {
+     "id": "600073025",
+     "text": "Základní škola Kraslice, Dukelská 1122, příspěvková organizace"
+    },
+    {
+     "id": "600073289",
+     "text": "Základní škola Kraslice, Opletalova 1121, příspěvková organizace"
+    },
+    {
+     "id": "600037461",
+     "text": "Základní škola Kunratice, Praha 4, Předškolní 420"
+    },
+    {
+     "id": "600110494",
+     "text": "Základní škola Kuřim, Tyršova 1255, okres Brno - venkov, příspěvková organizace"
+    },
+    {
+     "id": "600115925",
+     "text": "Základní škola Kuželov, okres Hodonín, příspěvková organizace"
+    },
+    {
+     "id": "600073033",
+     "text": "Základní škola Kynšperk nad Ohří, okres Sokolov, příspěvková organizace"
+    },
+    {
+     "id": "600104648",
+     "text": "Základní škola Lanškroun, Bedřicha Smetany 460, okr. Ústí nad Orlicí"
+    },
+    {
+     "id": "600104168",
+     "text": "Základní škola Lanškroun, Dobrovského 630, okr. Ústí nad Orlicí"
+    },
+    {
+     "id": "600024733",
+     "text": "Základní škola Lanškroun, nám. A. Jiráska 140"
+    },
+    {
+     "id": "600104737",
+     "text": "Základní škola Lanškroun, náměstí Aloise Jiráska 139, okr. Ústí nad Orlicí"
+    },
+    {
+     "id": "600112411",
+     "text": "Základní škola Lednice, okres Břeclav"
+    },
+    {
+     "id": "600104222",
+     "text": "Základní škola Letohrad, Komenského 269"
+    },
+    {
+     "id": "600104192",
+     "text": "Základní škola Letohrad, U Dvora 745"
+    },
+    {
+     "id": "600105911",
+     "text": "Základní škola Letovice, příspěvková organizace"
+    },
+    {
+     "id": "600148327",
+     "text": "Základní škola Libina, příspěvková organizace"
+    },
+    {
+     "id": "600146871",
+     "text": "Základní škola Lipník nad Bečvou, ulice Osecká 315, okres Přerov, příspěvková organizace"
+    },
+    {
+     "id": "600106268",
+     "text": "Základní škola Lipůvka, příspěvková organizace"
+    },
+    {
+     "id": "600100791",
+     "text": "Základní škola Litomyšl, T. G. Masaryka 1145, okres Svitavy"
+    },
+    {
+     "id": "600100782",
+     "text": "Základní škola Litomyšl, U Školek 1117, okres Svitavy"
+    },
+    {
+     "id": "600100804",
+     "text": "Základní škola Litomyšl, Zámecká 496, okres Svitavy"
+    },
+    {
+     "id": "600140971",
+     "text": "Základní škola Litovel, Jungmannova 655, okres Olomouc"
+    },
+    {
+     "id": "600140091",
+     "text": "Základní škola Litovel, Vítězná 1250, okres Olomouc"
+    },
+    {
+     "id": "600040534",
+     "text": "Základní škola Litvínovská 500"
+    },
+    {
+     "id": "600040542",
+     "text": "Základní škola Litvínovská 600"
+    },
+    {
+     "id": "691007039",
+     "text": "Základní škola a gymnázium Livingston s.r.o."
+    },
+    {
+     "id": "600073041",
+     "text": "Základní škola Loket, okres Sokolov"
+    },
+    {
+     "id": "600073050",
+     "text": "Základní škola Lomnice, okres Sokolov"
+    },
+    {
+     "id": "600021246",
+     "text": "Základní škola LOPES Čimice, Praha 8, Libčická 399"
+    },
+    {
+     "id": "600148335",
+     "text": "Základní škola Loštice, okres Šumperk, příspěvková organizace"
+    },
+    {
+     "id": "600127591",
+     "text": "Základní škola Lubnice, okres Znojmo, příspěvková organizace"
+    },
+    {
+     "id": "600066410",
+     "text": "Základní škola Luby, okres Cheb, příspěvková organizace"
+    },
+    {
+     "id": "600021009",
+     "text": "Základní škola Lužiny, Praha 5, Trávníčkova 1743"
+    },
+    {
+     "id": "600104176",
+     "text": "Základní škola M. Choceňského, Choceň"
+    },
+    {
+     "id": "600116026",
+     "text": "Základní škola M. Kudeříkové, Strážnice, Příční 1365, příspěvková organizace"
+    },
+    {
+     "id": "600039218",
+     "text": "Základní škola Marjánka, Praha 6, Bělohorská 52"
+    },
+    {
+     "id": "600039854",
+     "text": "Základní škola Mazurská, Praha 8, Svídnická 1a"
+    },
+    {
+     "id": "600111067",
+     "text": "Základní škola Měnín, okres Brno - venkov, příspěvková organizace"
+    },
+    {
+     "id": "600067548",
+     "text": "Základní škola Merklín, okres Karlovy Vary"
+    },
+    {
+     "id": "600037134",
+     "text": "Základní škola Meteorologická"
+    },
+    {
+     "id": "600039030",
+     "text": "Základní škola Mikoláše Alše, Praha - Suchdol, Suchdolská 360"
+    },
+    {
+     "id": "600112667",
+     "text": "Základní škola Mikulov, Hraničářů 617 E, příspěvková organizace"
+    },
+    {
+     "id": "600025284",
+     "text": "Základní škola Mikulov, Školní, příspěvková organizace"
+    },
+    {
+     "id": "600112420",
+     "text": "Základní škola Mikulov, Valtická 3, příspěvková organizace"
+    },
+    {
+     "id": "600150623",
+     "text": "Základní škola Mikulovice, okres Jeseník"
+    },
+    {
+     "id": "600140113",
+     "text": "Základní škola Milady Petřkové Velký Týnec"
+    },
+    {
+     "id": "600111075",
+     "text": "Základní škola Modřice, okres Brno - venkov, příspěvková organizace"
+    },
+    {
+     "id": "600148343",
+     "text": "Základní škola Mohelnice, Mlýnská 1"
+    },
+    {
+     "id": "600147916",
+     "text": "Základní škola Mohelnice, Vodní 27"
+    },
+    {
+     "id": "600111083",
+     "text": "Základní škola Mokrá-Horákov, příspěvková organizace"
+    },
+    {
+     "id": "691014868",
+     "text": "Základní škola Montessori Pardubice, příspěvková organizace"
+    },
+    {
+     "id": "600110974",
+     "text": "Základní škola Moravany, okres Brno - venkov, příspěvková organizace"
+    },
+    {
+     "id": "600096114",
+     "text": "Základní škola Moravany, okres Pardubice"
+    },
+    {
+     "id": "600100570",
+     "text": "Základní škola Moravská Třebová, Palackého 1351, okres Svitavy"
+    },
+    {
+     "id": "600131955",
+     "text": "Základní škola Moravský Beroun, okres Olomouc, příspěvková organizace"
+    },
+    {
+     "id": "600100596",
+     "text": "Základní škola Na Lukách Polička"
+    },
+    {
+     "id": "691008370",
+     "text": "Základní škola Na Pohodu"
+    },
+    {
+     "id": "600035247",
+     "text": "Základní škola nám. Curieových"
+    },
+    {
+     "id": "600140792",
+     "text": "Základní škola náměstí Svobody 3, Šternberk, příspěvková organizace"
+    },
+    {
+     "id": "600067467",
+     "text": "Základní škola Nejdek, Karlovarská, příspěvková organizace"
+    },
+    {
+     "id": "600067629",
+     "text": "Základní škola Nejdek, náměstí Karla IV., příspěvková organizace"
+    },
+    {
+     "id": "600120503",
+     "text": "Základní škola Němčice nad Hanou, příspěvková organizace"
+    },
+    {
+     "id": "610380109",
+     "text": "Základní škola německo-českého porozumění Thomase Manna, o.p.s."
+    },
+    {
+     "id": "600039137",
+     "text": "Základní škola Norbertov, Praha 6, Norbertov 1"
+    },
+    {
+     "id": "600067475",
+     "text": "Základní škola Nová Role, příspěvková organizace"
+    },
+    {
+     "id": "600073068",
+     "text": "Základní škola Nové Sedlo, okres Sokolov, příspěvková organizace"
+    },
+    {
+     "id": "600040526",
+     "text": "Základní škola Novoborská"
+    },
+    {
+     "id": "600112179",
+     "text": "Základní škola Novosedly, okres Břeclav, příspěvková organizace"
+    },
+    {
+     "id": "600100855",
+     "text": "Základní škola Oldřiš, okres Svitavy"
+    },
+    {
+     "id": "600140946",
+     "text": "Základní škola Olomouc, Gagarinova 19, příspěvková organizace"
+    },
+    {
+     "id": "600140121",
+     "text": "Základní škola Olomouc, Heyrovského 33, příspěvková organizace"
+    },
+    {
+     "id": "600140211",
+     "text": "Základní škola Olomouc, Mozartova 48, příspěvková organizace"
+    },
+    {
+     "id": "600140148",
+     "text": "Základní škola Olomouc, Stupkova 16, příspěvková organizace"
+    },
+    {
+     "id": "600140156",
+     "text": "Základní škola  Olomouc, tř. Spojenců 8, příspěvková organizace"
+    },
+    {
+     "id": "600140130",
+     "text": "Základní škola Olomouc, Zeyerova 28, příspěvková organizace"
+    },
+    {
+     "id": "600096271",
+     "text": "Základní škola Opatovice nad Labem, okres Pardubice"
+    },
+    {
+     "id": "691010331",
+     "text": "Základní škola Orangery s.r.o."
+    },
+    {
+     "id": "600100383",
+     "text": "Základní škola Osík, okres Svitavy"
+    },
+    {
+     "id": "600111105",
+     "text": "Základní škola Oslavany, okres Brno-venkov"
+    },
+    {
+     "id": "600067289",
+     "text": "Základní škola Ostrov, Májová 997, příspěvková organizace"
+    },
+    {
+     "id": "600067262",
+     "text": "Základní škola Ostrov, Masarykova 1289, příspěvková organizace"
+    },
+    {
+     "id": "600022846",
+     "text": "Základní škola Ostrov, příspěvková organizace"
+    },
+    {
+     "id": "600096319",
+     "text": "Základní škola Pardubice, Benešovo náměstí 590"
+    },
+    {
+     "id": "600096386",
+     "text": "Základní škola Pardubice, Bratranců Veverkových 866"
+    },
+    {
+     "id": "600096106",
+     "text": "Základní škola Pardubice, Josefa Ressla 2258"
+    },
+    {
+     "id": "600096564",
+     "text": "Základní škola Pardubice, nábřeží Závodu míru 1951"
+    },
+    {
+     "id": "600096581",
+     "text": "Základní škola Pardubice, Staňkova 128"
+    },
+    {
+     "id": "600096556",
+     "text": "Základní škola Pardubice, Štefánikova 448"
+    },
+    {
+     "id": "600096157",
+     "text": "Základní škola Pardubice-Dubina, Erno Košťála 870"
+    },
+    {
+     "id": "600096181",
+     "text": "Základní škola Pardubice-Ohrazenice, Trnovská 159"
+    },
+    {
+     "id": "600096211",
+     "text": "Základní škola Pardubice-Polabiny, Družstevní 305"
+    },
+    {
+     "id": "600096327",
+     "text": "Základní škola Pardubice-Polabiny, npor. Eliáše 344"
+    },
+    {
+     "id": "600096548",
+     "text": "Základní škola Pardubice-Polabiny, Prodloužená 283"
+    },
+    {
+     "id": "600096092",
+     "text": "Základní škola Pardubice-Spořilov, Kotkova 1287"
+    },
+    {
+     "id": "600096203",
+     "text": "Základní škola Pardubice-Studánka, Pod Zahradami 317"
+    },
+    {
+     "id": "600096165",
+     "text": "Základní škola Pardubice-Svítkov, Školní 748"
+    },
+    {
+     "id": "600039081",
+     "text": "Základní škola Petřiny - sever, Praha 6, Na Okraji 43"
+    },
+    {
+     "id": "600037258",
+     "text": "Základní škola Písnice"
+    },
+    {
+     "id": "600037436",
+     "text": "Základní škola Písnická v Praze 12"
+    },
+    {
+     "id": "600120538",
+     "text": "Základní škola Plumlov, okres Prostějov, příspěvková organizace"
+    },
+    {
+     "id": "600112462",
+     "text": "Základní škola Podivín, příspěvková organizace"
+    },
+    {
+     "id": "600100600",
+     "text": "Základní škola Pomezí, okres Svitavy"
+    },
+    {
+     "id": "600110621",
+     "text": "Základní škola Popůvky, příspěvková organizace, Brno-venkov"
+    },
+    {
+     "id": "600148378",
+     "text": "Základní škola Postřelmov, okres Šumperk, příspěvková organizace"
+    },
+    {
+     "id": "600112195",
+     "text": "Základní škola Pouzdřany, okres Břeclav, příspěvková organizace"
+    },
+    {
+     "id": "600040470",
+     "text": "Základní škola Praha - Běchovice"
+    },
+    {
+     "id": "600039846",
+     "text": "Základní škola Praha - Dolní Chabry, příspěvková organizace"
+    },
+    {
+     "id": "600040445",
+     "text": "Základní škola Praha - Kbely"
+    },
+    {
+     "id": "600041344",
+     "text": "Základní škola Praha-Kolovraty"
+    },
+    {
+     "id": "600041221",
+     "text": "Základní škola Praha-Petrovice, příspěvková organizace"
+    },
+    {
+     "id": "600038203",
+     "text": "Základní škola Praha - Radotín"
+    },
+    {
+     "id": "691013063",
+     "text": "Základní škola Praha 5 - Hlubočepy, Pod Žvahovem 463, příspěvková organizace"
+    },
+    {
+     "id": "600038441",
+     "text": "Základní škola Praha 5 - Košíře, Nepomucká 1/139, příspěvková organizace"
+    },
+    {
+     "id": "600038254",
+     "text": "Základní škola Praha 5 - Řeporyje"
+    },
+    {
+     "id": "600038343",
+     "text": "Základní škola Praha 5 - Smíchov, Podbělohorská 26/720, příspěvková organizace"
+    },
+    {
+     "id": "600039382",
+     "text": "Základní škola Praha 7, Korunovační 8"
+    },
+    {
+     "id": "600039391",
+     "text": "Základní škola Praha 7, Strossmayerovo náměstí 4"
+    },
+    {
+     "id": "600038335",
+     "text": "Základní škola Praha-Lipence, příspěvková organizace"
+    },
+    {
+     "id": "691008094",
+     "text": "Základní škola Prameny"
+    },
+    {
+     "id": "600036227",
+     "text": "Základní škola Pražačka, Praha 3, Nad Ohradou 25/1700"
+    },
+    {
+     "id": "600096131",
+     "text": "Základní škola Přelouč, Masarykovo náměstí 45, okres Pardubice"
+    },
+    {
+     "id": "600096068",
+     "text": "Základní škola Přelouč, Smetanova 1509, okres Pardubice"
+    },
+    {
+     "id": "600146880",
+     "text": "Základní škola Přerov, Boženy Němcové 16"
+    },
+    {
+     "id": "600146391",
+     "text": "Základní škola Přerov, Svisle 13"
+    },
+    {
+     "id": "600146774",
+     "text": "Základní škola Přerov, Trávník 27"
+    },
+    {
+     "id": "600146421",
+     "text": "Základní škola Přerov, U tenisu 4"
+    },
+    {
+     "id": "600146405",
+     "text": "Základní škola Přerov, Velká Dlážka 5"
+    },
+    {
+     "id": "600146839",
+     "text": "Základní škola Přerov, Za mlýnem 1"
+    },
+    {
+     "id": "600146677",
+     "text": "Základní škola Přerov, Želatovská 8"
+    },
+    {
+     "id": "600020801",
+     "text": "Základní škola pro žáky s poruchami zraku, Praha 2, nám. Míru 19"
+    },
+    {
+     "id": "600021076",
+     "text": "Základní škola pro žáky se specifickými poruchami chování"
+    },
+    {
+     "id": "600021114",
+     "text": "Základní škola pro žáky se specifickými poruchami učení, Praha 6 - Řepy, U Boroviček 3"
+    },
+    {
+     "id": "600037517",
+     "text": "Základní škola profesora Švejcara v Praze 12"
+    },
+    {
+     "id": "600120406",
+     "text": "Základní škola Prostějov, ul. Dr. Horáka 24"
+    },
+    {
+     "id": "600120392",
+     "text": "Základní škola Prostějov, ul. E. Valenty 52"
+    },
+    {
+     "id": "600120252",
+     "text": "Základní škola Prostějov, ul. Vl. Majakovského 1"
+    },
+    {
+     "id": "600120546",
+     "text": "Základní škola Protivanov, příspěvková organizace"
+    },
+    {
+     "id": "600110907",
+     "text": "Základní škola Rajhradice, okres Brno-venkov, příspěvková organizace"
+    },
+    {
+     "id": "600037525",
+     "text": "Základní škola Rakovského v Praze 12"
+    },
+    {
+     "id": "600110982",
+     "text": "Základní škola Říčany"
+    },
+    {
+     "id": "600096122",
+     "text": "Základní škola Rohovládova Bělá, okres Pardubice"
+    },
+    {
+     "id": "600090574",
+     "text": "Základní škola Ronov nad Doubravou, okres Chrudim"
+    },
+    {
+     "id": "600111130",
+     "text": "Základní škola Rosice,příspěvková organizace"
+    },
+    {
+     "id": "600125696",
+     "text": "Základní škola Rostěnice-Zvonovice, okres Vyškov, příspěvková organizace"
+    },
+    {
+     "id": "600125874",
+     "text": "Základní škola Rousínov, okres Vyškov"
+    },
+    {
+     "id": "600148386",
+     "text": "Základní škola Ruda nad Moravou, okres Šumperk"
+    },
+    {
+     "id": "600035638",
+     "text": "Základní škola s rozšířenou výukou jazyků, Fakultní škola Pedagogické fakulty UK, Praha 2, Kladská 1"
+    },
+    {
+     "id": "600038165",
+     "text": "Základní škola s rozšířenou výukou jazyků, Praha 13, Bronzová 2027"
+    },
+    {
+     "id": "600037142",
+     "text": "Základní škola s rozšířenou výukou jazyků, Praha 4, Filosofská 3, příspěvková organizace"
+    },
+    {
+     "id": "600037037",
+     "text": "Základní škola s rozšířenou výukou jazyků, Praha 4, Jeremenkova 1003"
+    },
+    {
+     "id": "600037231",
+     "text": "Základní škola s rozšířenou výukou jazyků, Praha 4, K Milíčovu 674"
+    },
+    {
+     "id": "600037207",
+     "text": "Základní škola s rozšířenou výukou matematiky a přírodovědných předmětů, Praha 4, Na Planině 1393"
+    },
+    {
+     "id": "691012636",
+     "text": "Základní škola s rozšířenou výukou tělesné výchovy, Praha 4, Jitřní 185, příspěvková organizace"
+    },
+    {
+     "id": "600096238",
+     "text": "Základní škola Sezemice, okres Pardubice"
+    },
+    {
+     "id": "600066452",
+     "text": "Základní škola Skalná, příspěvková organizace"
+    },
+    {
+     "id": "691009317",
+     "text": "Základní škola ŠKOLAMYŠL"
+    },
+    {
+     "id": "600090612",
+     "text": "Základní škola Slatiňany, okres Chrudim"
+    },
+    {
+     "id": "600104788",
+     "text": "Základní škola Sloupnice"
+    },
+    {
+     "id": "600111148",
+     "text": "Základní škola Sokolnice, okres Brno-venkov, příspěvková organizace"
+    },
+    {
+     "id": "615800386",
+     "text": "Základní škola Sokolov, Běžecká 2055"
+    },
+    {
+     "id": "600072843",
+     "text": "Základní škola Sokolov, Křižíkova 1916"
+    },
+    {
+     "id": "600073122",
+     "text": "Základní škola Sokolov, Pionýrů 1614"
+    },
+    {
+     "id": "600072860",
+     "text": "Základní škola Sokolov, Rokycanova 258"
+    },
+    {
+     "id": "600072924",
+     "text": "Základní škola Sokolov, Švabinského 1702"
+    },
+    {
+     "id": "600041077",
+     "text": "Základní škola Solidarita, Praha 10, Brigádníků 510/14, příspěvková organizace"
+    },
+    {
+     "id": "600021386",
+     "text": "Základní škola speciální, Praha 10, Starostrašnická 45"
+    },
+    {
+     "id": "651039983",
+     "text": "Základní škola Spektrum, s.r.o."
+    },
+    {
+     "id": "600040569",
+     "text": "Základní škola Špitálská"
+    },
+    {
+     "id": "600140776",
+     "text": "Základní škola Štěpánov,okres Olomouc, příspěvková organizace"
+    },
+    {
+     "id": "600041352",
+     "text": "Základní škola Štěrboholy, příspěvková organizace"
+    },
+    {
+     "id": "600026558",
+     "text": "Základní škola Šternberk, Olomoucká 76"
+    },
+    {
+     "id": "600115658",
+     "text": "Základní škola Strážnice, Školní 283, okres Hodonín, příspěvková organizace"
+    },
+    {
+     "id": "691010927",
+     "text": "Základní škola Suchohrdly, příspěvková organizace"
+    },
+    {
+     "id": "600106055",
+     "text": "Základní škola, Sulíkov, příspěvková organizace"
+    },
+    {
+     "id": "600148459",
+     "text": "Základní škola Šumperk, 8. května 63"
+    },
+    {
+     "id": "600148581",
+     "text": "Základní škola Šumperk, Dr.E.Beneše 1"
+    },
+    {
+     "id": "600148530",
+     "text": "Základní škola Šumperk, Sluneční 38"
+    },
+    {
+     "id": "600148467",
+     "text": "Základní škola Šumperk, Šumavská 21"
+    },
+    {
+     "id": "600148441",
+     "text": "Základní škola Šumperk, Vrchlického 22"
+    },
+    {
+     "id": "600140806",
+     "text": "Základní škola Šumvald, okres Olomouc, příspěvková organizace"
+    },
+    {
+     "id": "600104184",
+     "text": "Základní škola Sv. Čecha, Choceň"
+    },
+    {
+     "id": "600001709",
+     "text": "Základní škola sv. Voršily v Olomouci"
+    },
+    {
+     "id": "600001083",
+     "text": "Základní škola sv. Voršily v Praze"
+    },
+    {
+     "id": "600141047",
+     "text": "Základní škola Svatoplukova 7, Šternberk, příspěvková organizace"
+    },
+    {
+     "id": "600106331",
+     "text": "Základní škola Svitávka, okres Blansko, příspěvková organizace"
+    },
+    {
+     "id": "600100901",
+     "text": "Základní škola Svitavy, Felberova 2"
+    },
+    {
+     "id": "600100707",
+     "text": "Základní škola Svitavy, náměstí Míru 73"
+    },
+    {
+     "id": "600100693",
+     "text": "Základní škola Svitavy, Riegrova 4"
+    },
+    {
+     "id": "600100685",
+     "text": "Základní škola Svitavy, T.G. Masaryka 27"
+    },
+    {
+     "id": "600115518",
+     "text": "Základní škola T. G. Masaryka Čejkovice, okres Hodonín, příspěvková organizace"
+    },
+    {
+     "id": "600110966",
+     "text": "Základní škola T. G. Masaryka Hrušovany u Brna, okr. Brno - venkov, příspěvková organizace"
+    },
+    {
+     "id": "600110770",
+     "text": "Základní škola T. G. Masaryka Ivančice, Na Brněnce 1, okres Brno-venkov, příspevková organizace"
+    },
+    {
+     "id": "600112446",
+     "text": "Základní škola T.G.Masaryka Moravský Žižkov,příspěvková organizace"
+    },
+    {
+     "id": "600039439",
+     "text": "Základní škola T. G. Masaryka Praha 7, Ortenovo náměstí 34"
+    },
+    {
+     "id": "600116042",
+     "text": "Základní škola T.G.Masaryka Šardice, okres Hodonín, příspěvková organizace"
+    },
+    {
+     "id": "600037118",
+     "text": "Základní škola T.G. Masaryka v Praze 12"
+    },
+    {
+     "id": "600111121",
+     "text": "Základní škola T.G. Masaryka Rajhrad, okres Brno - venkov, příspěvková organizace"
+    },
+    {
+     "id": "691013501",
+     "text": "Základní škola TALENT Bylany s.r.o."
+    },
+    {
+     "id": "600110532",
+     "text": "Základní škola Tišnov, nám. 28. října, příspěvková organizace"
+    },
+    {
+     "id": "600110524",
+     "text": "Základní škola Tišnov, Smíškova, příspěvková organizace"
+    },
+    {
+     "id": "600171434",
+     "text": "Základní škola Tolerance, Praha 9, Mochovská 570"
+    },
+    {
+     "id": "600106187",
+     "text": "Základní škola Tomáše Garrigua Masaryka Blansko, Rodkovského 2"
+    },
+    {
+     "id": "600067491",
+     "text": "Základní škola Toužim, příspěvková organizace"
+    },
+    {
+     "id": "600140822",
+     "text": "Základní škola Troubelice, okres Olomouc, příspěvková organizace"
+    },
+    {
+     "id": "600111288",
+     "text": "Základní škola Tvarožná, příspěvková organizace"
+    },
+    {
+     "id": "600112501",
+     "text": "Základní škola Tvrdonice, příspěvková organizace"
+    },
+    {
+     "id": "600125891",
+     "text": "Základní škola Tyršova Slavkov u Brna, příspěvková organizace"
+    },
+    {
+     "id": "600100669",
+     "text": "Základní škola U Kostela Moravská Třebová"
+    },
+    {
+     "id": "600037096",
+     "text": "Základní škola U Krčského lesa, Praha 4, Jánošíkova 1320"
+    },
+    {
+     "id": "600041301",
+     "text": "Základní škola U Obory, Praha 10, Vachkova 630"
+    },
+    {
+     "id": "600035671",
+     "text": "Základní škola u svatého Štěpána, Praha 2, Štěpánská 8 příspěvková organizace"
+    },
+    {
+     "id": "600110541",
+     "text": "Základní škola Újezd u Brna , okres Brno - venkov, příspěvková organizace"
+    },
+    {
+     "id": "600140105",
+     "text": "Základní škola Uničov, Haškova 211, okres Olomouc"
+    },
+    {
+     "id": "600140873",
+     "text": "Základní škola Uničov, Pionýrů 685"
+    },
+    {
+     "id": "600026582",
+     "text": "Základní škola Uničov, Šternberská 456"
+    },
+    {
+     "id": "600140865",
+     "text": "Základní škola Uničov, U Stadionu 849"
+    },
+    {
+     "id": "600066436",
+     "text": "Základní škola Úšovice, Mariánské Lázně, Školní náměstí 472, příspěvková organizace"
+    },
+    {
+     "id": "600104702",
+     "text": "Základní škola Ústí nad Orlicí, Bratří Čapků 1332"
+    },
+    {
+     "id": "600104699",
+     "text": "Základní škola Ústí nad Orlicí, Komenského 11"
+    },
+    {
+     "id": "600104290",
+     "text": "Základní škola Ústí nad Orlicí, Školní 75"
+    },
+    {
+     "id": "600104711",
+     "text": "Základní škola Ústí nad Orlicí, Třebovská 147"
+    },
+    {
+     "id": "691002991",
+     "text": "Základní škola v Teplé, příspěvková organizace"
+    },
+    {
+     "id": "600112519",
+     "text": "Základní škola Valtice, okres Břeclav, příspěvková organizace"
+    },
+    {
+     "id": "600150631",
+     "text": "Základní škola Vápenná, okres Jeseník, příspěvková organizace"
+    },
+    {
+     "id": "600096491",
+     "text": "Základní škola Vápno, okres Pardubice"
+    },
+    {
+     "id": "691013098",
+     "text": "Základní škola Vela s.r.o."
+    },
+    {
+     "id": "600066479",
+     "text": "Základní škola Velká Hleďsebe, okres Cheb, příspěvková organizace"
+    },
+    {
+     "id": "600112527",
+     "text": "Základní škola Velké Bílovice, příspěvková organizace"
+    },
+    {
+     "id": "600112535",
+     "text": "Základní škola Velké Němčice, okres Břeclav, příspěvková organizace"
+    },
+    {
+     "id": "600106349",
+     "text": "Základní škola Velké Opatovice, příspěvková organizace"
+    },
+    {
+     "id": "600112543",
+     "text": "Základní škola Velké Pavlovice okres Břeclav, příspěvková organizace"
+    },
+    {
+     "id": "600140342",
+     "text": "Základní škola a Mateřská škola Věrovany, příspěvková organizace"
+    },
+    {
+     "id": "600115569",
+     "text": "Základní škola Veselí nad Moravou, Hutník 1456, okres Hodonín, příspěvková organizace"
+    },
+    {
+     "id": "600110931",
+     "text": "Základní škola Veverské Knínice, okres Brno-venkov, příspěvková organizace"
+    },
+    {
+     "id": "600150640",
+     "text": "Základní škola Vidnava, okres Jeseník - příspěvková organizace"
+    },
+    {
+     "id": "600104761",
+     "text": "Základní škola Vincence Junka Dolní Čermná, okres Ústí nad Orlicí"
+    },
+    {
+     "id": "600073092",
+     "text": "Základní škola Vintířov, okres Sokolov"
+    },
+    {
+     "id": "691003785",
+     "text": "Základní škola Vitae, s.r.o."
+    },
+    {
+     "id": "600100472",
+     "text": "Základní škola Vítějeves, okres Svitavy"
+    },
+    {
+     "id": "600066606",
+     "text": "Základní škola Vítězství Mariánské Lázně, příspěvková organizace"
+    },
+    {
+     "id": "600111041",
+     "text": "Základní škola Vladimíra Menšíka Ivančice, okres Brno-venkov"
+    },
+    {
+     "id": "600038394",
+     "text": "Základní škola Vladislava Vančury, Praha - Zbraslav"
+    },
+    {
+     "id": "600116077",
+     "text": "Základní škola Vnorovy, okres Hodonín , příspěvková organizace"
+    },
+    {
+     "id": "600035263",
+     "text": "Základní škola Vodičkova"
+    },
+    {
+     "id": "600021092",
+     "text": "Základní škola Vokovice"
+    },
+    {
+     "id": "600112217",
+     "text": "Základní škola Vrbice, okres Břeclav, příspěvková organizace"
+    },
+    {
+     "id": "600125904",
+     "text": "Základní škola Vyškov, Morávkova 40, příspěvková organizace"
+    },
+    {
+     "id": "600125785",
+     "text": "Základní škola Vyškov, Na Vyhlídce 12, příspěvková organizace"
+    },
+    {
+     "id": "600125483",
+     "text": "Základní škola Vyškov, Nádražní 5, příspěvková organizace"
+    },
+    {
+     "id": "600126064",
+     "text": "Základní škola Vyškov, Purkyňova 39, příspěvková organizace"
+    },
+    {
+     "id": "600125947",
+     "text": "Základní škola Vyškov, Tyršova 4, příspěvková organizace"
+    },
+    {
+     "id": "600106110",
+     "text": "Základní škola Vysočany, okres Blansko"
+    },
+    {
+     "id": "600104281",
+     "text": "Základní škola Vysoké Mýto, Javornického, příspěvková organizace"
+    },
+    {
+     "id": "600104231",
+     "text": "Základní škola Vysoké Mýto, Jiráskova, příspěvková organizace"
+    },
+    {
+     "id": "617500720",
+     "text": "Základní škola Waldorfská Pardubice, Gorkého 867"
+    },
+    {
+     "id": "600038289",
+     "text": "Základní škola waldorfská, Praha 5 - Jinonice, Butovická 228/9, příspěvková organizace"
+    },
+    {
+     "id": "691006482",
+     "text": "Základní škola Wonderland Academy s.r.o."
+    },
+    {
+     "id": "600148491",
+     "text": "Základní škola Zábřeh, Boženy Němcové 1503/15, okres Šumperk"
+    },
+    {
+     "id": "600148505",
+     "text": "Základní škola Zábřeh, Školská 406/11, okres Šumperk"
+    },
+    {
+     "id": "691007586",
+     "text": "Základní škola ZaHRAda"
+    },
+    {
+     "id": "600112578",
+     "text": "Základní škola Zaječí,okres Břeclav"
+    },
+    {
+     "id": "600104273",
+     "text": "Základní škola Žamberk, 28. října 581"
+    },
+    {
+     "id": "600104745",
+     "text": "Základní škola Žamberk, Nádražní 743"
+    },
+    {
+     "id": "600037444",
+     "text": "Základní škola Zárubova v Praze 12"
+    },
+    {
+     "id": "600111181",
+     "text": "Základní škola Zbýšov, okres Brno - venkov, příspěvková organizace"
+    },
+    {
+     "id": "600096220",
+     "text": "Základní škola Zdechovice, okres Pardubice"
+    },
+    {
+     "id": "600146511",
+     "text": "Základní škola Želatovice, okres Přerov, příspěvková organizace"
+    },
+    {
+     "id": "600111334",
+     "text": "Základní škola Židlochovice, okres Brno - venkov, příspěvková organizace"
+    },
+    {
+     "id": "600150500",
+     "text": "Základní škola Zlaté Hory"
+    },
+    {
+     "id": "600150658",
+     "text": "Základní škola Žulová, okres Jeseník - příspěvková organizace"
+    },
+    {
+     "id": "600111300",
+     "text": "Základní škola, Blučina, okres Brno - venkov, příspěvková organizace"
+    },
+    {
+     "id": "650041330",
+     "text": "Základní škola, Bojanov, okres Chrudim"
+    },
+    {
+     "id": "600108546",
+     "text": "Základní škola, Brno, Bosonožská 9, příspěvková organizce"
+    },
+    {
+     "id": "600108007",
+     "text": "Základní škola, Brno, Gajdošova 3"
+    },
+    {
+     "id": "600108180",
+     "text": "Základní škola, Brno, Herčíkova 19, příspěvková organizace"
+    },
+    {
+     "id": "600108228",
+     "text": "Základní škola, Brno, Holzova 1, příspěvková organizace"
+    },
+    {
+     "id": "600108350",
+     "text": "Základní škola, Brno, Jasanová 2, příspěvková organizace"
+    },
+    {
+     "id": "600108376",
+     "text": "Základní škola, Brno, Kamínky 5, příspěvková organizace"
+    },
+    {
+     "id": "600108473",
+     "text": "Základní škola, Brno, Kneslova 28"
+    },
+    {
+     "id": "600108171",
+     "text": "Základní škola, Brno, Košinova 22, příspěvková organizace"
+    },
+    {
+     "id": "600108139",
+     "text": "Základní škola, Brno, Krásného 24"
+    },
+    {
+     "id": "600108082",
+     "text": "Základní škola, Brno, Labská 27, příspěvková organizace"
+    },
+    {
+     "id": "600107990",
+     "text": "Základní škola, Brno, Masarova 11, příspěvková organizace"
+    },
+    {
+     "id": "600108147",
+     "text": "Základní škola, Brno, Mutěnická 23, příspěvková organizace"
+    },
+    {
+     "id": "600108309",
+     "text": "Základní škola, Brno, Novolíšeňská 10, příspěvková organizace"
+    },
+    {
+     "id": "600108091",
+     "text": "Základní škola, Brno, Řehořova 3, příspěvková organizace"
+    },
+    {
+     "id": "600108244",
+     "text": "Základní škola, Brno, Slovanské nám. 2, příspěvková organizace"
+    },
+    {
+     "id": "650020936",
+     "text": "Základní škola, Chrast, okres Chrudim"
+    },
+    {
+     "id": "600090647",
+     "text": "Základní škola, Chrudim, Dr. Malíka 958"
+    },
+    {
+     "id": "600090230",
+     "text": "Základní škola, Chrudim, Dr. Peška 768"
+    },
+    {
+     "id": "600090213",
+     "text": "Základní škola, Chrudim, Školní náměstí 6"
+    },
+    {
+     "id": "600090493",
+     "text": "Základní škola, Chrudim, U Stadionu 756"
+    },
+    {
+     "id": "600127541",
+     "text": "Základní škola, Dyjákovice, okres Znojmo, příspěvková organizace"
+    },
+    {
+     "id": "600035573",
+     "text": "Základní škola, Fakultní škola Pedagogické fakulty UK, Praha 2, Slovenská 27"
+    },
+    {
+     "id": "600090426",
+     "text": "Základní škola, Hlinsko, Resslova 603, okres Chrudim"
+    },
+    {
+     "id": "600090434",
+     "text": "Základní škola, Hlinsko, Smetanova 403, okres Chrudim"
+    },
+    {
+     "id": "600127397",
+     "text": "Základní škola, Hostěradice, okres Znojmo,příspěvková organizace"
+    },
+    {
+     "id": "600090451",
+     "text": "Základní škola, Hrochův Týnec, okres Chrudim"
+    },
+    {
+     "id": "600127567",
+     "text": "Základní škola, Hrušovany nad Jevišovkou, okres Znojmo, příspěvková organizace"
+    },
+    {
+     "id": "600111059",
+     "text": "Základní škola, Kuřim, Jungmanova 813, okres Brno - venkov, příspěvková organizace"
+    },
+    {
+     "id": "650018290",
+     "text": "Základní škola, Luže, okres Chrudim"
+    },
+    {
+     "id": "600127273",
+     "text": "Základní škola, Mašovice, okres Znojmo, příspěvková organizace"
+    },
+    {
+     "id": "600127613",
+     "text": "Základní škola, Miroslav, okres Znojmo, příspěvková organizace"
+    },
+    {
+     "id": "600127621",
+     "text": "Základní škola, Moravský Krumlov, náměstí Klášterní 134, okres Znojmo, příspěvková organizace"
+    },
+    {
+     "id": "650023731",
+     "text": "Základní škola, Nasavrky, okres Chrudim"
+    },
+    {
+     "id": "600090558",
+     "text": "Základní škola, Prachovice, okres Chrudim"
+    },
+    {
+     "id": "600041271",
+     "text": "Základní škola, Praha 10 - Hostivař, Kozinova 1000"
+    },
+    {
+     "id": "600041204",
+     "text": "Základní škola, Praha 10, Břečťanová 2919/6, příspěvková organizace"
+    },
+    {
+     "id": "600041212",
+     "text": "Základní škola, Praha 10, Gutova 1987/39, příspěvková organizace"
+    },
+    {
+     "id": "600041298",
+     "text": "Základní škola, Praha 10, Hornoměcholupská 873"
+    },
+    {
+     "id": "600041107",
+     "text": "Základní škola, Praha 10, Hostýnská 2100/2, příspěvková organizace"
+    },
+    {
+     "id": "600041140",
+     "text": "Základní škola, Praha 10, Jakutská 1210/2, příspěvková organizace"
+    },
+    {
+     "id": "600041247",
+     "text": "Základní škola, Praha 10, Křimická 314"
+    },
+    {
+     "id": "600041263",
+     "text": "Základní škola, Praha 10, Nad Přehradou 469"
+    },
+    {
+     "id": "600041191",
+     "text": "Základní škola, Praha 10, Nad Vodovodem 460/81, příspěvková organizace"
+    },
+    {
+     "id": "600041328",
+     "text": "Základní škola, Praha 10, nám. Bří Jandusů 2"
+    },
+    {
+     "id": "600041085",
+     "text": "Základní škola, Praha 10, Olešská 2222/18, příspěvková organizace"
+    },
+    {
+     "id": "600021301",
+     "text": "Základní škola, Praha 10, Práčská 37"
+    },
+    {
+     "id": "600041123",
+     "text": "Základní škola, Praha 10, Švehlova 2900/12, příspěvková organizace"
+    },
+    {
+     "id": "600041166",
+     "text": "Základní škola, Praha 10, U Roháčových kasáren 1381/19, příspěvková organizace"
+    },
+    {
+     "id": "600041182",
+     "text": "Základní škola, Praha 10, U Vršovického nádraží 950/1, příspěvková organizace"
+    },
+    {
+     "id": "600041115",
+     "text": "Základní škola, Praha 10, V Rybníčkách 1980/31, příspěvková organizace"
+    },
+    {
+     "id": "600041255",
+     "text": "Základní škola, Praha 10, Veronské náměstí 391"
+    },
+    {
+     "id": "600038262",
+     "text": "Základní škola, Praha 13, Janského 2189"
+    },
+    {
+     "id": "600038521",
+     "text": "Základní škola, Praha 13, Klausova 2450"
+    },
+    {
+     "id": "600038408",
+     "text": "Základní škola, Praha 13, Kuncova 1580"
+    },
+    {
+     "id": "600038483",
+     "text": "Základní škola, Praha 13, Mládí 135"
+    },
+    {
+     "id": "600038220",
+     "text": "Základní škola, Praha 13, Mohylová 1963"
+    },
+    {
+     "id": "600035620",
+     "text": "Základní škola, Praha 2, Botičská 8"
+    },
+    {
+     "id": "600035581",
+     "text": "Základní škola, Praha 2, Jana Masaryka 21"
+    },
+    {
+     "id": "600035662",
+     "text": "Základní škola, Praha 2, Londýnská 34"
+    },
+    {
+     "id": "600035611",
+     "text": "Základní škola, Praha 2, Sázavská 5"
+    },
+    {
+     "id": "600035689",
+     "text": "Základní škola, Praha 2, Vratislavova 13"
+    },
+    {
+     "id": "600036146",
+     "text": "Základní škola, Praha 3, Cimburkova 18/600"
+    },
+    {
+     "id": "600036201",
+     "text": "Základní škola, Praha 3, Jeseniova 96/2400"
+    },
+    {
+     "id": "600036120",
+     "text": "Základní škola, Praha 3, Lupáčova 1/1200"
+    },
+    {
+     "id": "600036138",
+     "text": "Základní škola, Praha 3, nám. Jiřího z Poděbrad 7,8/1685"
+    },
+    {
+     "id": "600037053",
+     "text": "Základní škola, Praha 4, Bítovská 1"
+    },
+    {
+     "id": "600175782",
+     "text": "Základní škola, Praha 4, Boleslavova 1"
+    },
+    {
+     "id": "600037274",
+     "text": "Základní škola, Praha 4, Donovalská 1684"
+    },
+    {
+     "id": "600037061",
+     "text": "Základní škola, Praha 4, Jílovská 1100"
+    },
+    {
+     "id": "600037215",
+     "text": "Základní škola, Praha 4, Jižní IV., 10"
+    },
+    {
+     "id": "600037487",
+     "text": "Základní škola, Praha 4, Ke Kateřinkám 1400"
+    },
+    {
+     "id": "600037177",
+     "text": "Základní škola, Praha 4, Křesomyslova 2"
+    },
+    {
+     "id": "600037291",
+     "text": "Základní škola, Praha 4, Květnového vítězství 1554"
+    },
+    {
+     "id": "600037509",
+     "text": "Základní škola, Praha 4, Mendelova 550"
+    },
+    {
+     "id": "600037282",
+     "text": "Základní škola, Praha 4, Mikulova 1594"
+    },
+    {
+     "id": "600037169",
+     "text": "Základní škola, Praha 4, Na Chodovci 54"
+    },
+    {
+     "id": "600037100",
+     "text": "Základní škola, Praha 4, Na Líše 16"
+    },
+    {
+     "id": "600037479",
+     "text": "Základní škola, Praha 4, Nedvědovo náměstí 140"
+    },
+    {
+     "id": "600037355",
+     "text": "Základní škola, Praha 4, Plamínkové 2"
+    },
+    {
+     "id": "600037339",
+     "text": "Základní škola, Praha 4, Poláčkova 1067"
+    },
+    {
+     "id": "600037401",
+     "text": "Základní škola, Praha 4, Pošepného náměstí 2022"
+    },
+    {
+     "id": "600020886",
+     "text": "Základní škola, Praha 4, Ružinovská 2017"
+    },
+    {
+     "id": "600037363",
+     "text": "Základní škola, Praha 4, Školní 700"
+    },
+    {
+     "id": "600037321",
+     "text": "Základní škola, Praha 4, Táborská 45"
+    },
+    {
+     "id": "600037371",
+     "text": "Základní škola, Praha 4, V Ladech 6"
+    },
+    {
+     "id": "600020983",
+     "text": "Základní škola, Praha 5, Pod Radnicí 5"
+    },
+    {
+     "id": "600039145",
+     "text": "Základní škola, Praha 6, Pod Marjánkou 2"
+    },
+    {
+     "id": "600039447",
+     "text": "Základní škola, Praha  7, Trojská 110"
+    },
+    {
+     "id": "600039749",
+     "text": "Základní škola, Praha 8, Burešova 14"
+    },
+    {
+     "id": "600039765",
+     "text": "Základní škola, Praha 8, Glowackého 6"
+    },
+    {
+     "id": "600039919",
+     "text": "Základní škola, Praha 8, Hovorčovická 11"
+    },
+    {
+     "id": "600039790",
+     "text": "Základní škola, Praha 8, Libčická 10"
+    },
+    {
+     "id": "600039811",
+     "text": "Základní škola, Praha 8, Na Šutce 28"
+    },
+    {
+     "id": "600039820",
+     "text": "Základní škola, Praha 8, Palmovka 8"
+    },
+    {
+     "id": "600039901",
+     "text": "Základní škola, Praha 8, Žernosecká 3"
+    },
+    {
+     "id": "600040496",
+     "text": "Základní škola, Praha 9 - Černý Most, Bří. Venclíků 1140"
+    },
+    {
+     "id": "600040381",
+     "text": "Základní škola, Praha 9 - Černý Most, Vybíralova 964"
+    },
+    {
+     "id": "600040461",
+     "text": "Základní škola, Praha 9 - Dolní Počernice, Národních hrdinů 70"
+    },
+    {
+     "id": "600040356",
+     "text": "Základní škola, Praha 9 - Hloubětín, Hloubětínská 700"
+    },
+    {
+     "id": "600040607",
+     "text": "Základní škola, Praha 9 - Horní Počernice, Ratibořická 1700"
+    },
+    {
+     "id": "600040437",
+     "text": "Základní škola, Praha 9 - Horní Počernice, Stoliňská 823"
+    },
+    {
+     "id": "600040364",
+     "text": "Základní škola, Praha 9 - Kyje, Šimanovská 16, příspěvková organizace"
+    },
+    {
+     "id": "600040585",
+     "text": "Základní škola, Praha 9 - Lehovec, Chvaletická 918"
+    },
+    {
+     "id": "600040615",
+     "text": "Základní škola Satalice, příspěvková organizace"
+    },
+    {
+     "id": "600127648",
+     "text": "Základní škola., Prosiměřice, okres Znojmo, příspěvková organizace"
+    },
+    {
+     "id": "600100618",
+     "text": "Základní škola, Radiměř, okres Svitavy"
+    },
+    {
+     "id": "600127664",
+     "text": "Základní škola, Šatov, okres Znojmo, příspěvková organizace"
+    },
+    {
+     "id": "600090701",
+     "text": "Základní škola, Seč, okres Chrudim"
+    },
+    {
+     "id": "600090591",
+     "text": "Základní škola, Skuteč, Komenského 150, okres Chrudim"
+    },
+    {
+     "id": "600090604",
+     "text": "Základní škola, Skuteč, Smetanova 304, okres Chrudim"
+    },
+    {
+     "id": "600110516",
+     "text": "Základní škola, Šlapanice, okres Brno - venkov, příspěvková organizace"
+    },
+    {
+     "id": "600041361",
+     "text": "Základní škola, Starodubečská 413, Praha 10 - Dubeč"
+    },
+    {
+     "id": "600127311",
+     "text": "Základní škola, Strachotice, okres Znojmo, příspěvková organizace"
+    },
+    {
+     "id": "600090639",
+     "text": "Základní škola, Třemošnice, okres Chrudim"
+    },
+    {
+     "id": "650053109",
+     "text": "Základní škola, Trhová Kamenice, okres Chrudim"
+    },
+    {
+     "id": "600111164",
+     "text": "Základní škola, Veverská Bítýška, okres Brno - venkov, příspěvková organizace"
+    },
+    {
+     "id": "600127699",
+     "text": "Základní škola, Vranov nad Dyjí, okres Znojmo, příspěvková organizace"
+    },
+    {
+     "id": "650050444",
+     "text": "Základní škola, Zaječice, okres Chrudim"
+    },
+    {
+     "id": "600127516",
+     "text": "Základní škola, Želetice, okres Znojmo, příspěvková organizace"
+    },
+    {
+     "id": "600127745",
+     "text": "Základní škola, Znojmo, Mládeže 3, příspěvková organizace"
+    },
+    {
+     "id": "600127737",
+     "text": "Základní škola, Znojmo, náměstí Republiky 9"
+    },
+    {
+     "id": "600127711",
+     "text": "Základní škola , Znojmo, Václavské náměstí 8, příspěvková organizace"
+    },
+    {
+     "id": "600000231",
+     "text": "Modrý klíč - základní škola speciální a mateřská škola speciální, o.p.s."
+    },
+    {
+     "id": "600005305",
+     "text": "EDUCAnet - gymnázium, střední odborná škola a základní škola Praha, s.r.o."
+    },
+    {
+     "id": "600006018",
+     "text": "PORG - gymnázium, základní škola a mateřská škola, o.p.s."
+    },
+    {
+     "id": "600020789",
+     "text": "Základní škola a Střední škola, Praha 2, Vinohradská 54"
+    },
+    {
+     "id": "600020916",
+     "text": "Základní škola a Střední škola, Praha 4, Kupeckého 576"
+    },
+    {
+     "id": "600021106",
+     "text": "Základní škola speciální a Praktická škola, Praha 6, Rooseveltova 8"
+    },
+    {
+     "id": "600021254",
+     "text": "Církevní základní škola logopedická Don Bosco a mateřská škola logopedická"
+    },
+    {
+     "id": "600021271",
+     "text": "Mateřská škola a Základní škola, Praha 9, Bártlova 83"
+    },
+    {
+     "id": "600021327",
+     "text": "Základní škola a střední škola waldorfská"
+    },
+    {
+     "id": "600021360",
+     "text": "Střední škola, Základní škola a Mateřská škola, Praha 10, Chotouňská 476"
+    },
+    {
+     "id": "600021378",
+     "text": "Základní škola a Střední škola, Praha 10, Vachkova 941"
+    },
+    {
+     "id": "600027503",
+     "text": "Dětský diagnostický ústav, základní škola a školní jídelna, Praha 4, U Michelského lesa 222"
+    },
+    {
+     "id": "600040518",
+     "text": "Základní škola a mateřská škola Koloděje"
+    },
+    {
+     "id": "600171442",
+     "text": "Základní škola logopedická a Mateřská škola logopedická, Praha 10, Moskevská 29"
+    },
+    {
+     "id": "650065115",
+     "text": "Zařízení pro děti - cizince, diagnostický ústav, středisko výchovné péče a základní škola, Praha 5, Radlická 30"
+    },
+    {
+     "id": "691000557",
+     "text": "Kouzelné školy - mateřská škola a základní škola"
+    },
+    {
+     "id": "691002177",
+     "text": "Mateřská škola a Základní škola U vrbiček s.r.o."
+    },
+    {
+     "id": "691002819",
+     "text": "Základní škola a mateřská škola Basic Praha, o.p.s."
+    },
+    {
+     "id": "691002860",
+     "text": "Univerzitní základní škola a mateřská škola Lvíčata"
+    },
+    {
+     "id": "691003955",
+     "text": "Královská mateřská škola a základní škola, s.r.o."
+    },
+    {
+     "id": "691004935",
+     "text": "Montessori školy Andílek - mateřská škola a základní škola, o.p.s."
+    },
+    {
+     "id": "691010323",
+     "text": "Global Minded mateřská škola a základní škola s.r.o."
+    },
+    {
+     "id": "691015937",
+     "text": "Základní škola a gymnázium Leonardo V. Academy"
+    },
+    {
+     "id": "600000729",
+     "text": "Mateřská škola a základní škola Sluníčko - Montessori, s.r.o."
+    },
+    {
+     "id": "600001512",
+     "text": "Soukromá mateřská škola a základní škola s.r.o."
+    },
+    {
+     "id": "600001521",
+     "text": "Základní škola a Mateřská škola Pramínek, o. p. s."
+    },
+    {
+     "id": "600013898",
+     "text": "I. Německé zemské gymnasium, základní škola a mateřská škola, o. p. s."
+    },
+    {
+     "id": "600014011",
+     "text": "Střední škola a základní škola Tišnov, příspěvková organizace"
+    },
+    {
+     "id": "600024849",
+     "text": "Mateřská škola, základní škola a praktická škola Boskovice, příspěvková organizace"
+    },
+    {
+     "id": "600024911",
+     "text": "Základní škola a praktická škola Brno, Vídeňská, příspěvková organizace"
+    },
+    {
+     "id": "600024954",
+     "text": "Mateřská škola a základní škola Brno, Kociánka, příspěvková organizace"
+    },
+    {
+     "id": "600025110",
+     "text": "Základní škola a mateřská škola logopedická, Brno, Veslařská 234"
+    },
+    {
+     "id": "600105148",
+     "text": "Základní škola a Mateřská škola Ráječko, okres Blansko, příspěvková organizace"
+    },
+    {
+     "id": "600106128",
+     "text": "Základní škola a Mateřská škola Bořitov, okres Blansko, příspěvková organizace"
+    },
+    {
+     "id": "600106136",
+     "text": "Základní škola a Mateřská škola Žďárná, okres Blansko, příspěvková organizace"
+    },
+    {
+     "id": "600106225",
+     "text": "Základní škola a Mateřská škola Knínice, příspěvková organizace"
+    },
+    {
+     "id": "600106420",
+     "text": "Základní škola a mateřská škola Březina, příspěvková organizace"
+    },
+    {
+     "id": "600106454",
+     "text": "Základní škola a Mateřská škola Křetín, okres Blansko, příspěvková organizace"
+    },
+    {
+     "id": "600108155",
+     "text": "Základní škola a mateřská škola Brno, Přemyslovo nám. 1, příspěvková organizace"
+    },
+    {
+     "id": "600110478",
+     "text": "Základní škola a mateřská škola Ketkovice, okres Brno - venkov, příspěvková organizace"
+    },
+    {
+     "id": "600110567",
+     "text": "Základní škola a Mateřská škola Blažovice, příspěvková organizace"
+    },
+    {
+     "id": "600110605",
+     "text": "Základní škola a mateřská škola Moutnice, okres Brno-venkov, příspěvková organizace"
+    },
+    {
+     "id": "600110630",
+     "text": "Základní škola a Mateřská škola Prace, okr. Brno-venkov, příspěvková organizace"
+    },
+    {
+     "id": "600110729",
+     "text": "Základní škola a mateřská škola, Ivančice - Němčice, okres Brno - venkov"
+    },
+    {
+     "id": "600110842",
+     "text": "Základní škola a mateřská škola Moravské Bránice, okres Brno-venkov, příspěvková organizace"
+    },
+    {
+     "id": "600110851",
+     "text": "Základní škola a Mateřská škola Nová Ves, okres Brno - venkov, příspěvková organizace"
+    },
+    {
+     "id": "600110915",
+     "text": "Základní škola a mateřská škola Syrovice,  okres Brno - venkov, \"příspěvková organizace\""
+    },
+    {
+     "id": "600111202",
+     "text": "Základní škola a Mateřská škola Bratčice, okres Brno - venkov, příspěvková organizace"
+    },
+    {
+     "id": "600111237",
+     "text": "Základní škola a mateřská škola Sivice, okres Brno - venkov, příspěvková organizace"
+    },
+    {
+     "id": "600111245",
+     "text": "Mateřská škola a Základní škola Ostopovice, okres Brno-venkov, příspěvková organizace"
+    },
+    {
+     "id": "600111326",
+     "text": "Základní škola a Mateřská škola T.G. Masaryka Drásov, příspěvková organizace"
+    },
+    {
+     "id": "600111814",
+     "text": "Základní škola a mateřská škola, Němčičky, okres Břeclav, příspěvková organizace"
+    },
+    {
+     "id": "600112152",
+     "text": "Základní škola a Mateřská škola Krumvíř, okres Břeclav, příspěvková organizace"
+    },
+    {
+     "id": "600112586",
+     "text": "Základní škola a mateřská škola Borkovany, okres Břeclav, příspěvková organizace"
+    },
+    {
+     "id": "600115526",
+     "text": "Základní škola a mateřská škola Ježov, příspěvková organizace"
+    },
+    {
+     "id": "600115607",
+     "text": "Základní škola a Mateřská škola DR. Joklíka, příspěvková organizace města Kyjova"
+    },
+    {
+     "id": "600115739",
+     "text": "Základní škola a Mateřská škola Kněždub, okres Hodonín, příspěvková organizace"
+    },
+    {
+     "id": "600115747",
+     "text": "Základní škola a mateřská škola Kostelec, okres Hodonín, příspěvková organizace"
+    },
+    {
+     "id": "600115771",
+     "text": "Základní škola a Mateřská škola Petrov, okres Hodonín, příspěvková organizace"
+    },
+    {
+     "id": "600115780",
+     "text": "Základní škola a Mateřská škola Starý Poddvorov, příspěvková organizace"
+    },
+    {
+     "id": "600115836",
+     "text": "Základní škola a Mateřská škola MUDr. K. A. Macháčka, Vlkoš, příspěvková organizace"
+    },
+    {
+     "id": "600125505",
+     "text": "Základní škola a Mateřská škola Bošovice, okres Vyškov, příspěvková organizace"
+    },
+    {
+     "id": "600125521",
+     "text": "Základní škola a Mateřská škola Dražovice, okres Vyškov, příspěvková organizace"
+    },
+    {
+     "id": "600125548",
+     "text": "Základní škola a mateřská škola Hlubočany, okres Vyškov"
+    },
+    {
+     "id": "600125572",
+     "text": "Základní škola a Mateřská škola, Hrušky, okres Vyškov, příspěvková organizace"
+    },
+    {
+     "id": "600125581",
+     "text": "Základní škola a Mateřská škola Kobeřice u Brna, okres Vyškov, příspěvková organizace"
+    },
+    {
+     "id": "600125629",
+     "text": "Základní škola a Mateřská škola Milešovice, okres Vyškov, příspěvková organizace"
+    },
+    {
+     "id": "600125661",
+     "text": "Základní škola a mateřská škola Nesovice, příspěvková organizace"
+    },
+    {
+     "id": "600125670",
+     "text": "Základní škola a Mateřská škola Nížkovice, okres Vyškov, příspěvková organizace"
+    },
+    {
+     "id": "600125688",
+     "text": "Základní škola a Mateřská škola Rašovice, okres Vyškov, příspěvková organizace"
+    },
+    {
+     "id": "600125807",
+     "text": "Základní škola a mateřská škola Brankovice, příspěvková organizace"
+    },
+    {
+     "id": "600125971",
+     "text": "Mateřská škola a Základní škola Heršpice, okres Vyškov, příspěvková organizace"
+    },
+    {
+     "id": "600126013",
+     "text": "Základní škola a mateřská škola Bohdalice, okres Vyškov, příspěvková organizace"
+    },
+    {
+     "id": "600126030",
+     "text": "Základní škola a mateřská škola Šaratice, příspěvková organizace"
+    },
+    {
+     "id": "600127290",
+     "text": "Základní škola a Mateřská škola, Pavlice, okres Znojmo"
+    },
+    {
+     "id": "600127419",
+     "text": "Základní škola a Mateřská škola, Hrádek, okres Znojmo, příspěvková organizace"
+    },
+    {
+     "id": "600127486",
+     "text": "Základní škola a mateřská škola, Kravsko, příspěvková organizace"
+    },
+    {
+     "id": "600127494",
+     "text": "Základní škola a Mateřská škola, Loděnice, příspěvková organizace"
+    },
+    {
+     "id": "600127532",
+     "text": "Základní škola a mateřská škola, Božice, příspěvková organizace"
+    },
+    {
+     "id": "600127575",
+     "text": "Základní škola a Mateřská škola, Jaroslavice, okres Znojmo, příspěvková organizace"
+    },
+    {
+     "id": "600127630",
+     "text": "Základní škola a Mateřská škola, Olbramovice, okres Znojmo, příspěvková organizace"
+    },
+    {
+     "id": "600127877",
+     "text": "Základní škola a Mateřská škola, Višňové, okres Znojmo, příspěvková organizace"
+    },
+    {
+     "id": "610300733",
+     "text": "Mateřská škola speciální, základní škola speciální a praktická škola Ibsenka Brno, příspěvková organizace"
+    },
+    {
+     "id": "650072031",
+     "text": "Základní škola a praktická škola, Slavkov u Brna, příspěvková organizace"
+    },
+    {
+     "id": "651031567",
+     "text": "Základní škola a Mateřská škola Vysoké Popovice, okres Brno-venkov, příspěvková organizace"
+    },
+    {
+     "id": "671100769",
+     "text": "Montessori Mateřská škola a Základní škola Perlička a Montessori Střední škola, s.r.o."
+    },
+    {
+     "id": "691000697",
+     "text": "Základní škola a mateřská škola Basic, o.p.s."
+    },
+    {
+     "id": "691009015",
+     "text": "Montessori Institut, základní škola a mateřská škola, s.r.o."
+    },
+    {
+     "id": "600066266",
+     "text": "Základní škola a Mateřská škola Drmoul, okres Cheb, příspěvková organizace"
+    },
+    {
+     "id": "600066509",
+     "text": "Základní škola a mateřská škola Libá, okres Cheb, příspěvková organizace"
+    },
+    {
+     "id": "600066584",
+     "text": "Základní škola a střední škola Aš, příspěvková organizace"
+    },
+    {
+     "id": "600067319",
+     "text": "Základní škola a mateřská škola Útvina, okres Karlovy Vary, příspěvková organizace"
+    },
+    {
+     "id": "600067327",
+     "text": "Základní škola a mateřská škola Potůčky, okres Karlovy Vary"
+    },
+    {
+     "id": "600067378",
+     "text": "Základní škola a Mateřská škola Štědrá, okres Karlovy Vary příspěvková organizace"
+    },
+    {
+     "id": "600067521",
+     "text": "Základní škola a mateřská škola Chyše, okres Karlovy Vary, příspěvková organizace"
+    },
+    {
+     "id": "600067700",
+     "text": "Základní škola a mateřská škola Toužim, příspěvková organizace"
+    },
+    {
+     "id": "600073084",
+     "text": "Základní škola a mateřská škola Rotava, příspěvková organizace"
+    },
+    {
+     "id": "600073149",
+     "text": "Základní škola a mateřská škola Svatava, příspěvková organizace"
+    },
+    {
+     "id": "691004005",
+     "text": "Waldorfská základní škola a mateřská škola Wlaštovka Karlovy Vary o.p.s."
+    },
+    {
+     "id": "691015121",
+     "text": "Waldorfská základní škola a mateřská škola Cheb"
+    },
+    {
+     "id": "600015211",
+     "text": "Cyrilometodějské gymnázium, základní škola a mateřská škola v Prostějově"
+    },
+    {
+     "id": "600026663",
+     "text": "Základní škola a Mateřská škola logopedická Olomouc"
+    },
+    {
+     "id": "600027139",
+     "text": "Základní škola pro žáky se specifickými poruchami učení a mateřská škola logopedická Schola Viva, o.p.s."
+    },
+    {
+     "id": "600027295",
+     "text": "Základní škola a Mateřská škola Jeseník, Fučíkova 312"
+    },
+    {
+     "id": "600119637",
+     "text": "Základní škola a mateřská škola Vřesovice, příspěvková organizace"
+    },
+    {
+     "id": "600120325",
+     "text": "Základní škola a Mateřská škola Vrchoslavice, okres Prostějov, příspěvková organizace"
+    },
+    {
+     "id": "600120449",
+     "text": "Základní škola a mateřská škola T. G. Masaryka Brodek u Konice,  příspěvková organizace"
+    },
+    {
+     "id": "600120520",
+     "text": "Základní škola nadporučíka letectva Josefa Františka a Mateřská škola Otaslavice"
+    },
+    {
+     "id": "600146600",
+     "text": "Základní škola a mateřská škola Skalička, okres Přerov, příspěvková  organizace"
+    },
+    {
+     "id": "600146651",
+     "text": "Základní škola a mateřská škola Všechovice, příspěvková organizace"
+    },
+    {
+     "id": "600146669",
+     "text": "Základní škola J. A. Komenského a Mateřská škola, Přerov - Předmostí, Hranická 14"
+    },
+    {
+     "id": "600146723",
+     "text": "Základní škola a Mateřská škola Horní Moštěnice, příspěvková organizace"
+    },
+    {
+     "id": "600148009",
+     "text": "Základní škola a Mateřská škola Hrabová, okres Šumperk, příspěvková organizace"
+    },
+    {
+     "id": "600148068",
+     "text": "Základní škola a Mateřská škola Jindřichov, příspěvková organizace"
+    },
+    {
+     "id": "600148271",
+     "text": "Základní škola a Mateřská škola Hrabišín, okres Šumperk, příspěvková organizace"
+    },
+    {
+     "id": "600148521",
+     "text": "Základní škola a Mateřská škola Loučná nad Desnou, příspěvková organizace"
+    },
+    {
+     "id": "600150526",
+     "text": "Základní škola a mateřská škola Bernartice, okres Jeseník - příspěvková organizace"
+    },
+    {
+     "id": "650022319",
+     "text": "Základní škola a Mateřská škola Rájec, okres Šumperk, příspěvková organizace"
+    },
+    {
+     "id": "650022742",
+     "text": "Základní škola a Mateřská škola Grygov, příspěvková organizace"
+    },
+    {
+     "id": "650028597",
+     "text": "Základní škola a Mateřská škola Dolní Studénky, okres Šumperk, příspěvková organizace"
+    },
+    {
+     "id": "650041780",
+     "text": "Základní škola a mateřská škola Lobodice, příspěvková organizace"
+    },
+    {
+     "id": "650041984",
+     "text": "Základní škola a Mateřská škola Luká, okres Olomouc, příspěvková organizace"
+    },
+    {
+     "id": "650043243",
+     "text": "Základní škola a mateřská škola Olšany, okres Šumperk, příspěvková organizace"
+    },
+    {
+     "id": "650044266",
+     "text": "Základní škola a Mateřská škola Dub nad Moravou, příspěvková organizace"
+    },
+    {
+     "id": "650056531",
+     "text": "Základní škola a mateřská škola, Pavlovice u Přerova, okres Přerov, příspěvková organizace"
+    },
+    {
+     "id": "691001359",
+     "text": "Waldorfská základní škola a mateřská škola Olomouc s.r.o."
+    },
+    {
+     "id": "600011925",
+     "text": "Bohemia - Hotelová škola a Střední pedagogická škola a Základní škola s.r.o."
+    },
+    {
+     "id": "600024270",
+     "text": "Základní škola a Praktická škola SVÍTÁNÍ, o.p.s."
+    },
+    {
+     "id": "600024474",
+     "text": "Speciální základní škola, mateřská škola a praktická škola Moravská Třebová"
+    },
+    {
+     "id": "600024814",
+     "text": "Speciální základní škola, mateřská škola a praktická škola Ústí nad Orlicí"
+    },
+    {
+     "id": "600096441",
+     "text": "Základní škola a mateřská škola Lipoltice, okres Pardubice"
+    },
+    {
+     "id": "600096645",
+     "text": "Základní škola a mateřská škola Pardubice, A. Krause 2344"
+    },
+    {
+     "id": "600100499",
+     "text": "Základní škola a mateřská škola Hradec nad Svitavou, okres Svitavy"
+    },
+    {
+     "id": "600100723",
+     "text": "Základní škola a mateřská škola Široký Důl"
+    },
+    {
+     "id": "650045475",
+     "text": "Základní škola a mateřská škola Stolany"
+    },
+    {
+     "id": "650045670",
+     "text": "Základní škola a Mateřská škola Javorník, okres Svitavy"
+    },
+    {
+     "id": "650045912",
+     "text": "Základní škola a mateřská škola J. A. Komenského Brandýs nad Orlicí"
+    },
+    {
+     "id": "600021050",
+     "text": "Střední škola, Základní škola a Mateřská škola pro sluchově postižené, Praha 5, Výmolova 169"
+    },
+    {
+     "id": "600024962",
+     "text": "Mateřská škola, základní škola a střední škola Gellnerka Brno, příspěvková organizace"
+    },
+    {
+     "id": "600025519",
+     "text": "Mateřská škola, základní škola, praktická škola a dětský domov Kyjov, příspěvková organizace"
+    },
+    {
+     "id": "600106021",
+     "text": "Základní škola a Mateřská škola Hugo Sáňky, Rudice, okres Blansko"
+    },
+    {
+     "id": "600106047",
+     "text": "Základní škola a Mateřská škola Skalice nad Svitavou, příspěvková organizace"
+    },
+    {
+     "id": "600106071",
+     "text": "Základní škola a Mateřská škola Šebrov, okres  Blansko, příspěvková organizace"
+    },
+    {
+     "id": "600106250",
+     "text": "Základní škola a Mateřská škola Lipovec, okres Blansko, příspěvková organizace"
+    },
+    {
+     "id": "600106292",
+     "text": "Základní škola a mateřská škola města Olešnice, příspěvková organizace"
+    },
+    {
+     "id": "600106306",
+     "text": "Základní škola a Mateřská škola Ostrov u Macochy, příspěvková organizace"
+    },
+    {
+     "id": "600108520",
+     "text": "Základní škola a mateřská škola Brno, Blanenská 1, příspěvková organizace"
+    },
+    {
+     "id": "600110508",
+     "text": "Základní škola a Mateřská škola Střelice, okres Brno-venkov, příspěvková organizace"
+    },
+    {
+     "id": "600110613",
+     "text": "Základní škola  a Mateřská škola Podolí, příspěvková organizace"
+    },
+    {
+     "id": "600110648",
+     "text": "Základní škola a Mateřská škola Radostice, okres Brno-venkov, příspěvková organizace"
+    },
+    {
+     "id": "600110672",
+     "text": "Základní škola a Mateřská škola Telnice, okres Brno-venkov, příspěvková organizace"
+    },
+    {
+     "id": "600110737",
+     "text": "Základní škola a mateřská škola, Lelekovice, okres Brno-venkov, příspěvková organizace"
+    },
+    {
+     "id": "600110745",
+     "text": "Základní škola a Mateřská škola Silůvky, okres Brno - venkov, příspěvková organizace"
+    },
+    {
+     "id": "600110761",
+     "text": "Základní škola a Mateřská škola Předklášteří, okres Brno - venkov, příspěvková organizace"
+    },
+    {
+     "id": "600110796",
+     "text": "Základní škola a mateřská škola Babice nad Svitavou"
+    },
+    {
+     "id": "600110800",
+     "text": "Základní škola a mateřská škola, Ivančice - Řeznovice, okres Brno-venkov"
+    },
+    {
+     "id": "600110826",
+     "text": "Základní škola a mateřská škola Lažánky, okres Brno - venkov, příspěvková organizace"
+    },
+    {
+     "id": "600110958",
+     "text": "Základní škola a Mateřská škola Žabčice, okres Brno - venkov, příspěvková organizace"
+    },
+    {
+     "id": "600110991",
+     "text": "Základní škola a Mateřská škola  Viničné Šumice, okres Brno-venkov, příspěvková organizace"
+    },
+    {
+     "id": "600111261",
+     "text": "Základní škola a mateřská škola Ochoz u Brna, okres Brno-venkov, příspěvková organizace"
+    },
+    {
+     "id": "600112608",
+     "text": "Základní škola  a mateřská  škola Ivaň, příspěvková organizace"
+    },
+    {
+     "id": "600115577",
+     "text": "Základní škola a Mateřská škola Mutěnice, okres Hodonín"
+    },
+    {
+     "id": "600115721",
+     "text": "Základní škola a mateřská škola, Javorník, okres Hodonín, příspěvková organizace"
+    },
+    {
+     "id": "600115879",
+     "text": "Základní škola a mateřská škola Dambořice, okres Hodonín, příspěvková organizace"
+    },
+    {
+     "id": "600115909",
+     "text": "Základní škola T.G. Masaryka a Mateřská škola, Hovorany, příspěvková organizace"
+    },
+    {
+     "id": "600116115",
+     "text": "Základní škola a mateřská škola Uhřice, okres Hodonín, příspěvková organizace"
+    },
+    {
+     "id": "600116123",
+     "text": "Základní škola a mateřská škola Bukovany, okres Hodonín. příspěvková organizace"
+    },
+    {
+     "id": "600125645",
+     "text": "Základní škola a Mateřská škola Němčany, okres Vyškov, příspěvková organizace"
+    },
+    {
+     "id": "600126005",
+     "text": "Základní škola a mateřská škola Podomí"
+    },
+    {
+     "id": "600127222",
+     "text": "Základní škola a mateřská škola, Hluboké Mašůvky, příspěvková organizace"
+    },
+    {
+     "id": "600127401",
+     "text": "Základní škola a Mateřská škola, Hrabětice, příspěvková organizace"
+    },
+    {
+     "id": "600127851",
+     "text": "Základní škola a mateřská škola, Citonice, okres Znojmo, příspěvková organizace"
+    },
+    {
+     "id": "600127915",
+     "text": "Základní škola a Mateřská škola, Břežany, okres Znojmo, příspěvková organizace"
+    },
+    {
+     "id": "610251121",
+     "text": "Mateřská škola a základní škola Břeclav, Herbenova, příspěvková organizace"
+    },
+    {
+     "id": "650012771",
+     "text": "Základní škola a Mateřská škola Václava Havla,Žďárec, okres Brno - venkov"
+    },
+    {
+     "id": "600066380",
+     "text": "Základní škola a mateřská škola Hazlov, okres Cheb, příspěvková organizace"
+    },
+    {
+     "id": "600067343",
+     "text": "Základní škola Valeč, okres Karlovy Vary, příspěvková organizace"
+    },
+    {
+     "id": "650016581",
+     "text": "Základní škola a mateřská škola Horní Blatná, okres Karlovy Vary"
+    },
+    {
+     "id": "651009227",
+     "text": "Základní škola a mateřská škola Regionu Karlovarský venkov"
+    },
+    {
+     "id": "691016798",
+     "text": "Základní škola a mateřská škola Jindřichovice, příspěvková organizace"
+    },
+    {
+     "id": "600025641",
+     "text": "Střední škola, Základní škola a Mateřská škola Prostějov, Komenského 10"
+    },
+    {
+     "id": "600027031",
+     "text": "Základní škola a Mateřská škola - Dětské centrum Hranice, pobočný spolek pro pomoc postiženým dětem"
+    },
+    {
+     "id": "600027058",
+     "text": "Střední škola, Základní škola a Mateřská škola Lipník nad Bečvou, Osecká 301"
+    },
+    {
+     "id": "600027121",
+     "text": "Střední škola, Základní škola a Mateřská škola Šumperk, Hanácká 3"
+    },
+    {
+     "id": "600120163",
+     "text": "Základní škola a mateřská škola Myslejovice, okres Prostějov, příspěvková organizace"
+    },
+    {
+     "id": "600120333",
+     "text": "Základní škola a Mateřská škola Čelechovice na Hané"
+    },
+    {
+     "id": "600120431",
+     "text": "Základní škola a Mateřská škola Bohuslavice, okres Prostějov, příspěvková organizace"
+    },
+    {
+     "id": "600120465",
+     "text": "Jubilejní Masarykova základní škola a mateřská škola Drahany"
+    },
+    {
+     "id": "600120473",
+     "text": "Masarykova jubilejní základní škola a Mateřská škola Horní Štěpánov, okres Prostějov, příspěvková organizace"
+    },
+    {
+     "id": "600140261",
+     "text": "Základní škola a Mateřská škola Náměšť na Hané, okres Olomouc"
+    },
+    {
+     "id": "600140849",
+     "text": "Základní škola a Mateřská škola Tršice, příspěvková organizace"
+    },
+    {
+     "id": "600141071",
+     "text": "Základní škola a Mateřská škola Olomouc, Dvorského 33, příspěvková organizace"
+    },
+    {
+     "id": "600146383",
+     "text": "Základní škola a Mateřská škola Potštát, okres Přerov"
+    },
+    {
+     "id": "600148033",
+     "text": "Základní škola a Mateřská škola Hrabenov, okres Šumperk, příspěvková organizace"
+    },
+    {
+     "id": "600148114",
+     "text": "Základní škola a Mateřská škola Lukavice, okres Šumperk, příspěvková organizace"
+    },
+    {
+     "id": "600148408",
+     "text": "Základní škola a Mateřská škola Staré Město, okres Šumperk"
+    },
+    {
+     "id": "600148416",
+     "text": "Základní škola a Mateřská škola Sudkov, příspěvková organizace"
+    },
+    {
+     "id": "600148483",
+     "text": "Základní škola a mateřská škola Velké Losiny, příspěvková organizace"
+    },
+    {
+     "id": "600150577",
+     "text": "Základní škola a Mateřská škola Bělá pod Pradědem, příspěvková organizace"
+    },
+    {
+     "id": "600150615",
+     "text": "Základní škola a mateřská škola J. Schrotha, Lipová - lázně"
+    },
+    {
+     "id": "650027892",
+     "text": "Základní škola a mateřská škola Oskava, příspěvková organizace"
+    },
+    {
+     "id": "650028309",
+     "text": "Základní škola, Mateřská škola, Školní jídelna a Školní družina Bouzov, příspěvková organizace"
+    },
+    {
+     "id": "650031067",
+     "text": "Základní škola a Mateřská škola Nový Malín, příspěvková organizace"
+    },
+    {
+     "id": "650035992",
+     "text": "Základní škola a Mateřská škola Smržice, příspěvková organizace"
+    },
+    {
+     "id": "650037430",
+     "text": "Základní škola a mateřská škola Těšetice, 783 46, příspěvková organizace"
+    },
+    {
+     "id": "650038754",
+     "text": "Základní škola a Mateřská škola Vikýřovice, okres Šumperk, příspěvková organizace"
+    },
+    {
+     "id": "650041224",
+     "text": "Základní škola a Mateřská škola Charváty, příspěvková organizace"
+    },
+    {
+     "id": "650041623",
+     "text": "Základní škola a mateřská škola Újezd, příspěvková organizace"
+    },
+    {
+     "id": "650042255",
+     "text": "Základní škola a Mateřská škola Náklo, okres Olomouc, příspěvková organizace"
+    },
+    {
+     "id": "650047940",
+     "text": "Základní škola a Mateřská škola Týn nad Bečvou, příspěvková organizace"
+    },
+    {
+     "id": "650056612",
+     "text": "Základní škola a mateřská škola Rokytnice, okres Přerov, příspěvková organizace"
+    },
+    {
+     "id": "650061357",
+     "text": "Základní škola a Mateřská škola Křelov-Břuchotín, příspěvková organizace"
+    },
+    {
+     "id": "651039860",
+     "text": "Základní škola a Mateřská škola Údolí Desné"
+    },
+    {
+     "id": "691015287",
+     "text": "Mateřská škola a Základní škola Slatinice, příspěvková organizace"
+    },
+    {
+     "id": "600090353",
+     "text": "Základní škola a mateřská škola Svratouch"
+    },
+    {
+     "id": "600090515",
+     "text": "Základní škola a Mateřská škola Kameničky"
+    },
+    {
+     "id": "600090663",
+     "text": "Základní škola a mateřská škola, Orel, okres Chrudim"
+    },
+    {
+     "id": "600096408",
+     "text": "Základní škola a mateřská škola Dříteč, okres Pardubice"
+    },
+    {
+     "id": "600100464",
+     "text": "Základní škola a mateřská škola Trstěnice, okres Svitavy"
+    },
+    {
+     "id": "600104559",
+     "text": "Základní škola a Mateřská škola Tisová, okres Ústí nad Orlicí"
+    },
+    {
+     "id": "600104681",
+     "text": "Základní škola a mateřská škola Sopotnice, příspěvková organizace"
+    },
+    {
+     "id": "600104826",
+     "text": "Základní škola a Mateřská škola Řetová"
+    },
+    {
+     "id": "600104851",
+     "text": "Základní škola a mateřská škola Damníkov"
+    },
+    {
+     "id": "650019831",
+     "text": "Základní škola a mateřská škola Dlouhá Třebová okres Ústí nad Orlicí"
+    },
+    {
+     "id": "650039483",
+     "text": "Základní škola a mateřská škola Morašice okres Chrudim"
+    },
+    {
+     "id": "650045424",
+     "text": "Základní škola a mateřská škola Rosice, okres Chrudim"
+    },
+    {
+     "id": "650045564",
+     "text": "Základní škola a mateřská škola Krouna"
+    },
+    {
+     "id": "650046528",
+     "text": "Základní škola a mateřská škola Bystřec"
+    },
+    {
+     "id": "650047869",
+     "text": "Základní škola a mateřská škola Jamné nad Orlicí"
+    },
+    {
+     "id": "650049969",
+     "text": "Základní škola a Mateřská škola Sádek, okres Svitavy"
+    },
+    {
+     "id": "650051301",
+     "text": "Základní škola a Mateřská škola Jehnědí, okres Ústí nad Orlicí"
+    },
+    {
+     "id": "650051653",
+     "text": "Základní škola a mateřská škola Proseč"
+    },
+    {
+     "id": "650052391",
+     "text": "ZÁKLADNÍ ŠKOLA A MATEŘSKÁ ŠKOLA KOCLÍŘOV, okres Svitavy"
+    },
+    {
+     "id": "650053834",
+     "text": "Masarykova základní škola a mateřská škola Kunvald, okres Ústí nad Orlicí"
+    },
+    {
+     "id": "669100731",
+     "text": "Základní škola a mateřská škola KLAS s.r.o."
+    },
+    {
+     "id": "691001421",
+     "text": "Speciální základní škola, mateřská škola a praktická škola Skuteč"
+    },
+    {
+     "id": "691013756",
+     "text": "Mateřská škola a základní škola Josefa Luxe Nekoř"
+    },
+    {
+     "id": "600006310",
+     "text": "Soukromá střední škola a základní škola (1. KŠPA), Praha s.r.o."
+    },
+    {
+     "id": "600036197",
+     "text": "Základní škola a mateřská škola Jarov, Praha 3, V Zahrádkách 48/1966"
+    },
+    {
+     "id": "600039803",
+     "text": "Základní škola a mateřská škola, Praha 8, Lyčkovo náměstí 6"
+    },
+    {
+     "id": "600040551",
+     "text": "Základní škola a Mateřská škola Na Balabence"
+    },
+    {
+     "id": "651040001",
+     "text": "Křesťanská střední škola, základní škola a mateřská škola Elijáš, Praha 4 - Michle"
+    },
+    {
+     "id": "691000549",
+     "text": "Základní škola a mateřská škola Parentes Praha"
+    },
+    {
+     "id": "691002711",
+     "text": "Mateřská škola a základní škola Beehive s.r.o."
+    },
+    {
+     "id": "691005095",
+     "text": "Mateřská škola a základní škola pro děti s kombinovaným postižením SMILING CROCODILE, o.p.s."
+    },
+    {
+     "id": "691005826",
+     "text": "Victoria School, s.r.o., základní škola a mateřská škola"
+    },
+    {
+     "id": "691006962",
+     "text": "International Montessori School of Prague, mateřská škola a základní škola, s.r.o."
+    },
+    {
+     "id": "600106161",
+     "text": "Základní škola a Mateřská škola Blansko, Dvorská 26"
+    },
+    {
+     "id": "600106179",
+     "text": "Základní škola a Mateřská škola Blansko, Salmova 17"
+    },
+    {
+     "id": "600108261",
+     "text": "Základní škola a mateřská škola Brno, Husova 17, příspěvková organizace"
+    },
+    {
+     "id": "600108431",
+     "text": "Základní škola a mateřská škola Brno, Antonínská 3, příspěvková organizace"
+    },
+    {
+     "id": "600110575",
+     "text": "Základní škola a Mateřská škola Holasice, okres Brno-venkov"
+    },
+    {
+     "id": "600111211",
+     "text": "Základní škola a Mateřská škola, Vojkovice, okres Brno - venkov, příspěvková organizace"
+    },
+    {
+     "id": "600115968",
+     "text": "Základní škola a mateřská škola Milotice, okres Hodonín"
+    },
+    {
+     "id": "600125866",
+     "text": "Základní škola a Mateřská škola, Otnice, příspěvková organizace"
+    },
+    {
+     "id": "600140938",
+     "text": "Fakultní základní škola dr. Milady Horákové a Mateřská škola Olomouc, Rožňavská 21, příspěvková organizace"
+    },
+    {
+     "id": "650036239",
+     "text": "Základní škola a Mateřská škola Přemyslovice, příspěvková organizace"
+    },
+    {
+     "id": "600005399",
+     "text": "Škola Kavčí hory - Mateřská škola, Základní škola a Střední odborná škola služeb, Praha 4, K Sídlišti 840"
+    },
+    {
+     "id": "600027341",
+     "text": "Jedličkův ústav a Mateřská škola a Základní škola a Střední škola"
+    },
+    {
+     "id": "600035590",
+     "text": "Základní škola a mateřská škola, Praha 2, Na Smetance 1"
+    },
+    {
+     "id": "600035646",
+     "text": "Základní škola a Mateřská škola, Praha 2, Resslova 10"
+    },
+    {
+     "id": "600036111",
+     "text": "Základní škola a mateřská škola, Praha 3, nám. Jiřího z Lobkovic 22/121"
+    },
+    {
+     "id": "600036162",
+     "text": "Základní škola a mateřská škola, Praha 3, Chelčického 43/2614"
+    },
+    {
+     "id": "600037045",
+     "text": "Základní škola a mateřská škola ANGEL v Praze 12"
+    },
+    {
+     "id": "600037185",
+     "text": "Základní škola a mateřská škola Chodov, Praha 4, Květnového vítězství 57"
+    },
+    {
+     "id": "600037193",
+     "text": "Základní škola a Mateřská škola, Praha 4, Mendíků 2"
+    },
+    {
+     "id": "600037266",
+     "text": "Základní škola a Mateřská škola, Praha 4, Ohradní 49"
+    },
+    {
+     "id": "600037380",
+     "text": "Základní škola a mateřská škola Na Beránku v Praze 12"
+    },
+    {
+     "id": "600037410",
+     "text": "Základní škola a mateřská škola Smolkova v Praze 12"
+    },
+    {
+     "id": "600038238",
+     "text": "Fakultní základní škola a mateřská škola Barrandov II při PedF UK, Praha 5 - Hlubočepy, V Remízku 7/919, příspěvková organizace"
+    },
+    {
+     "id": "600038297",
+     "text": "Základní škola a mateřská škola Praha 5 - Košíře, Weberova 1/1090, příspěvková organizace"
+    },
+    {
+     "id": "600038327",
+     "text": "Základní škola a mateřská škola Praha - Slivenec, Ke Smíchovu 16"
+    },
+    {
+     "id": "600038467",
+     "text": "Tyršova základní škla a mateřská škola Praha 5 - Jinonice, U Tyršovy školy 1/430, příspěvková organizace"
+    },
+    {
+     "id": "600038530",
+     "text": "Základní škola a Mateřská škola, Praha 5 - Zličín, Nedašovská 328"
+    },
+    {
+     "id": "600039048",
+     "text": "Základní škola a Mateřská škola Červený vrch, Praha 6, Alžírská 26"
+    },
+    {
+     "id": "600039102",
+     "text": "Základní škola a Mateřská škola Antonína Čermáka, Praha 6"
+    },
+    {
+     "id": "600039111",
+     "text": "Základní škola a Mateřská škola Emy Destinnové, Praha 6, náměstí Svobody 3/930"
+    },
+    {
+     "id": "600039129",
+     "text": "Základní škola a Mateřská škola, Praha 6, náměstí Svobody 2"
+    },
+    {
+     "id": "600039153",
+     "text": "Základní škola Hanspaulka a Mateřská škola Kohoutek, Praha 6, Sušická 29"
+    },
+    {
+     "id": "600039161",
+     "text": "Základní škola a Mateřská škola Věry Čáslavské, Praha 6"
+    },
+    {
+     "id": "600039200",
+     "text": "Základní škola a mateřská škola, Praha - Nebušice"
+    },
+    {
+     "id": "600039374",
+     "text": "Fakultní základní škola PedF UK a Mateřská škola U Studánky Praha 7, Umělecká 8"
+    },
+    {
+     "id": "600039412",
+     "text": "Základní škola a Mateřská škola Praha 7, Tusarova 21"
+    },
+    {
+     "id": "600039862",
+     "text": "Základní škola a mateřská škola, Praha 8 - Ďáblice, U Parkánu 17"
+    },
+    {
+     "id": "600039889",
+     "text": "Základní škola a mateřská škola Petra Strozziho, Praha 8, Za Invalidovnou 3"
+    },
+    {
+     "id": "600039935",
+     "text": "Základní škola a mateřská škola Na Slovance, Praha 8, Bedřichovská 1"
+    },
+    {
+     "id": "600040399",
+     "text": "Základní škola a Mateřská škola Tupolevova"
+    },
+    {
+     "id": "610350803",
+     "text": "Základní škola a Mateřská škola, Praha 8, Za Invalidovnou 1"
+    },
+    {
+     "id": "691003050",
+     "text": "Mateřská škola, základní škola a gymnázium sv. Augustina"
+    },
+    {
+     "id": "691016623",
+     "text": "PED Academy School Kbely, základní škola, s.r.o."
+    },
+    {
+     "id": "600025128",
+     "text": "Mateřská škola a základní škola Ivančice, příspěvková organizace"
+    },
+    {
+     "id": "600107949",
+     "text": "Základní škola a mateřská škola Brno, Kotlářská 4, příspěvková organizace"
+    },
+    {
+     "id": "600107957",
+     "text": "Základní škola a mateřská škola, Brno, Horníkova 1, příspěvková organizace"
+    },
+    {
+     "id": "600108112",
+     "text": "Základní škola a Mateřská škola Brno, Milénova 14, příspěvková organizace"
+    },
+    {
+     "id": "600108201",
+     "text": "Základní škola a Mateřská škola, Brno, Jana Broskvy 3, příspěvková organizace"
+    },
+    {
+     "id": "600108236",
+     "text": "Základní škola a mateřská škola Brno, Jihomoravské nám. 2"
+    },
+    {
+     "id": "600108287",
+     "text": "Základní škola a Mateřská škola, Brno, Elišky Přemyslovny 10, příspěvková organizace"
+    },
+    {
+     "id": "600108503",
+     "text": "Základní škola a Mateřská škola, Brno, Staňkova 14, příspěvková organizace"
+    },
+    {
+     "id": "600111008",
+     "text": "Základní škola a Mateřská škola Kanice, okr. Brno-venkov, příspěvková organizace"
+    },
+    {
+     "id": "600111199",
+     "text": "Základní škola a Mateřská škola Želešice, příspěvková organizace"
+    },
+    {
+     "id": "600111318",
+     "text": "Základní škola a mateřská škola Neslovice, okres Brno - venkov, příspěvková organizace"
+    },
+    {
+     "id": "600112292",
+     "text": "Základní škola a Mateřská škola Břeclav, Kpt. Nálepky 7, příspěvková organizace"
+    },
+    {
+     "id": "600112497",
+     "text": "Základní škola a Mateřská škola Šakvice, příspěvková organizace"
+    },
+    {
+     "id": "600112594",
+     "text": "Základní škola a Mateřská škola Starovičky, okres Břeclav, příspěvková organizace."
+    },
+    {
+     "id": "600115917",
+     "text": "Základní škola a mateřská škola Joži Uprky Hroznová Lhota, okres Hodonín, příspěvková organizace"
+    },
+    {
+     "id": "600116000",
+     "text": "Základní škola a Mateřská škola Prušánky, okres Hodonín, příspěvková organizace"
+    },
+    {
+     "id": "600116034",
+     "text": "Základní škola a Mateřská škola Svatobořice-Mistřín, okres Hodonín, příspěvková organizace"
+    },
+    {
+     "id": "600125769",
+     "text": "Základní škola a mateřská škola Holubice, okres Vyškov, příspěvková organizace"
+    },
+    {
+     "id": "600126668",
+     "text": "Základní škola a Mateřská škola, Kuchařovice, příspěvková organizace"
+    },
+    {
+     "id": "650071603",
+     "text": "Základní škola JUDr. Josefa Mareše a Mateřská škola, Znojmo, Klášterní 2, příspěvková organizace"
+    },
+    {
+     "id": "651040809",
+     "text": "Křesťanská Základní škola a Mateřská škola Jana Husa"
+    },
+    {
+     "id": "691000735",
+     "text": "Waldorfská škola Brno - střední škola, základní škola a mateřská škola, příspěvková organizace"
+    },
+    {
+     "id": "600009076",
+     "text": "Svobodná chebská škola, základní škola a gymnázium s.r.o."
+    },
+    {
+     "id": "600066355",
+     "text": "Základní škola a mateřská škola Aš, Okružní 57, okres Cheb, příspěvková organizace"
+    },
+    {
+     "id": "600067246",
+     "text": "Základní škola a mateřská škola Pernink, příspěvková organizace"
+    },
+    {
+     "id": "600067271",
+     "text": "Základní škola a Mateřská škola Ostrov, Myslbekova 996, příspěvková organizace"
+    },
+    {
+     "id": "650015002",
+     "text": "Základní škola a mateřská škola Oloví, příspěvková organizace"
+    },
+    {
+     "id": "600001741",
+     "text": "Základní škola a Mateřská škola Sluníčko s.r.o."
+    },
+    {
+     "id": "600140253",
+     "text": "Základní škola a Mateřská škola Olomouc, Nedvědova 17, příspěvková organizace"
+    },
+    {
+     "id": "600146464",
+     "text": "Základní škola a Mateřská škola Kokory"
+    },
+    {
+     "id": "600100529",
+     "text": "Základní škola a mateřská škola Dolní Újezd"
+    },
+    {
+     "id": "650045815",
+     "text": "Základní škola a mateřská škola Srch, okres Pardubice"
+    },
+    {
+     "id": "650053672",
+     "text": "Základní škola Lubná-Sebranice a Mateřská škola Lubná"
+    },
+    {
+     "id": "600020720",
+     "text": "Základní škola a Střední škola Karla Herforta, Praha 1, Josefská 4"
+    },
+    {
+     "id": "600020746",
+     "text": "Škola Jaroslava Ježka, Mateřská škola, základní škola, praktická škola a základní umělecká škola pro zrakově postižené, Praha 1, Loretánská 19 a 17"
+    },
+    {
+     "id": "600020797",
+     "text": "Gymnázium, Střední odborná škola, Základní škola a Mateřská škola pro sluchově postižené, Praha 2, Ječná 27"
+    },
+    {
+     "id": "600036219",
+     "text": "Základní škola a mateřská škola Jaroslava Seiferta, Praha 3, Vlkova 31/800"
+    },
+    {
+     "id": "600037126",
+     "text": "Základní škola a mateřská škola K Dolům v Praze 12"
+    },
+    {
+     "id": "600037347",
+     "text": "Základní škola a Mateřská škola, Praha 4, Sdružení 1080"
+    },
+    {
+     "id": "600038246",
+     "text": "Fakultní základní škola a mateřská škola Pedagogické fakulty Univerzity Karlovy, Praha 5 – Smíchov, Grafická 13/1060, příspěvková organizace"
+    },
+    {
+     "id": "600038301",
+     "text": "Základní škola a mateřská škola Praha 5 - Smíchov, Kořenského 10/760, příspěvková organizace"
+    },
+    {
+     "id": "600038360",
+     "text": "Základní škola a mateřská škola Praha 5 - Radlice, Radlická 140/115, příspěvková organizace"
+    },
+    {
+     "id": "600038424",
+     "text": "Základní škola a mateřská škola Praha 5 - Smíchov, U Santošky 1/1007, příspěvková organizace"
+    },
+    {
+     "id": "600038475",
+     "text": "Základní škola a mateřská škola Barrandov, Praha 5 - Hlubočepy, Chaplinovo nám. 1/615, příspěvková organizace"
+    },
+    {
+     "id": "600039099",
+     "text": "Základní škola a Mateřská škola T. G. Masaryka, Praha 6, náměstí Českého povstání 6"
+    },
+    {
+     "id": "600039170",
+     "text": "Základní škola a Mateřská škola J. A. Komenského, Praha 6, U Dělnického cvičiště 1"
+    },
+    {
+     "id": "600039757",
+     "text": "Základní škola a mateřská škola, Praha 8, Dolákova 1"
+    },
+    {
+     "id": "600039773",
+     "text": "Základní škola a mateřská škola Ústavní, Praha 8, Hlivická 1"
+    },
+    {
+     "id": "600039871",
+     "text": "Základní škola a mateřská škola, Praha 8, U Školské zahrady 4"
+    },
+    {
+     "id": "600040411",
+     "text": "Základní škola a Mateřská škola, Praha 9- Horní Počernice, Spojenců 1408"
+    },
+    {
+     "id": "600040500",
+     "text": "Základní škola a Mateřská škola Dr. Edvarda Beneše, Praha - Čakovice"
+    },
+    {
+     "id": "600171426",
+     "text": "Střední škola, základní škola a mateřská škola pro sluchově postižené, Praha 5, Holečkova 4"
+    },
+    {
+     "id": "610380061",
+     "text": "Lauderova mateřská škola, základní škola a gymnázium při Židovské obci v Praze"
+    },
+    {
+     "id": "600025047",
+     "text": "Střední škola, základní škola a mateřská škola pro zdravotně znevýhodněné, Brno, Kamenomlýnská 2"
+    },
+    {
+     "id": "600106144",
+     "text": "Základní škola a mateřská škola Adamov, příspěvková organizace"
+    },
+    {
+     "id": "600106241",
+     "text": "Základní škola a Mateřská škola Kunštát, příspěvková organizace"
+    },
+    {
+     "id": "600106276",
+     "text": "Základní škola, základní umělecká škola a mateřská škola Lomnice, příspěvková organizace"
+    },
+    {
+     "id": "600106314",
+     "text": "Základní škola a mateřská škola Rájec - Jestřebí, okres Blansko"
+    },
+    {
+     "id": "600108163",
+     "text": "Základní škola a mateřská škola Brno, Horní 16, příspěvková organizace"
+    },
+    {
+     "id": "600108317",
+     "text": "Základní škola a mateřská škola Brno, Křídlovická 30b, příspěvková organizace"
+    },
+    {
+     "id": "600108325",
+     "text": "Základní škola  a mateřská škola Brno, Vedlejší 10, příspěvková organizace"
+    },
+    {
+     "id": "600108422",
+     "text": "Základní škola a mateřská škola Brno, Křenová 21, příspěvková organizace"
+    },
+    {
+     "id": "600108481",
+     "text": "Základní škola a Mateřská škola Brno, Pastviny 70, příspěvková organizace"
+    },
+    {
+     "id": "600108601",
+     "text": "Základní škola a Mateřská škola Brno, Bosonožské nám. 44, příspěvková organizace"
+    },
+    {
+     "id": "600108619",
+     "text": "Masarykova základní škola a Mateřská škola Brno, Zemědělská 29, příspěvková organizace"
+    },
+    {
+     "id": "600110486",
+     "text": "Základní škola a mateřská škola Dolní Kounice, příspěvková organizace"
+    },
+    {
+     "id": "600110788",
+     "text": "Základní škola a mateřská škola Přísnotice, příspěvková organizace, okres Brno - venkov"
+    },
+    {
+     "id": "600111016",
+     "text": "Základní škola a Mateřská škola, Ostrovačice, okres Brno - venkov, příspěvková organizace"
+    },
+    {
+     "id": "600111091",
+     "text": "Základní škola a Mateřská škola Ořechov, okres Brno-venkov, příspěvková organizace"
+    },
+    {
+     "id": "600111113",
+     "text": "Základní škola a mateřská škola Pozořice, příspěvková organizace"
+    },
+    {
+     "id": "600111156",
+     "text": "Základní škola a mateřská škola Těšany, okres Brno-venkov, příspěvková organizace"
+    },
+    {
+     "id": "600111172",
+     "text": "Základní škola a Mateřská škola T.G.Masaryka Zastávka, příspěvková organizace"
+    },
+    {
+     "id": "600111229",
+     "text": "Základní škola a Mateřská škola Vranov, okres Brno-venkov"
+    },
+    {
+     "id": "600112136",
+     "text": "Základní škola a Mateřská škola Brumovice,okres Břeclav,příspěvková organizace"
+    },
+    {
+     "id": "600112268",
+     "text": "Základní škola a mateřská škola Šitbořice, příspěvková organizace"
+    },
+    {
+     "id": "600112314",
+     "text": "Základní škola a Mateřská škola Břeclav, Kupkova 1, příspěvková organizace"
+    },
+    {
+     "id": "600112331",
+     "text": "Základní škola a Mateřská škola Dolní Dunajovice, příspěvková organizace"
+    },
+    {
+     "id": "600112357",
+     "text": "Základní škola a mateřská škola Drnholec, okres Břeclav, příspěvková organizace"
+    },
+    {
+     "id": "600112551",
+     "text": "Základní škola a Mateřská škola Vlasatice, příspěvková organizace"
+    },
+    {
+     "id": "600112560",
+     "text": "Základní škola a Mateřská škola Vranovice, příspěvková organizace"
+    },
+    {
+     "id": "600112624",
+     "text": "Základní škola a Mateřská škola Týnec, okres Břeclav, příspěvková organizace"
+    },
+    {
+     "id": "600115674",
+     "text": "Základní škola a mateřská škola Bzenec, příspěvková organizace"
+    },
+    {
+     "id": "600116018",
+     "text": "Základní škola a mateřská škola Rohatec, příspěvková organizace"
+    },
+    {
+     "id": "600125726",
+     "text": "Základní škola a Mateřská škola Tučapy, okres Vyškov, příspěvková organizace"
+    },
+    {
+     "id": "600125858",
+     "text": "Základní škola a Mateřská škola Křenovice, okres Vyškov"
+    },
+    {
+     "id": "600127559",
+     "text": "Základní škola a Mateřská škola, Hevlín, příspěvková organizace"
+    },
+    {
+     "id": "600127605",
+     "text": "Základní škola a Mateřská škola, Mikulovice u Znojma, příspěvková organizace"
+    },
+    {
+     "id": "600127672",
+     "text": "Základní škola a Mateřská škola, Tasovice, okres Znojmo, příspěvková organizace"
+    },
+    {
+     "id": "600130177",
+     "text": "Základní škola a Mateřská škola Nedvědice, okres Brno-venkov, příspěvková organizace"
+    },
+    {
+     "id": "600130401",
+     "text": "Základní škola a Mateřská škola Doubravník, okres  Brno-venkov, příspěvková organizace"
+    },
+    {
+     "id": "600022854",
+     "text": "Základní škola a střední škola Karlovy Vary, příspěvková organizace"
+    },
+    {
+     "id": "600066517",
+     "text": "Základní škola a mateřská škola Dolní Žandov, okres Cheb, příspěvková organizace"
+    },
+    {
+     "id": "600067408",
+     "text": "Základní škola Marie Curie-Sklodowské a mateřská škola Jáchymov, příspěvková organizace"
+    },
+    {
+     "id": "600067556",
+     "text": "Základní škola a mateřská škola Božičany, okres Karlovy Vary, příspěvková organizace"
+    },
+    {
+     "id": "600067645",
+     "text": "Základní škola a mateřská škola Kyselka, okres Karlovy Vary, příspěvková organizace"
+    },
+    {
+     "id": "600067653",
+     "text": "Základní škola a mateřská škola Bečov nad Teplou, okres Karlovy Vary, příspěvková organizace"
+    },
+    {
+     "id": "600073017",
+     "text": "Střední škola, základní škola a mateřská škola Kraslice, příspěvková organizace"
+    },
+    {
+     "id": "691004269",
+     "text": "Základní škola, mateřská škola a dětské jesle Moudrá sova s.r.o."
+    },
+    {
+     "id": "600015149",
+     "text": "Základní škola a gymnázium města Konice, příspěvková organizace"
+    },
+    {
+     "id": "600015301",
+     "text": "Reálné gymnázium a základní škola Otto Wichterleho, Prostějov"
+    },
+    {
+     "id": "600026612",
+     "text": "Střední škola, Základní škola a Mateřská škola prof. V. Vejdovského Olomouc - Hejčín"
+    },
+    {
+     "id": "600026621",
+     "text": "Střední škola, základní škola a mateřská škola pro sluchově postižené, Olomouc, Kosmonautů 4"
+    },
+    {
+     "id": "600026671",
+     "text": "Střední škola a Základní škola DC 90, s.r.o."
+    },
+    {
+     "id": "600120490",
+     "text": "Základní škola a mateřská škola Kostelec na Hané, okres Prostějov, příspěvková organizace"
+    },
+    {
+     "id": "600120511",
+     "text": "Základní škola a Mateřská škola Olšany u Prostějova"
+    },
+    {
+     "id": "600120562",
+     "text": "Základní škola a mateřská škola Ptení"
+    },
+    {
+     "id": "600120589",
+     "text": "Základní škola Zdeny Kaprálové a Mateřská škola Vrbátky, příspěvková organizace"
+    },
+    {
+     "id": "600120597",
+     "text": "Základní škola a mateřská škola Prostějov, Melantrichova ul. 60"
+    },
+    {
+     "id": "600120619",
+     "text": "Masarykova základní škola a mateřská škola Nezamyslice"
+    },
+    {
+     "id": "600139000",
+     "text": "Základní škola a Mateřská škola Jívová, okres Olomouc, příspěvková organizace"
+    },
+    {
+     "id": "600140199",
+     "text": "Základní škola a Mateřská škola Olomouc - Holice, Náves Svobody 41, příspěvková organizace"
+    },
+    {
+     "id": "600140326",
+     "text": "Základní škola a Mateřská škola Bystročice, příspěvková organizace"
+    },
+    {
+     "id": "600140407",
+     "text": "Základní škola a Mateřská škola Červenka, příspěvková organizace"
+    },
+    {
+     "id": "600140580",
+     "text": "Základní škola a Mateřská škola Příkazy, příspěvková organizace"
+    },
+    {
+     "id": "600140598",
+     "text": "Základní škola a Mateřská škola Olomouc - Nemilany, Raisova 1, příspěvková organizace"
+    },
+    {
+     "id": "600140628",
+     "text": "Fakultní základní škola Komenium a Mateřská škola Olomouc, 8. května 29, příspěvková organizace"
+    },
+    {
+     "id": "600140636",
+     "text": "Fakultní základní škola a Mateřská škola Olomouc, Holečkova 10, příspěvková organizace"
+    },
+    {
+     "id": "600140644",
+     "text": "Základní škola a Mateřská škola Olomouc, Svatoplukova 11, příspěvková organizace"
+    },
+    {
+     "id": "600140831",
+     "text": "Základní škola a Mateřská škola Medlov, příspěvková organizace"
+    },
+    {
+     "id": "600146499",
+     "text": "Základní škola a Mateřská škola Troubky"
+    },
+    {
+     "id": "600146758",
+     "text": "Základní škola a Mateřská škola Osek nad Bečvou, okres Přerov"
+    },
+    {
+     "id": "600146766",
+     "text": "Základní škola a mateřská škola Lipník nad Bečvou, ulice Hranická 511, příspěvková organizace"
+    },
+    {
+     "id": "650028465",
+     "text": "Základní škola a Mateřská škola Aloise Štěpánka, Dolany, příspěvková organizace"
+    },
+    {
+     "id": "650037952",
+     "text": "Základní škola a mateřská škola Přáslavice, příspěvková organizace"
+    },
+    {
+     "id": "600024792",
+     "text": "Střední škola a základní škola Žamberk"
+    },
+    {
+     "id": "650050606",
+     "text": "Základní škola a mateřská škola, Skořenice"
+    },
+    {
+     "id": "650052081",
+     "text": "Základní škola a mateřská škola Městečko Trnávka, okres Svitavy"
+    },
+    {
+     "id": "650057988",
+     "text": "Základní škola a Mateřská škola Běly Jensen, Opatov, okres Svitavy"
+    },
+    {
+     "id": "691002223",
+     "text": "Speciální základní škola a praktická škola Chrudim"
+    },
+    {
+     "id": "691002568",
+     "text": "NOE - Křesťanská základní škola a mateřská škola v Pardubicích"
+    },
+    {
+     "id": "691006903",
+     "text": "Mateřská škola a Základní škola Na rovině v Chrudimi"
+    },
+    {
+     "id": "600039064",
+     "text": "Základní škola a Mateřská škola, Praha 6, Bílá 1"
+    },
+    {
+     "id": "600039072",
+     "text": "Základní škola a Mateřská škola, Praha 6, Na Dlouhém lánu 43"
+    },
+    {
+     "id": "600040402",
+     "text": "Základní škola a Mateřská škola Praha - Vinoř"
+    },
+    {
+     "id": "600025039",
+     "text": "Mateřská škola, základní škola a praktická škola Brno, Štolcova, příspěvková organizace"
+    },
+    {
+     "id": "600025276",
+     "text": "Základní škola a praktická škola Hustopeče, příspěvková organizace"
+    },
+    {
+     "id": "600025446",
+     "text": "Základní škola a praktická škola Hodonín, náměstí B. Martinů, příspěvková organizace"
+    },
+    {
+     "id": "600025896",
+     "text": "Mateřská škola, základní škola a praktická škola Znojmo, příspěvková organizace"
+    },
+    {
+     "id": "600106322",
+     "text": "Základní škola a mateřská škola Sloup, příspěvková organizace"
+    },
+    {
+     "id": "600107973",
+     "text": "Základní škola a Mateřská škola Brno, Merhautova 37, příspěvková organizace"
+    },
+    {
+     "id": "600108040",
+     "text": "Základní škola a mateřská škola Brno, nám. 28. října 22, příspěvková organizace"
+    },
+    {
+     "id": "600108074",
+     "text": "Základní škola a Mateřská škola Brno, Chalabalova 2, příspěvková organizace"
+    },
+    {
+     "id": "600108121",
+     "text": "Základní škola a Mateřská škola Brno, Blažkova 9, příspěvková organizace"
+    },
+    {
+     "id": "600108384",
+     "text": "Základní škola J. A. Komenského a Mateřská škola Brno, nám. Republiky 10, příspěvková organizace"
+    },
+    {
+     "id": "600111032",
+     "text": "Základní škola a Mateřská škola, Deblín, okres Brno-venkov, příspěvková organizace"
+    },
+    {
+     "id": "600112241",
+     "text": "Základní škola a Mateřská škola Bořetice, okres Břeclav, příspěvková organizace"
+    },
+    {
+     "id": "600112454",
+     "text": "Základní škola  a Mateřská škola Nikolčice, příspěvková organizace"
+    },
+    {
+     "id": "600112471",
+     "text": "Základní škola a Mateřská škola Pohořelice, příspěvková organizace"
+    },
+    {
+     "id": "600112489",
+     "text": "Základní škola a Mateřská škola Rakvice, okres Břeclav"
+    },
+    {
+     "id": "600115534",
+     "text": "Základní škola a Mateřská škola Žarošice, okres Hodonín, příspěvková organizace"
+    },
+    {
+     "id": "600115551",
+     "text": "Základní škola a Mateřská škola Ratíškovice"
+    },
+    {
+     "id": "600115861",
+     "text": "Základní škola a mateřská škola Blatnice pod Svatým Antonínkem, okres Hodonín, příspěvková organizace"
+    },
+    {
+     "id": "600115887",
+     "text": "Základní škola a mateřská škola Dolní Bojanovice, okres Hodonín  příspěvková organizace"
+    },
+    {
+     "id": "600115933",
+     "text": "Základní škola a mateřská škola Jaromíra Hlubíka Lipov, okres Hodonín, příspěvková organizace"
+    },
+    {
+     "id": "600115976",
+     "text": "Základní škola a Mateřská škola, Moravský Písek, příspěvková organizace"
+    },
+    {
+     "id": "600126021",
+     "text": "Základní škola a Mateřská škola, Pustiměř, okres Vyškov"
+    },
+    {
+     "id": "600126048",
+     "text": "Základní škola a Mateřská škola Vyškov, Letní pole, příspěvková organizace"
+    },
+    {
+     "id": "600127508",
+     "text": "Základní škola a Mateřská škola, Šumná, okres Znojmo, příspěvková organizace"
+    },
+    {
+     "id": "600127583",
+     "text": "Základní škola a Mateřská škola, Jevišovice, příspěvková organizace"
+    },
+    {
+     "id": "600127656",
+     "text": "Základní škola a Mateřská škola, Šanov, okres Znojmo, příspěvková organizace"
+    },
+    {
+     "id": "600127729",
+     "text": "Základní škola a Mateřská škola, Znojmo, Pražská 98"
+    },
+    {
+     "id": "600127826",
+     "text": "Základní škola Prokopa Diviše a Mateřská škola, Znojmo - Přímětice 569"
+    },
+    {
+     "id": "650041135",
+     "text": "Základní škola a Mateřská škola Vrbovec"
+    },
+    {
+     "id": "691013799",
+     "text": "Základní škola a Mateřská škola Brno, náměstí Svornosti 7, příspěvková organizace"
+    },
+    {
+     "id": "600066401",
+     "text": "Základní škola a mateřská škola Lázně Kynžvart, okres Cheb, příspěvková organizace"
+    },
+    {
+     "id": "600067459",
+     "text": "Základní škola a mateřská škola Dalovice, okr. K.Vary, příspěvková organizace"
+    },
+    {
+     "id": "600067611",
+     "text": "Základní škola a mateřská škola Abertamy, okres Karlovy Vary"
+    },
+    {
+     "id": "610100718",
+     "text": "Škola Můj Projekt Mánesova - gymnázium, základní škola a mateřská škola s.r.o. (zkrácené názvy ve dvou rovnocenných variantách  varianta 1: Škola Můj Projekt Mánesova - gymnázium, ZŠ a MŠ s.r.o., varianta 2: ŠMP Mánesova - gymnázium, ZŠ a MŠ s.r.o.)"
+    },
+    {
+     "id": "650015371",
+     "text": "Základní škola a mateřská škola Tři Sekery, okres Cheb, příspěvková organizace"
+    },
+    {
+     "id": "691005001",
+     "text": "Základní škola a lesní mateřská škola Čtyřlístek"
+    },
+    {
+     "id": "600120350",
+     "text": "Základní škola a mateřská škola Prostějov, Palackého tř. 14"
+    },
+    {
+     "id": "600120384",
+     "text": "Základní škola a mateřská škola Jana Železného Prostějov"
+    },
+    {
+     "id": "600120414",
+     "text": "Základní škola a mateřská škola Prostějov, Kollárova ul. 4"
+    },
+    {
+     "id": "600140164",
+     "text": "Masarykova základní škola a mateřská škola Velká Bystřice"
+    },
+    {
+     "id": "600140245",
+     "text": "Základní škola a Mateřská škola Olomouc, Demlova 18, příspěvková organizace"
+    },
+    {
+     "id": "600140270",
+     "text": "Základní škola a Mateřská škola Olomouc, Řezníčkova 1, příspěvková organizace"
+    },
+    {
+     "id": "600140962",
+     "text": "Základní škola a Mateřská škola Bohuňovice"
+    },
+    {
+     "id": "600141004",
+     "text": "Základní škola a Mateřská škola Olomouc, Gorkého 39, příspěvková organizace"
+    },
+    {
+     "id": "600146367",
+     "text": "Základní škola a mateřská škola Hranice, Šromotovo, příspěvková organizace"
+    },
+    {
+     "id": "600146375",
+     "text": "Základní škola a mateřská škola Hranice, Struhlovsko, příspěvková organizace"
+    },
+    {
+     "id": "600146481",
+     "text": "Základní škola a Mateřská škola Tovačov"
+    },
+    {
+     "id": "600146553",
+     "text": "Základní škola a mateřská škola Hranice, příspěvková organizace"
+    },
+    {
+     "id": "600148319",
+     "text": "Základní škola a Mateřská škola Hanušovice, okres Šumperk"
+    },
+    {
+     "id": "600148424",
+     "text": "Základní škola a mateřská škola Štíty, okres Šumperk"
+    },
+    {
+     "id": "650023218",
+     "text": "Základní škola a Mateřská škola Lutín příspěvková organizace"
+    },
+    {
+     "id": "650038011",
+     "text": "Základní škola a Mateřská škola Horka nad Moravou, příspěvková organizace"
+    },
+    {
+     "id": "650041275",
+     "text": "Základní škola a Mateřská škola Hněvotín, příspěvková organizace"
+    },
+    {
+     "id": "650044215",
+     "text": "Základní škola a Mateřská škola Bělotín, příspěvková organizace"
+    },
+    {
+     "id": "650056019",
+     "text": "Základní škola a Mateřská škola Velký Újezd, okres Olomouc, příspěvková organizace"
+    },
+    {
+     "id": "600024296",
+     "text": "Speciální mateřská škola, základní škola a praktická škola Pardubice"
+    },
+    {
+     "id": "600096297",
+     "text": "Základní škola a mateřská škola Rybitví"
+    },
+    {
+     "id": "600096351",
+     "text": "Základní škola a Mateřská škola Mikulovice, okres Pardubice"
+    },
+    {
+     "id": "600096378",
+     "text": "Základní škola a mateřská škola, Pardubice-Pardubičky, Kyjevská 25"
+    },
+    {
+     "id": "600096530",
+     "text": "Základní škola a mateřská škola Řečany nad Labem, okres Pardubice"
+    },
+    {
+     "id": "600100715",
+     "text": "Základní škola a mateřská škola Svitavy, Sokolovská 1"
+    },
+    {
+     "id": "650018346",
+     "text": "Základní škola a mateřská škola Staré Ždánice, okres Pardubice"
+    },
+    {
+     "id": "650039254",
+     "text": "Základní škola T.G.Masaryka a mateřská škola, Chroustovice, okres Chrudim"
+    },
+    {
+     "id": "650048482",
+     "text": "Základní škola a Mateřská škola Tatenice"
+    },
+    {
+     "id": "650052510",
+     "text": "Základní škola a mateřská škola Červená Voda"
+    },
+    {
+     "id": "691004455",
+     "text": "Základní škola a mateřská škola Lázně Bohdaneč"
+    }
 ]

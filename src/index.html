@@ -60,33 +60,31 @@
 
         <script>
 
-        var eventHandler = function(e) {
-            return function() {
-                const selectedValue = arguments[0];
-                
-                // if selectedValue is not empty, enable the button
-                if(selectedValue !== "") {
-                    const href = `https://www.survio.com/survey/d/${selectedValue}`;
-                    $("#surveyLink").attr("href", href);
-                    $("#surveyLink").addClass("btn-primary");
-                    $("#surveyLink").removeClass("disabled");
-                    $("#surveyLink").removeClass("btn-light");
-                } else {
-                    $("#surveyLink").addClass("disabled");
-                    $("#surveyLink").removeClass("btn-primary");
-                    $("#surveyLink").addClass("btn-light");
-                }
-
+            var eventHandler = function(e) {
+                return function() {
+                    const selectedValue = arguments[0];
+                    // if selectedValue is not empty, enable the button
+                    if(selectedValue !== "") {
+                        const href = `https://www.survio.com/survey/d/${selectedValue}`;
+                        $("#surveyLink").attr("href", href);
+                        $("#surveyLink").addClass("btn-primary");
+                        $("#surveyLink").removeClass("disabled");
+                        $("#surveyLink").removeClass("btn-light");
+                    } else {
+                        $("#surveyLink").addClass("disabled");
+                        $("#surveyLink").removeClass("btn-primary");
+                        $("#surveyLink").addClass("btn-light");
+                    }
+                };
             };
-        };
 
              $(function () {
                 $("#mailto").attr("href", `mailto:${config.contact.email}?subject=Průzkum ${config.survey.name}: škola nenalezena&body=Dobrý den, %0D%0A%0D%0Anenašel jsem svoji školu: [Vaše škola] v seznamu. %0D%0A%0D%0AProsím, můžete mi pomoci? %0D%0A%0D%0AS pozdravem, %0D%0A%0D%0A[Vaše jméno]`);
                 $("#select").selectize({
                     options: optionsSchools,
                     valueField: "id",
-                    labelField: "title",
-                    searchField: ["title"],
+                    labelField: "text",
+                    searchField: ["text"],
                     onChange: eventHandler('onChange'),
                     plugins: ["clear_button"],
                 });
