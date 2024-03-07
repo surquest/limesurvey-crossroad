@@ -65,7 +65,7 @@
                     const selectedValue = arguments[0];
                     // if selectedValue is not empty, enable the button
                     if(selectedValue !== "") {
-                        const href = `https://www.survio.com/survey/d/${selectedValue}`;
+                        const href = `https://recidiva.limequery.com/101011?token=${selectedValue}&newtest=Y`;
                         $("#surveyLink").attr("href", href);
                         $("#surveyLink").addClass("btn-primary");
                         $("#surveyLink").removeClass("disabled");

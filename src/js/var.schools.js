@@ -1,5 +1,17 @@
 const optionsSchools = [
     {
+        "id": "100001",
+        "text": "Test 001"
+    },
+    {
+        "id": "100002",
+        "text": "Test 002"
+    },
+    {
+        "id": "100003",
+        "text": "Test 003"
+    },
+    {
      "id": "691007713",
      "text": "ScioŠkola Praha Chodov - základní škola, s.r.o."
     },
