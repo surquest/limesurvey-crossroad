@@ -1,3 +1,8 @@
+body {
+    font-size: small;
+    color: gray;
+}
+
 .selectize-control.single .selectize-input{
     background: none!important;
     background-color: none!important;
@@ -6,4 +11,17 @@
 
 .selectize-control.plugin-clear_button.single .clear {
     right: calc(8px - 6px + 3rem)!important;
+}
+
+.table {
+    color: gray;
+    
+}
+
+th {
+    font-weight: 600;
+}
+
+tbody, td, tfoot, th, thead, tr {
+    border-color: rgba(0,0,0,.125)!important;
 }

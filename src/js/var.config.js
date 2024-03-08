@@ -1,7 +1,9 @@
-var config = {
-    survey: {
-        name: 'Surquest - Survey',
-        link: 'https://www.survio.com/survey/d/I3E8L1I3K6E3G6G',
+export const config = {
+    surveys: {
+        omj: {
+            name: 'Surquest - Survey',
+            link: 'https://konsorcium.limesurvey.net/101011',
+        }
     },
     contact: {
         name: 'Michal Švarc',

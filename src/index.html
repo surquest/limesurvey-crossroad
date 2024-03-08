@@ -29,66 +29,61 @@
         ></script>
 
         <!-- Import local list of schools -->
-        <script src="./js/var.schools.js"></script>
-        <script src="./js/var.config.js"></script>
+        
         <!-- Import custome styles -->
         <link href="./styles/custom.css" rel="stylesheet">
     </head>
     <body>
         <div class="d-flex align-items-center justify-content-center vh-100">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="row justify-content-center">
+                            <select 
+                                id="select" 
+                                placeholder="Vyberte, prosím, vaší školu ..."
+                                class="col-md-12"
+                            >
+                            </select>
+                            <p style="font-size: small; color: gray; text-align: center;">Nemužete najit Vaší školu, <a id="mailto">napište nám</a></p>
+                        </div>
+                        <div class="mt-4 text-center">
+                            <a id="surveyLink" href="#" class="btn btn-secondary disabled">
+                                Otevřít průzkum
+                            </a>
+                        </div>
 
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="row justify-content-center">
-                        <select 
-                            id="select" 
-                            placeholder="Vyberte, prosím, vaší školu ..."
-                            class="col-md-12"
-                        >
-                        </select>
-                        <p style="font-size: small; color: gray; text-align: center;">Nemužete najit Vaší školu, <a id="mailto">napište nám</a></p>
-                    </div>
-                    <div class="mt-4 text-center">
-                        <a 
-                            id="surveyLink" href="#" class="btn btn-light disabled">Otevřít průzkum</a>
+                        <div class="mt-5 collapse show" id="collapseExample">
+                            <div id="historicalAccesses"></div>  
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
 
-        <script>
+        <script type="module" >
+            import { config, options, survey, onEventHandler, addAccess, showHistoricalAccesses }  from './js/main.js';
 
-            var eventHandler = function(e) {
-                return function() {
-                    const selectedValue = arguments[0];
-                    // if selectedValue is not empty, enable the button
-                    if(selectedValue !== "") {
-                        const href = `https://recidiva.limequery.com/101011?token=${selectedValue}&newtest=Y`;
-                        $("#surveyLink").attr("href", href);
-                        $("#surveyLink").addClass("btn-primary");
-                        $("#surveyLink").removeClass("disabled");
-                        $("#surveyLink").removeClass("btn-light");
-                    } else {
-                        $("#surveyLink").addClass("disabled");
-                        $("#surveyLink").removeClass("btn-primary");
-                        $("#surveyLink").addClass("btn-light");
-                    }
-                };
-            };
-
-             $(function () {
-                $("#mailto").attr("href", `mailto:${config.contact.email}?subject=Průzkum ${config.survey.name}: škola nenalezena&body=Dobrý den, %0D%0A%0D%0Anenašel jsem svoji školu: [Vaše škola] v seznamu. %0D%0A%0D%0AProsím, můžete mi pomoci? %0D%0A%0D%0AS pozdravem, %0D%0A%0D%0A[Vaše jméno]`);
+            $(function () {
+                $("#mailto").attr("href", `mailto:${config.contact.email}?subject=Průzkum ${config.surveys[survey].name}: škola nenalezena&body=Dobrý den, %0D%0A%0D%0Anenašel jsem svoji školu: [Vaše škola] v seznamu. %0D%0A%0D%0AProsím, můžete mi pomoci? %0D%0A%0D%0AS pozdravem, %0D%0A%0D%0A[Vaše jméno]`);
                 $("#select").selectize({
-                    options: optionsSchools,
+                    options: options,
                     valueField: "id",
                     labelField: "text",
                     searchField: ["text"],
-                    onChange: eventHandler('onChange'),
+                    onChange: onEventHandler('onChange', config, survey, ),
                     plugins: ["clear_button"],
                 });
+
+                // Add onClick function addAccess to the button surveyLink
+                $("#surveyLink").click(()=>addAccess(survey, $("#select").val()));
+
+                // Add historical accesses
+                showHistoricalAccesses(config);
             });
+
+        </script>
+        <script>
 
         </script>
     </body>
