@@ -1,0 +1,35 @@
+{
+    "OMJ": {
+        "name": "Zjišťování situace na základních školách 2024",
+        "id": "101011",
+        "link": "https://konsorcium.limesurvey.net/101011?lang=cs&token=",
+        "labels": {
+            "instructions": {
+                "start": "Začít průzkum",
+                "select": "Vyberte, prosím, Vaši školu ...",
+                "help": "Pokud není Vaše škola ve výběru, ",
+                "email": "Dobrý den, %0D%0A%0D%0Anenašel jsem svoji školu: [Vaše škola] v seznamu. %0D%0A%0D%0AProsím, můžete mi pomoci? %0D%0A%0D%0AS pozdravem, %0D%0A%0D%0A[Vaše jméno]"
+            }
+        },
+        "support": {
+            "email": "renata.mikesova@soc.cas.cz",
+            "name": "Renata Mikesova"
+        }
+    },
+    "SUSI": {
+        "name": "Průzkum spokojenosti se SUSI 2024",
+        "id": "101011",
+        "link": "https://konsorcium.limesurvey.net/101011",
+        "labels": {
+            "instructions": {
+                "start": "Začít průzkum",
+                "select": "Vyberte, prosím, Vaše jméno ...",
+                "help": "Pokud není Vaše jméno ve výběru, "
+            }
+        },
+        "support": {
+            "email": "vadim@vsem.cz",
+            "name": "Vadim Všem"
+        }
+    }
+}
