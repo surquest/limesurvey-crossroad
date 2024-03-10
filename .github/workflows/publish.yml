@@ -31,11 +31,11 @@ jobs:
           static_site_generator: next
 
       - name: Build with Next.js 🏗️
-        run: 
-          - npm run build
-          - echo "Next.js build complete!"
-          - pwd
-          - ls -al
+        run: |
+          npm run build
+          echo "Next.js build complete!"
+          pwd
+          ls -al
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
