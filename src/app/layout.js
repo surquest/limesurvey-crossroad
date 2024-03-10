@@ -11,11 +11,16 @@ export default function RootLayout(props) {
 
    return (
      <html lang="cz">
-       <body>
+       <body
+          style={{
+            margin: 0,
+            padding: 0,
+          }}
+       >
         <AppRouterCacheProvider>
-          <Suspense fallback={<div>Loading...</div>}>
-           {props.children}
-           </Suspense>
+            <Suspense fallback={<div>Loading...</div>}>
+              {props.children}
+            </Suspense>
         </AppRouterCacheProvider>
        </body>
      </html>

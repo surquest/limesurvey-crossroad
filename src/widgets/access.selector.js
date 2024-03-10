@@ -10,10 +10,12 @@ import Dropdown from '@/components/dropdown';
 import MailUs from '@/components/mail-us';
 import ConfigController from '@/utils/config.controller';
 
+/* Utils */
+import AccessController from '@/utils/access.controller';
 
 const AccessSelector = ({ surveyCode }) => {
 
-    const [access, setAccess] = useState({})
+    const [access, setAccess] = useState({});
     const [enabled, setEnabled] = useState(false);
     const [link, setLink] = useState('#');
 
@@ -33,8 +35,16 @@ const AccessSelector = ({ surveyCode }) => {
 
     }
 
+    const addAccessRecord = () => {
+
+        const surveyName = ConfigController.get(surveyCode, 'name');
+        AccessController.addAccess(surveyCode, surveyName, access.id, access.text, link);
+
+    }
+
     const onSurveySelection = (event, newValue) => {
         toggleButton(surveyCode, newValue);
+        setAccess(newValue);
     }
 
     return (
@@ -61,8 +71,8 @@ const AccessSelector = ({ surveyCode }) => {
                 <Button 
                     disabled={!enabled}
                     variant="outlined" 
-                    target="_blank"
                     href={link}
+                    onClick={addAccessRecord}
                     sx={{ mt: 4}}
                 >
                     {ConfigController.get(surveyCode, 'labels.instructions.start')}
