@@ -76,6 +76,11 @@ const AccessController = {
     deleteAccess: (key) => {
         AccessController.accessStore.delete(key.toString());
         Cookies.set('accessHistory', AccessController.convertForCookie());
+    },
+
+    clearAccesses: () => {
+        AccessController.accessStore.clear();
+        Cookies.remove('accessHistory');
     }
 
 }

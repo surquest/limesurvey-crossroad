@@ -1,15 +1,14 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-import { DataGrid, csCZ  } from '@mui/x-data-grid';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
-import IconButton from '@mui/material/IconButton';
-import DeleteIcon from '@mui/icons-material/Delete';
+import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
+import Table from '@/components/table';
 import AccessController from '@/utils/access.controller';
 
 
@@ -18,39 +17,11 @@ const AccessHistory = () => {
 
   const [open, setOpen] = useState(false);
   const [rows, setRows] = useState([]);
-  const columns = [
-    { 
-      field: 'id', 
-      headerName: '', 
-      sortable: false, 
-      filterable: false, 
-      disableColumnMenu: true, 
-      widht: 50,
-      renderCell: (params) => (
-        <IconButton 
-          aria-label="delete" 
-          size="small"
-          onClick={() => {
-            AccessController.deleteAccess(params.value);
-            setRows(AccessController.getAccesses());
-          }}
-        >
-          <DeleteIcon fontSize="inherit" />
-        </IconButton>
-      )
-    },
-    { field: 'survey', headerName: 'Průzkum', flex: 2},
-    { field: 'access', headerName: 'Přístup', flex: 2},
-    { field: 'dateTime', headerName: 'Datum a čas', flex: 1},
-    { 
-      field: 'link', 
-      headerName: 'Odkaz', 
-      flex: 1,
-      renderCell: (params) => (
-        <Button href={params.value}>přístup</Button>
-      )
-    },
-  ];
+  
+
+  useEffect(() => {
+    setOpen(AccessController.hasHistoricalAccess());
+  }, [AccessController.hasHistoricalAccess()]);
 
   const toggle = (open) => (event) => {
     setRows(AccessController.getAccesses());
@@ -73,25 +44,17 @@ const AccessHistory = () => {
                 aria-controls="historical-access-content"
                 id="historical-access-header"
               >
-                <Button 
-                  variant="outlined" 
-                  size="small"
-                  disabled={!AccessController.hasHistoricalAccess()}
+                <Typography
+                  variant="button" display="block" gutterBottom
                 >
                   Historie přístupů
-                </Button>
+                </Typography>
               </AccordionSummary>
               {
                 rows.length > 0 &&
                   <AccordionDetails>
                     <AccordionDetails>
-                          <DataGrid 
-                            density={"compact"} 
-                            rows={rows}
-                            columns={columns} 
-                            localeText={csCZ.components.MuiDataGrid.defaultProps.localeText}
-                            disableRowSelectionOnClick
-                          />
+                      <Table/>
                     </AccordionDetails>
                   </AccordionDetails>
               }

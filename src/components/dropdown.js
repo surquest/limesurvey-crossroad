@@ -9,14 +9,14 @@ import OMJ from '@/config/accesses/participants.omj.json';
 import SUSI from '@/config/accesses/participants.susi.json';
 import ConfigController from '@/utils/config.controller';
 
-const Dropdown = ({survey, onChange}) => {
+const Dropdown = ({ survey, onChange }) => {
 
     const [options, setOptions] = React.useState([]);
     const [accesses, setAccesses] = React.useState({
         OMJ: OMJ,
         SUSI: SUSI
     });
-    
+
     React.useEffect(() => {
         const opts = accesses[survey];
         if (opts) {
@@ -29,16 +29,16 @@ const Dropdown = ({survey, onChange}) => {
         <Autocomplete
             options={options}
             getOptionLabel={(option) => option.text}
-            style={{ minWidth: 300 }}
+            style={{ minWidth: "50%" }}
             onChange={onChange}
             renderInput={
-                (params) => <TextField 
-                    {...params} 
+                (params) => <TextField
+                    {...params}
                     label={
                         ConfigController.get(survey, 'labels.instructions.select')
                     }
-                    />
-                }
+                />
+            }
         />
     );
 };
