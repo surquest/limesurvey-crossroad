@@ -26,7 +26,7 @@ const AccessSelector = ({ surveyCode }) => {
         
         if (selection && selection.id) {
             setEnabled(true);
-            const link = `${linkBase}${selection.id}`;
+            const link = `${linkBase}${selection.id}&newtest=Y`;
             setLink(link);
         } else {
             setEnabled(false);
