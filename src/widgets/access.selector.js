@@ -57,6 +57,9 @@ const AccessSelector = ({ surveyCode }) => {
                     width: '100%',
                 }}
             >
+                <Typography variant="caption" display="block" gutterBottom>
+                    {ConfigController.get(surveyCode, 'labels.instructions.usage')}
+                </Typography>
                 <Dropdown 
                     survey={surveyCode}
                     onChange={onSurveySelection}
@@ -64,7 +67,7 @@ const AccessSelector = ({ surveyCode }) => {
                 <Typography variant="caption" display="block" gutterBottom>
                     {ConfigController.get(surveyCode, 'labels.instructions.help')}
                     <MailUs 
-                        text={'napište nám.'}
+                        text={'napište nám na tollarova@migracnikonsorcium.cz.'}
                         surveyCode={surveyCode}
                     />
                 </Typography>

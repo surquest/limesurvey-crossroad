@@ -7,13 +7,14 @@
             "instructions": {
                 "start": "Začít průzkum",
                 "select": "Vyberte, prosím, Vaši školu ...",
-                "help": "Pokud není Vaše škola ve výběru, ",
+                "help": "Pokud jste svoji školu nenašli, ",
+                "usage": "Do rámečku začněte psát název školy, obec nebo ulici. Tak svou školu snadno vyberete.",
                 "email": "Dobrý den, %0D%0A%0D%0Anenašel jsem svoji školu: [Vaše škola] v seznamu. %0D%0A%0D%0AProsím, můžete mi pomoci? %0D%0A%0D%0AS pozdravem, %0D%0A%0D%0A[Vaše jméno]"
             }
         },
         "support": {
-            "email": "renata.mikesova@soc.cas.cz",
-            "name": "Renata Mikesova"
+            "email": "tollarova@migracnikonsorcium.cz",
+            "name": "Blanka Tollarová"
         }
     },
     "SUSI": {
