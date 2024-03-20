@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image'
 import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
 import Container from '@mui/material/Container';
 import AccessSelector from '@/widgets/access.selector';
 import AccessHistory from '@/widgets/access.history';
@@ -45,6 +46,7 @@ export default function Home() {
                 >
                     {ConfigController.get(surveyCode, 'name')}
                 </Typography>
+                <Divider variant="middle" sx={{width: '30%', margin: '0 auto'}}/>
                 <Typography
                     variant="overline"
                     component="p"
