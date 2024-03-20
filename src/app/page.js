@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image'
+import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import AccessSelector from '@/widgets/access.selector';
 import AccessHistory from '@/widgets/access.history';
@@ -9,7 +10,7 @@ import ConfigController from '@/utils/config.controller';
 
 
 export default function Home() {
-    
+
     const query = useSearchParams();
     const surveyCode = query.get('survey') ? query.get('survey').toUpperCase() : 'OMJ';
 
@@ -21,29 +22,49 @@ export default function Home() {
 
     return (
         <>
-            <Image 
-                    style={{ 
-                        position: 'fixed',
-                        top: 20,
-                     }}
+
+            <Container
+                sx={{
+                    position: 'fixed',
+                    top: 0
+                }}
+            >
+                <Image
+                    style={{ margin: '20px auto', display: 'block'}}
                     placeholder={"empty"}
                     priority={false}
                     src={getLogo()}
                     alt={ConfigController.get(surveyCode, 'name')}
-                    width={867} 
+                    width={867}
                     height={110}
-            />
-            <Container 
-                maxWidth="lg" 
-                sx={{ 
-                    display: 'flex', 
-                    justifyContent: 'center', 
-                    alignItems: 'center', 
+                />
+                <Typography
+                    variant="h6"
+                    component="h1"
+                    align="center"
+                >
+                    {ConfigController.get(surveyCode, 'name')}
+                </Typography>
+                <Typography
+                    variant="overline"
+                    component="p"
+                    align="center"
+                >
+                    výzkum
+                </Typography>
+            </Container>
+
+            <Container
+                maxWidth="lg"
+                sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
                     height: '100vh'
                 }}>
-                <AccessSelector surveyCode={surveyCode}/>
+                <AccessSelector surveyCode={surveyCode} />
             </Container>
-            <AccessHistory />  
+            <AccessHistory />
         </>
     );
 }

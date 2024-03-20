@@ -7,7 +7,7 @@
         "labels": {
             "instructions": {
                 "start": "Začít průzkum",
-                "select": "Vyberte, prosím, Vaši školu ...",
+                "select": "Vyberte, prosím, svoji školu ...",
                 "help": "Pokud jste svoji školu nenašli, ",
                 "usage": "Do rámečku začněte psát název školy, obec nebo ulici. Tak svou školu snadno vyberete.",
                 "email": "Dobrý den, %0D%0A%0D%0Anenašel jsem svoji školu: [Vaše škola] v seznamu. %0D%0A%0D%0AProsím, můžete mi pomoci? %0D%0A%0D%0AS pozdravem, %0D%0A%0D%0A[Vaše jméno]"
@@ -25,8 +25,10 @@
         "labels": {
             "instructions": {
                 "start": "Začít průzkum",
-                "select": "Vyberte, prosím, Vaše jméno ...",
-                "help": "Pokud není Vaše jméno ve výběru, "
+                "select": "Vyberte, prosím, Vaši školu ...",
+                "help": "Pokud jste svoji školu nenašli, ",
+                "usage": "Do rámečku začněte psát název školy, obec nebo ulici. Tak svou školu snadno vyberete.",
+                "email": "Dobrý den, %0D%0A%0D%0Anenašel jsem svoji školu: [Vaše škola] v seznamu. %0D%0A%0D%0AProsím, můžete mi pomoci? %0D%0A%0D%0AS pozdravem, %0D%0A%0D%0A[Vaše jméno]"
             }
         },
         "support": {
