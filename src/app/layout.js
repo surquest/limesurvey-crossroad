@@ -16,6 +16,7 @@ export default function RootLayout(props) {
         margin: 0,
         padding: 0,
         display: 'flex',
+        flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
         height: '100vh',
