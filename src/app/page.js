@@ -29,7 +29,7 @@ export default function Home() {
                     placeholder={"empty"}
                     priority={false}
                     src={getLogo()}
-                    alt="logo"
+                    alt={ConfigController.get(surveyCode, 'name')}
                     width={867} 
                     height={110}
             />
