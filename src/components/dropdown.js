@@ -6,7 +6,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 
 import OMJ from '@/config/accesses/participants.omj.json';
-import SUSI from '@/config/accesses/participants.susi.json';
+import ZZPZ from '@/config/accesses/participants.zzpz.json';
 import ConfigController from '@/utils/config.controller';
 
 const Dropdown = ({ survey, onChange }) => {
@@ -14,7 +14,7 @@ const Dropdown = ({ survey, onChange }) => {
     const [options, setOptions] = React.useState([]);
     const [accesses, setAccesses] = React.useState({
         OMJ: OMJ,
-        SUSI: SUSI
+        ZZPZ: ZZPZ
     });
 
     React.useEffect(() => {
