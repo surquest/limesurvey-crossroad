@@ -67,7 +67,7 @@ const AccessSelector = ({ surveyCode }) => {
                 <Typography variant="caption" display="block" gutterBottom>
                     {ConfigController.get(surveyCode, 'labels.instructions.help')}
                     <MailUs 
-                        text={'napište nám na tollarova@migracnikonsorcium.cz.'}
+                        text={'napište nám na'.concat(ConfigController.get(surveyCode, 'support.email')).concat(".")}
                         surveyCode={surveyCode}
                     />
                 </Typography>
