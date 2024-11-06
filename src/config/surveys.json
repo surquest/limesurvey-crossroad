@@ -1,8 +1,8 @@
 {
     "OMJ": {
-        "name": "Vzdělávání cizinců ve školách a jeho dopad na úspěšné začlenění do české společnosti",
+        "name": "Zjišťování situace žáků s nedostatečnou znalostí vyučovacího jazyka v základních školách ve školním",
         "id": "101011",
-        "link": "https://konsorcium.limesurvey.net/101011?lang=cs&token=",
+        "link": "https://lm1.soc.cas.cz/index.php/101010?lang=cs&token=",
         "logo": "omj.logos.webp",
         "labels": {
             "instructions": {
@@ -14,8 +14,8 @@
             }
         },
         "support": {
-            "email": "tollarova@migracnikonsorcium.cz",
-            "name": "Blanka Tollarová"
+            "email": "skolaprovsechny@soc.cas.cz",
+            "name": "Renata Mikesova"
         }
     },
     "ZZPZ": {
