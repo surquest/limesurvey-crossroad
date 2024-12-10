@@ -1,8 +1,8 @@
 {
     "OMJ": {
-        "name": "Zjišťování situace žáků s nedostatečnou znalostí vyučovacího jazyka v základních školách ve školním",
-        "id": "101011",
-        "link": "https://lm1.soc.cas.cz/index.php/101010?lang=cs&token=",
+        "name": "Zjišťování situace žáků s nedostatečnou znalostí vyučovacího jazyka v středních školách",
+        "id": "201010",
+        "link": "https://lm1.soc.cas.cz/index.php/201010?lang=cs&token=",
         "logo": "omj.logos.webp",
         "labels": {
             "instructions": {
